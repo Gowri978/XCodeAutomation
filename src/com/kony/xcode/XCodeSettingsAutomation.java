@@ -2,28 +2,16 @@
  * 
  */
 package com.kony.xcode;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,6 +24,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentType;
 import org.w3c.dom.Element;
@@ -43,19 +32,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.supercsv.io.*;
-import org.supercsv.prefs.CsvPreference;
-
 /**
  * @author KIT134
  *
  */
 public class XCodeSettingsAutomation {
 	
-	private static Map<String, JSONObject> comparsionMap = new HashMap<String, JSONObject>();  
+	//private static Map<String, JSONObject> comparsionMap = new HashMap<String, JSONObject>();  
 	
 	/**
 	 * @param args
@@ -63,13 +46,11 @@ public class XCodeSettingsAutomation {
 	 * @return 
 	 */
     
-	public static void xCodeAutomation(String XcodeXmlPath,String ConfigXmlPath){
-		//String orgXCodeXml,,String buildDirPath,String infoPlistXmlOrg,String infoPlistConfigPath,String infoPlistXmlPath
+	public static void xCodeAutomation(String XcodeXmlPath,String ConfigXmlPath,String XcodeVersion,String enablePushNotifications,String entitlementsFile){
+		
 		String configProperties = ConfigXmlPath;
-		HashMap hm = new HashMap();
-		//List comparsionList = new ArrayList();
-        //System.out.println("ConfigXmlPath is :"+ConfigXmlPath);
-        //System.out.println("configProperties is :"+configProperties);
+		//HashMap hm = new HashMap();
+		
 		System.out.println("Inside build settings");
 		DocumentBuilderFactory docBuilderFactory =  DocumentBuilderFactory.newInstance();
 		  try
@@ -85,16 +66,17 @@ public class XCodeSettingsAutomation {
 				//HashMap nodeData =  new HashMap();
 				
 				String expression = "//key";
-				String expressionValue = "//string";
+				//String expressionValue = "//string";
 				NodeList nodeKeyList = (NodeList) xPath.compile(expression).evaluate(document, XPathConstants.NODESET);
 				String nodeKeyName ="";
-				String nodeStringValue = "";
+				String mainGroupValue = "";
+				//String nodeStringValue = "";
 				for (int i = 0; i < nodeKeyList.getLength(); i++) {
 
 					Node nod = nodeKeyList.item(i);
 			        if(nod.getNodeType() == Node.ELEMENT_NODE)
 			        	nodeKeyName = nod.getFirstChild().getNodeValue();
-			        	nodeStringValue = nod.getNextSibling().getNodeValue();
+			        	//nodeStringValue = nod.getNextSibling().getNodeValue();
 			        
 		        		if(nodeKeyName.equals("OTHER_LDFLAGS")){
 							//System.out.println("Creating CODE_SIGN_ENTITLEMENTS");
@@ -103,7 +85,7 @@ public class XCodeSettingsAutomation {
 					        archkey.appendChild(archKeyValue);
 					        //nod.getNextSibling().appendChild(string);
 					        Element archString = document.createElement("string");
-					        System.out.println("Getting prop of ONLY_ACTIVE_ARCH::"+properties.getProperty("ONLY_ACTIVE_ARCH"));
+					        //System.out.println("Getting prop of ONLY_ACTIVE_ARCH::"+properties.getProperty("ONLY_ACTIVE_ARCH"));
 					        Text archStringValue = document.createTextNode(properties.getProperty("ONLY_ACTIVE_ARCH"));
 					        archString.appendChild(archStringValue);
 					        
@@ -112,7 +94,7 @@ public class XCodeSettingsAutomation {
 					        cflagKey.appendChild(cflagKeyValue);
 					        //nod.getNextSibling().appendChild(string);
 					        Element cflagString = document.createElement("string");
-					        System.out.println("Getting prop of OTHER_CFLAGS::"+properties.getProperty("OTHER_CFLAGS"));
+					        //System.out.println("Getting prop of OTHER_CFLAGS::"+properties.getProperty("OTHER_CFLAGS"));
 					        Text cflagStringValue = document.createTextNode(properties.getProperty("OTHER_CFLAGS"));
 					        cflagString.appendChild(cflagStringValue);
 					        
@@ -122,7 +104,87 @@ public class XCodeSettingsAutomation {
 					        parentNode.appendChild(cflagKey);
 					        parentNode.appendChild(cflagString);
 						}
-			        
+		        		int version = Integer.parseInt(XcodeVersion);
+		        		if(version >= 8){
+		        			if(nodeKeyName.equals("TargetAttributes")){
+			        			System.out.println("Creating node for ProvisioningStyle ");
+			        			Node dictNode = nod.getNextSibling();
+			        			Element cflagKey = document.createElement("key");
+						        Text cflagKeyValue = document.createTextNode("1D6058900D05DD3D006BFB54");
+						        cflagKey.appendChild(cflagKeyValue);
+						        
+						        Element dictKey = document.createElement("key");
+						        Text dictKeyTxt = document.createTextNode("ProvisioningStyle");
+						        dictKey.appendChild(dictKeyTxt);
+						        
+						        Element dictKeyValue = document.createElement("string");
+						        Text dictKeyValueTxt = document.createTextNode("Manual");
+						        dictKeyValue.appendChild(dictKeyValueTxt);
+						        
+						        Element dictElement = document.createElement("dict");
+						        dictElement.appendChild(dictKey);
+						        dictElement.appendChild(dictKeyValue);
+						        
+						        if ("true".equalsIgnoreCase(enablePushNotifications)) {
+						        	 System.out.println("Creating node for Push Notifications ");
+						        	 Element capabilitiesKey = document.createElement("key");
+								     Text capabilitiesKeyTxt = document.createTextNode("SystemCapabilities");
+								     capabilitiesKey.appendChild(capabilitiesKeyTxt);
+								     
+								     Element pushKey = document.createElement("key");
+								     Text pushKeyTxt = document.createTextNode("com.apple.Push");
+								     pushKey.appendChild(pushKeyTxt);
+								     
+								     Element enableKey = document.createElement("key");
+								     Text enableKeyTxt = document.createTextNode("enabled");
+								     enableKey.appendChild(enableKeyTxt);
+								        
+								     Element enableKeyValue = document.createElement("string");
+								     Text enableKeyValueTxt = document.createTextNode("1");
+								     enableKeyValue.appendChild(enableKeyValueTxt);
+								     
+								     Element dictPushElement = document.createElement("dict");
+								     dictPushElement.appendChild(enableKey);
+								     dictPushElement.appendChild(enableKeyValue);
+								     
+								     Element dictCapabilitiesElement = document.createElement("dict");
+								     dictCapabilitiesElement.appendChild(pushKey);
+								     dictCapabilitiesElement.appendChild(dictPushElement);
+								     
+								     dictElement.appendChild(capabilitiesKey);
+								     dictElement.appendChild(dictCapabilitiesElement);
+						        }
+						        dictNode.appendChild(cflagKey);
+						        dictNode.appendChild(dictElement);
+			        		}
+		        		if ("true".equalsIgnoreCase(enablePushNotifications)) {
+			        		if(nodeKeyName.equals("objects")){
+								System.out.println("Creating node for Entitlements reference ");
+								Node dictNode = nod.getNextSibling();
+								Element entitlementRefKey = document.createElement("key");
+								Text entitlementRefKeyTxt = document.createTextNode("26E284CF1E647A51005A33DA");
+								entitlementRefKey.appendChild(entitlementRefKeyTxt);
+								
+								dictNode.appendChild(entitlementRefKey);
+								dictNode.appendChild(addEntitlementRef(document, entitlementsFile));
+							}
+			        		
+			        		if(nodeKeyName.equals("mainGroup")){
+			        			if(nod.getNextSibling().getNodeName().equals("string")){
+			        				mainGroupValue = nod.getNextSibling().getTextContent();
+			        				System.out.println("Getting mainGroup node value ::: "+mainGroupValue);
+			        			}
+			        		}
+			        		if(mainGroupValue != "" && nodeKeyName.equals(mainGroupValue)){
+			        			Node arrayNode = nod.getNextSibling().getFirstChild().getNextSibling();
+			        			Element string = document.createElement("string");
+						        Text stringValue = document.createTextNode("26E284CF1E647A51005A33DA");
+						        string.appendChild(stringValue);
+						        arrayNode.appendChild(string);
+			        		}
+		        		}
+		        	}
+		        		
 			        if(nod.getNextSibling().getNodeName().equals("string")){
 			        	for (Object xpathExpressionObj : properties.keySet()) {
 			        		String configKey = (String) xpathExpressionObj;
@@ -137,8 +199,8 @@ public class XCodeSettingsAutomation {
 							        key.appendChild(keyValue);
 							        //nod.getNextSibling().appendChild(string);
 							        Element string = document.createElement("string");
-							        System.out.println("Getting prop of CODE_SIGN_ENTITLEMENTS::"+properties.getProperty("CODE_SIGN_ENTITLEMENTS"));
-							        Text stringValue = document.createTextNode(properties.getProperty("CODE_SIGN_ENTITLEMENTS"));
+							        //System.out.println("Getting prop of CODE_SIGN_ENTITLEMENTS::"+properties.getProperty("CODE_SIGN_ENTITLEMENTS"));
+							        Text stringValue = document.createTextNode(entitlementsFile);
 							        string.appendChild(stringValue);
 							        Node parentNode = nod.getParentNode();
 							        parentNode.appendChild(key);
@@ -213,12 +275,55 @@ public class XCodeSettingsAutomation {
 	      System.out.println("Exception while reading/updating properties file: " + ioe);
 	      ioe.printStackTrace();
 	    } catch (Throwable e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} 
 	}
+	
+	public static Element addEntitlementRef(Document document, String fileName) {
+		
+		Element refKey1 = document.createElement("key");
+		Text refKey1Txt = document.createTextNode("isa");
+		refKey1.appendChild(refKey1Txt);
 
-	private void print(String string) {
-		// TODO Auto-generated method stub
+		Element refKey1Value = document.createElement("string");
+		Text refKey1ValueTxt = document.createTextNode("PBXFileReference");
+		refKey1Value.appendChild(refKey1ValueTxt);
+		
+		Element refKey2 = document.createElement("key");
+		Text refKey2Txt = document.createTextNode("lastKnownFileType");
+		refKey2.appendChild(refKey2Txt);
+
+		Element refKey2Value = document.createElement("string");
+		Text refKey2ValueTxt = document.createTextNode("text.plist.entitlements");
+		refKey2Value.appendChild(refKey2ValueTxt);
+		
+		Element refKey3 = document.createElement("key");
+		Text refKey3Txt = document.createTextNode("path");
+		refKey3.appendChild(refKey3Txt);
+
+		Element refKey3Value = document.createElement("string");
+		Text refKey3ValueTxt = document.createTextNode(fileName);
+		refKey3Value.appendChild(refKey3ValueTxt);
+		
+		Element refKey4 = document.createElement("key");
+		Text refKey4Txt = document.createTextNode("sourceTree");
+		refKey4.appendChild(refKey4Txt);
+
+		Element refKey4Value = document.createElement("string");
+		Text refKey4ValueTxt = document.createTextNode("<group>");
+		refKey4Value.appendChild(refKey4ValueTxt);
+		
+		Element dictEntitlementRefElement = document.createElement("dict");
+		dictEntitlementRefElement.appendChild(refKey1);
+		dictEntitlementRefElement.appendChild(refKey1Value);
+		dictEntitlementRefElement.appendChild(refKey2);
+		dictEntitlementRefElement.appendChild(refKey2Value);
+		dictEntitlementRefElement.appendChild(refKey3);
+		dictEntitlementRefElement.appendChild(refKey3Value);
+		dictEntitlementRefElement.appendChild(refKey4);
+		dictEntitlementRefElement.appendChild(refKey4Value);
+		
+		return dictEntitlementRefElement;
 	}
 }

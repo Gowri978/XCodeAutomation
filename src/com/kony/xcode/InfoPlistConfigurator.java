@@ -51,7 +51,7 @@ public class InfoPlistConfigurator {
 	 * Reads the Info.Plist json file which specifies the entries to be modified
 	 * @param infoPlistConfigPath
 	 */
-	public static void getInfoPlistConfigs(String infoPlistConfigPath, String infoPlistXmlPath) {
+	public static void getInfoPlistConfigs(String infoPlistConfigPath, String infoPlistXmlPath, String bundleKey) {
 		try {
 			System.out.println("Reading the Info.Plist configurations from: "+infoPlistConfigPath +"...\n");
 			FileReader fr = new FileReader(new File(infoPlistConfigPath));
@@ -66,6 +66,26 @@ public class InfoPlistConfigurator {
 				keysListToUpdate.add((String)entryObject.get("key"));
 				infoPlistKeyDataMap.put((String)entryObject.get("key"), entryObject);
 				System.out.println((String)entryObject.get("key") + " - Action: " +(String)entryObject.get("action"));
+			}
+			
+			if (bundleKey != "" && bundleKey != null) {
+				JSONObject entryObject = new JSONObject();
+				entryObject.put("key", "CFBundleIdentifier");
+				entryObject.put("value", bundleKey);
+				entryObject.put("type", "string");
+				entryObject.put("action", "update");
+				keysListToUpdate.add((String) entryObject.get("key"));
+				infoPlistKeyDataMap.put((String) entryObject.get("key"), entryObject);
+				System.out.println((String) entryObject.get("key")	+ " - Action: " + (String) entryObject.get("action"));
+				
+				entryObject = new JSONObject();
+				entryObject.put("key", "KonyBundleIdentifier");
+				entryObject.put("value", bundleKey);
+				entryObject.put("type", "string");
+				entryObject.put("action", "update");
+				keysListToUpdate.add((String) entryObject.get("key"));
+				infoPlistKeyDataMap.put((String) entryObject.get("key"), entryObject);
+				System.out.println((String) entryObject.get("key")	+ " - Action: " + (String) entryObject.get("action"));
 			}
 			System.out.println("---------------------------------------------------------------------------------------------\n");		
 			readAndUpdateInfoPlistXml(infoPlistXmlPath);
@@ -221,27 +241,7 @@ public class InfoPlistConfigurator {
 							System.out.println("Adding a new array entry : "+ keyToUpdate+" : "+ (JSONArray) object +"\n");
 						}
 					}
-				}/*else {
-					JSONObject infoPlistData = infoPlistKeyDataMap.get(keyToUpdate);
-					String action = (String) infoPlistData.get("action");
-					if(action.equals("update")) {
-						Object object = infoPlistData.get("value");
-						String type = (String) infoPlistData.get("type");
-						if(type.equals("boolean")) {
-							// Add the boolean entry to the document
-							createNodeEntry(document, parentDictNode, keyToUpdate, object, type);
-							System.out.println("Adding a new boolean entry - "+ keyToUpdate+" : "+ (String) object +"\n");
-						} else if(type.equals("string")) {
-							// Add the string entry to the document
-							createNodeEntry(document, parentDictNode, keyToUpdate, object , type);
-							System.out.println("Adding a new string entry : "+ keyToUpdate+" : "+ (String) object +"\n");
-						} else if(type.equals("array")) {
-							// Add the array (of strings) entry to the document
-							createNodeEntry(document, parentDictNode, keyToUpdate, object, "array");
-							System.out.println("Adding a new array entry : "+ keyToUpdate+" : "+ (JSONArray) object +"\n");
-						}
-					}
-				}*/
+				}
 			}
 			
 			// Write the XML document to hard disk
