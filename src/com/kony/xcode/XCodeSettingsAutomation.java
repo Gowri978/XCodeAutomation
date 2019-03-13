@@ -62,7 +62,6 @@ public class XCodeSettingsAutomation {
 	public static final String KONYJS_RELEASE_NODE = "0C1CBA0520DB764200226998";
 	public static final String KONYJS_PROTECTED_NODE = "0C1CBA0620DB764200226998";
 	public static final String KONYJS_DISTRIBUTION_NODE = "0C1CBA0720DB764200226998";
-	private static final ArrayList<String> Properties = null;
 
 	public static void xCodeAutomation(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion,

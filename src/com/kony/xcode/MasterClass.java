@@ -2,11 +2,9 @@ package com.kony.xcode;
 
 
 
-public class MasterClass
-{
+public class MasterClass{
   public static void main(String[] args)
-    throws Throwable
-  {
+    throws Throwable{
     String XcodeXmlPath = null;
     String ConfigXmlPath = null;
     String infoPlistConfigPath = null;
