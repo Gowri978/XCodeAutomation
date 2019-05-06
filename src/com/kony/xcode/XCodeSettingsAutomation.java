@@ -9,6 +9,8 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -31,37 +33,44 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 public class XCodeSettingsAutomation {
-	public static final String DTBAPPDELEGATE_M_REF = "A651E1C320A2E1CD00DC5DBC";
-	public static final String DTBAPPDELEGATE_H_REF = "A651E1C220A2E15F00DC5DBC";
-	public static final String DTBAPPDELEGATE_M_FILE_NAME = "DTBAppDelegate.m";
-	public static final String DTBAPPDELEGATE_H_FILE_NAME = "DTBAppDelegate.h";
-	public static final String APPDELEGATE_FOLDER = "38FEE1831BDFA666000739B1";
-	public static final String DTBAPPDELEGATE_M_BUILDREF = "A651E1C420A2E1CE00DC5DBC";
-	public static final String DTBAPPDELEGATE_M_BUILDREF1 = "6145E2C9222F25C7004E9172";
-	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
-	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF1 = "0C1CB9F520DB764200226998";
-	public static final String KONYAPPDELEGATE_H_FILE = "38FEE1861BDFA666000739B1";
-	public static final String TEALIUM_IOS_FW_REF = "A685ECE020A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_FILE_NAME = "TealiumIOS.framework";
-	public static final String FRAMEWORKS_FOLDER = "7C2065F41C63396D00B7BEE7";
-	public static final String TEALIUM_IOS_FW_FILE_REF = "A685ECE020A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF1 = "A685ECE220A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF2 = "A685ECE420A5F86900A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF3 = "A685ECE520A5F86900A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDACTIONREF1 = "1D60588F0D05DD3D006BFB54";
-	public static final String TEALIUM_IOS_FW_BUILDACTIONREF2 = "3EE2236F1E5EF31F001AAB89";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_REF = "A685ECE120A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_NAME = "TealiumIOSLifecycle.framework";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_REF = "A685ECE120A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF1 = "A685ECE320A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF2 = "A685ECE620A5F86900A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF3 = "A685ECE720A5F86900A22EB0";
-	public static final String KRELEASE_NODE = "1D6058950D05DD3E006BFB54";
-	public static final String KONYJS_DEBUG_NODE = "0C1CBA0320DB764200226998";
-	public static final String KONYJS_PDEBUG_NODE = "0C1CBA0420DB764200226998";
-	public static final String KONYJS_RELEASE_NODE = "0C1CBA0520DB764200226998";
-	public static final String KONYJS_PROTECTED_NODE = "0C1CBA0620DB764200226998";
-	public static final String KONYJS_DISTRIBUTION_NODE = "0C1CBA0720DB764200226998";
+	public static final String DTBAPPDELEGATE_M_REF 				= "A651E1C320A2E1CD00DC5DBC";
+	public static final String DTBAPPDELEGATE_H_REF 				= "A651E1C220A2E15F00DC5DBC";
+	public static final String DTBAPPDELEGATE_M_FILE_NAME 			= "DTBAppDelegate.m";
+	public static final String DTBAPPDELEGATE_H_FILE_NAME 			= "DTBAppDelegate.h";
+	public static final String APPDELEGATE_FOLDER 					= "38FEE1831BDFA666000739B1";
+	public static final String DTBAPPDELEGATE_M_BUILDREF 			= "A651E1C420A2E1CE00DC5DBC";
+	public static final String DTBAPPDELEGATE_M_BUILDREF1 		  	= "6145E2C9222F25C7004E9172";
+	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF    	= "1D60588E0D05DD3D006BFB54";
+	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF1   	= "0C1CB9F520DB764200226998";
+	public static final String KONYAPPDELEGATE_H_FILE 			  	= "38FEE1861BDFA666000739B1";
+	public static final String TEALIUM_IOS_FW_REF 				  	= "A685ECE020A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_FILE_NAME 		  	= "TealiumIOS.framework";
+	public static final String FRAMEWORKS_FOLDER 				  	= "7C2065F41C63396D00B7BEE7";
+	public static final String TEALIUM_IOS_FW_FILE_REF 			  	= "A685ECE020A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF1 		  	= "A685ECE220A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF2 		 	= "A685ECE420A5F86900A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF3 		  	= "A685ECE520A5F86900A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDACTIONREF1 	  	= "1D60588F0D05DD3D006BFB54";
+	public static final String TEALIUM_IOS_FW_BUILDACTIONREF2 	  	= "3EE2236F1E5EF31F001AAB89";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_REF 	  	= "A685ECE120A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_NAME 	= "TealiumIOSLifecycle.framework";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_REF  	= "A685ECE120A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF1 	= "A685ECE320A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF2 	= "A685ECE620A5F86900A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF3 	= "A685ECE720A5F86900A22EB0";
+	public static final String KRELEASE_NODE 						= "1D6058950D05DD3E006BFB54";
+	public static final String KONYJS_DEBUG_NODE 					= "0C1CBA0320DB764200226998";
+	public static final String KONYJS_PDEBUG_NODE 					= "0C1CBA0420DB764200226998";
+	public static final String KONYJS_RELEASE_NODE 					= "0C1CBA0520DB764200226998";
+	public static final String KONYJS_PROTECTED_NODE 				= "0C1CBA0620DB764200226998";
+	public static final String KONYJS_DISTRIBUTION_NODE 			= "0C1CBA0720DB764200226998";
+	public static String SVPROGRESSHUD_M_FILE_REF 					= "58725ABCC1D5DDF67708708E";
+	public static String SVPROGRESSHUD_M_BUILDFILE_REF 				= "58725ABC9A99B3B60212DFFA";
+	public static final String SVPROGRESSHUD_M_FILE_NAME 			= "SVProgressHUD.m";
+	public static final String LOGINBUNDLE_M_BUILDACTIONREF    		= "1D60588D0D05DD3D006BFB54";
+	public static final String LOGINBUNDLE_M_BUILDACTIONREF1    	= "A642B6B6228043DF007B0BFF";
+	public static String LOGINBUNDLE_M_BUILDACTIONREF2    			= "58725ABCB7566CAE56E5A15F";
+	public static final String LOGIN_BUNDLE_FILE_NAME 				= "LoginCenterSource.bundle";
 
 	public static void xCodeAutomation(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion,
@@ -311,6 +320,7 @@ public class XCodeSettingsAutomation {
 			boolean isTargetBuildSettingsFound = false;
 			boolean isProvisioningStyleAdded = false;
 
+			getFileReferencesforChinaApp(nodeKeyList,region);
 			// String nodeStringValue = "";
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
@@ -322,7 +332,6 @@ public class XCodeSettingsAutomation {
 					isProvisioningStyleAdded = false;
 					kReleaseNodeFound = true;
 					konyJSNodeFound = false;
-
 				}
 
 				if (nodeKeyName.equals(KONYJS_DEBUG_NODE)
@@ -920,7 +929,18 @@ public class XCodeSettingsAutomation {
 			// in the
 			// Visualizer FFI itself
 		}
-
+		if("CN".equalsIgnoreCase(region)){
+			//Changing the compiler flag value in the Build Phases for China Content Hub App
+			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF)) {
+				updateCompilerFlags(nod);
+			}
+			// Adding the Files Details and Encoding based on Reference above
+			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
+				addBuildFileRef(document,LOGINBUNDLE_M_BUILDACTIONREF1,
+						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1, nod);
+			}
+		}
 	}
 
 	public static void setBuildSettingsParameters(Document document, Node nod,
@@ -998,16 +1018,133 @@ public class XCodeSettingsAutomation {
 				temp.put(key, properties.get(key));
 			}
 		}
-
 		//System.out.println("Filtered Properties:" + temp.toString());
 		return temp;
 	}
 
+	public static void updateCompilerFlags(Node nod) {
+		Node dict = nod.getNextSibling();
+		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+			Node fileRefKey = dict.getFirstChild();
+			if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
+				if ("fileRef".equalsIgnoreCase(fileRefKey
+						.getFirstChild().getNodeValue())) {
+					Node fileRefValue = fileRefKey.getNextSibling();
+					String SVDFile = fileRefValue.getTextContent();
+					if(SVPROGRESSHUD_M_FILE_REF.equalsIgnoreCase(SVDFile)){
+						Node isaKey = fileRefValue.getNextSibling();
+						Node isaValue = isaKey.getNextSibling();
+						Node settingsKey = isaValue.getNextSibling();
+						Node dictNode = settingsKey.getNextSibling();
+						if ("dict".equalsIgnoreCase(dictNode.getNodeName())) {
+							Node compilerFlagKey = dictNode.getFirstChild();
+							if ("COMPILER_FLAGS".equalsIgnoreCase(compilerFlagKey.getTextContent())){
+								Node key2 = compilerFlagKey.getNextSibling();
+								key2.setTextContent("-fobjc-arc");
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,String region){
+		boolean isSVDFileFound = false;
+		boolean isLoginBundleFileFound = false;
+		String nodeKeyName = "";
+		Map<String,String> fileRefMap = new HashMap<String,String>();
+		Map<String,String> reverseFileRefMap = new HashMap<String,String>();
+		if("CN".equalsIgnoreCase(region)){
+			for (int i = 0; i < nodeKeyList.getLength(); i++) {
+				Node nod = nodeKeyList.item(i);
+				if (nod.getNodeType() == Node.ELEMENT_NODE){
+					nodeKeyName = nod.getFirstChild().getNodeValue();
+				}
+				// Adding the Files for Build Phases for KonyJS
+				if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
+					Node dict = nod.getNextSibling();
+					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+						Node fileRefKey = dict.getFirstChild();
+						if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
+							if ("buildActionMask".equalsIgnoreCase(fileRefKey.getTextContent())) {
+								Node filesKey = fileRefKey.getNextSibling().getNextSibling();
+								if("files".equalsIgnoreCase(filesKey.getTextContent())){
+									Node arrayNode = filesKey.getNextSibling();
+									NodeList arrayList = arrayNode.getChildNodes();
+									for (int j = 0; j < arrayList.getLength(); j++) {
+										Node node = arrayList.item(j);
+										String fileRefs = node.getTextContent();
+										fileRefMap.put(fileRefs, "");
+									}					
+								}							
+							}
+						}
+					}
+				}
+				if(fileRefMap.containsKey(nodeKeyName)){
+					Node dict = nod.getNextSibling();
+					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+						Node fileRefKey = dict.getFirstChild();
+						if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
+							if ("fileRef".equalsIgnoreCase(fileRefKey.getTextContent())) {
+								Node stringKey = fileRefKey.getNextSibling();
+								String fileRef = stringKey.getTextContent();
+								fileRefMap.put(nodeKeyName,fileRef);
+								reverseFileRefMap.put(fileRef,nodeKeyName);
+							}
+						}
+					}
+				}
+			}
+			for(int i = 0; i < nodeKeyList.getLength(); i++){
+				Node nod = nodeKeyList.item(i);
+				if (nod.getNodeType() == Node.ELEMENT_NODE){
+					nodeKeyName = nod.getFirstChild().getNodeValue();
+				}
+				if(fileRefMap.containsValue(nodeKeyName)){
+					Node dict = nod.getNextSibling();
+					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+						NodeList dictArray = dict.getChildNodes();
+						for (int k = 0; k < dictArray.getLength(); k++) {
+							Node node = dictArray.item(k);
+							String fileRefs = node.getTextContent();
+							if("path".equalsIgnoreCase(fileRefs)){
+								Node stringNode = dictArray.item(k+1);
+								String fileName = stringNode.getTextContent();
+								if(SVPROGRESSHUD_M_FILE_NAME.equalsIgnoreCase(fileName)){
+									SVPROGRESSHUD_M_FILE_REF = nodeKeyName;
+									SVPROGRESSHUD_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									isSVDFileFound = true;
+									break;
+								}
+							}
+						}
+					}
+				}
+				if("path".equalsIgnoreCase(nodeKeyName)){
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if(LOGIN_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)){
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if("key".equalsIgnoreCase(keyNode.getNodeName())){
+							LOGINBUNDLE_M_BUILDACTIONREF2 = keyNode.getTextContent();
+							isLoginBundleFileFound = true;
+						}
+					}
+					
+				}
+				if(isSVDFileFound && isLoginBundleFileFound){
+					break;
+				}
+			}
+		}
+	}
 	public static void main(String[] args) {
 		xCodeAutomationForViz8(
-				"/Users/ncl/Desktop/mCoE/LAS/XCodeCurBuildProperties.xml",
-				"/Users/ncl/Desktop/mCoE/LAS/Config.properties", "9", "false",
-				"", "LAS");
+				"/Users/ncl/Desktop/mCoE/CN/XCodeCurBuildProperties.xml",
+				"/Users/ncl/Desktop/mCoE/CN/Config.properties", "9", "false",
+				"", "CN");
 		/*
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new
