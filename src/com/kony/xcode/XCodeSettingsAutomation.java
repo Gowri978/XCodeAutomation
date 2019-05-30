@@ -874,7 +874,7 @@ public class XCodeSettingsAutomation {
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region) {
 		if ("EIA_APAC".equalsIgnoreCase(region)
-				|| "LAS".equalsIgnoreCase(region)) {
+				|| "LAS".equalsIgnoreCase(region) || "CN".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
 			// App Delegate Extension Folder
 			if (nodeKeyName.equals(APPDELEGATE_FOLDER)) {
