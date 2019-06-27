@@ -64,9 +64,24 @@ public class XCodeSettingsAutomation {
 	public static final String KONYJS_RELEASE_NODE 					= "0C1CBA0520DB764200226998";
 	public static final String KONYJS_PROTECTED_NODE 				= "0C1CBA0620DB764200226998";
 	public static final String KONYJS_DISTRIBUTION_NODE 			= "0C1CBA0720DB764200226998";
-	public static String SVPROGRESSHUD_M_FILE_REF 					= "58725ABCC1D5DDF67708708E";
-	public static String SVPROGRESSHUD_M_BUILDFILE_REF 				= "58725ABC9A99B3B60212DFFA";
+	
+	public static String SVPROGRESSHUD_M_FILE_REF 					= "6151AFC922C4ADE400265F9B";
+	public static String SVPROGRESSHUD_M_BUILDFILE_REF 				= "58725ABC99DB6D5AD8884A14";
+	public static String SVPROGRESSHUD_M_BUILDFILE_REF1 			= "58725ABC99DB6D5AD8884A14";
 	public static final String SVPROGRESSHUD_M_FILE_NAME 			= "SVProgressHUD.m";
+	
+	public static String SVRADIAL_M_FILE_REF 						= "6151AFC722C4ADDE00265F9B";
+	public static String SVRADIAL_M_BUILDFILE_REF 					= "58725ABC457CCDEF69AF7D5B";
+	public static final String SVRADIAL_M_FILE_NAME 				= "SVRadialGradientLayer.m";
+	
+	public static String SVPROGRESSANIM_M_FILE_REF 					= "6151AFC822C4ADE100265F9B";
+	public static String SVPROGRESSANIM_M_BUILDFILE_REF 			= "58725ABC2017F96A10E4028B";
+	public static final String SVPROGRESSANIM_M_FILE_NAME 			= "SVProgressAnimatedView.m";
+	
+	public static String SVINDEFINITE_M_FILE_REF 					= "6151AFCA22C4ADE600265F9B";
+	public static String SVINDEFINITE_M_BUILDFILE_REF 				= "58725ABCB5E48944818BF6A4";
+	public static final String SVINDEFINITE_M_FILE_NAME 			= "SVIndefiniteAnimatedView.m";
+	
 	public static final String LOGINBUNDLE_M_BUILDACTIONREF    		= "1D60588D0D05DD3D006BFB54";
 	public static final String LOGINBUNDLE_M_BUILDACTIONREF1    	= "A642B6B6228043DF007B0BFF";
 	public static String LOGINBUNDLE_M_BUILDACTIONREF2    			= "58725ABCB7566CAE56E5A15F";
@@ -636,6 +651,60 @@ public class XCodeSettingsAutomation {
 		node.getParentNode().insertBefore(dictEntitlementRefElement, node);
 		return refKey;
 	}
+	
+	public static Element addBuildFileRefWithComplierFlags(Document document,
+			String buildFileRef, String fileRef, Node node) {
+		Element refKey = document.createElement("key");
+		Text refKeyTxt = document.createTextNode(buildFileRef);
+		refKey.appendChild(refKeyTxt);
+
+		Element refKey0 = document.createElement("key");
+		Text refKey0Txt = document.createTextNode("fileRef");
+		refKey0.appendChild(refKey0Txt);
+
+		Element refKey0Value = document.createElement("string");
+		Text refKey0ValueTxt = document.createTextNode(fileRef);
+		refKey0Value.appendChild(refKey0ValueTxt);
+
+		Element refKey1 = document.createElement("key");
+		Text refKey1Txt = document.createTextNode("isa");
+		refKey1.appendChild(refKey1Txt);
+
+		Element refKey1Value = document.createElement("string");
+		Text refKey1ValueTxt = document.createTextNode("PBXBuildFile");
+		refKey1Value.appendChild(refKey1ValueTxt);
+		
+		Element refKey2 = document.createElement("key");
+		Text refKey2Txt = document.createTextNode("settings");
+		refKey2.appendChild(refKey2Txt);
+		
+		Element dictEntitlementRefElement1 = document.createElement("dict");
+		
+		Element refKey3 = document.createElement("key");
+		Text refKey3Txt = document.createTextNode("COMPILER_FLAGS");
+		refKey3.appendChild(refKey3Txt);
+		
+		Element refKey3Value = document.createElement("string");
+		Text refKey3ValueTxt = document.createTextNode("-fobjc-arc");
+		refKey3Value.appendChild(refKey3ValueTxt);
+		
+		dictEntitlementRefElement1.appendChild(refKey3);
+		dictEntitlementRefElement1.appendChild(refKey3Value);
+		
+		Element dictEntitlementRefElement = document.createElement("dict");
+		dictEntitlementRefElement.appendChild(refKey0);
+		dictEntitlementRefElement.appendChild(refKey0Value);
+
+		dictEntitlementRefElement.appendChild(refKey1);
+		dictEntitlementRefElement.appendChild(refKey1Value);
+		
+		dictEntitlementRefElement.appendChild(refKey2);
+		dictEntitlementRefElement.appendChild(dictEntitlementRefElement1);
+
+		node.getParentNode().insertBefore(refKey, node);
+		node.getParentNode().insertBefore(dictEntitlementRefElement, node);
+		return refKey;
+	}
 
 	public static Element addBuildAttibutesFileRef(Document document,
 			String buildFileRef, String fileRef, Node node) {
@@ -843,7 +912,13 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
-
+	
+	/**
+	 * Function to add Build Mask Reference in KRelease or KonyJS
+	 * @param document
+	 * @param buildFileRef
+	 * @param nod
+	 */
 	public static void addBuildActionMaskEmbedRef(Document document,
 			String buildFileRef, Node nod) {
 		Element dtbBuildRef = document.createElement("string");
@@ -871,6 +946,13 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
+	/**
+	 * Method to set Region Specific Settings in XCode Build Settings or Build Phases
+	 * @param document
+	 * @param nod
+	 * @param nodeKeyName
+	 * @param region
+	 */
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region) {
 		if ("EIA_APAC".equalsIgnoreCase(region)
@@ -917,7 +999,7 @@ public class XCodeSettingsAutomation {
 			}
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
-				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);
+				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);	
 			}
 			// Adding the Files for Build Phases for KonyJS
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
@@ -930,8 +1012,26 @@ public class XCodeSettingsAutomation {
 			// Visualizer FFI itself
 		}
 		if("CN".equalsIgnoreCase(region)){
+			// Adding the Files in Build Phases for KRelease
+			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
+				addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF , nod);	
+				addBuildFileRefWithComplierFlags(document,SVPROGRESSHUD_M_BUILDFILE_REF,
+						SVPROGRESSHUD_M_FILE_REF, nod);
+				
+				addBuildActionMaskRef(document,SVRADIAL_M_BUILDFILE_REF, nod);	
+				addBuildFileRefWithComplierFlags(document,SVRADIAL_M_BUILDFILE_REF,
+						SVRADIAL_M_FILE_REF, nod);
+				
+				addBuildActionMaskRef(document,SVPROGRESSANIM_M_BUILDFILE_REF , nod);	
+				addBuildFileRefWithComplierFlags(document,SVPROGRESSANIM_M_BUILDFILE_REF,
+						SVPROGRESSANIM_M_FILE_REF, nod);
+				
+				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDFILE_REF, nod);	
+				addBuildFileRefWithComplierFlags(document,SVINDEFINITE_M_BUILDFILE_REF,
+						SVINDEFINITE_M_FILE_REF, nod);
+			}
 			//Changing the compiler flag value in the Build Phases for China Content Hub App
-			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF)) {
+			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
 				updateCompilerFlags(nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
@@ -1051,6 +1151,9 @@ public class XCodeSettingsAutomation {
 	
 	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,String region){
 		boolean isSVDFileFound = false;
+		boolean isSVPFileFound = false;
+		boolean isSVIFileFound = false;
+		boolean isSVRFileFound = false;
 		boolean isLoginBundleFileFound = false;
 		String nodeKeyName = "";
 		Map<String,String> fileRefMap = new HashMap<String,String>();
@@ -1114,9 +1217,23 @@ public class XCodeSettingsAutomation {
 								String fileName = stringNode.getTextContent();
 								if(SVPROGRESSHUD_M_FILE_NAME.equalsIgnoreCase(fileName)){
 									SVPROGRESSHUD_M_FILE_REF = nodeKeyName;
-									SVPROGRESSHUD_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									SVPROGRESSHUD_M_BUILDFILE_REF1 = reverseFileRefMap.get(nodeKeyName);
 									isSVDFileFound = true;
-									break;
+								}
+								if(SVRADIAL_M_FILE_NAME.equalsIgnoreCase(fileName)){
+									SVRADIAL_M_FILE_REF = nodeKeyName;
+									//SVRADIAL_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									isSVRFileFound = true;
+								}
+								if(SVPROGRESSANIM_M_FILE_NAME.equalsIgnoreCase(fileName)){
+									SVPROGRESSANIM_M_FILE_REF = nodeKeyName;
+									//SVPROGRESSANIM_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									isSVPFileFound = true;
+								}
+								if(SVINDEFINITE_M_FILE_NAME.equalsIgnoreCase(fileName)){
+									SVINDEFINITE_M_FILE_REF = nodeKeyName;
+									//SVINDEFINITE_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									isSVIFileFound = true;
 								}
 							}
 						}
@@ -1134,7 +1251,7 @@ public class XCodeSettingsAutomation {
 					}
 					
 				}
-				if(isSVDFileFound && isLoginBundleFileFound){
+				if(isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound){
 					break;
 				}
 			}
@@ -1142,7 +1259,7 @@ public class XCodeSettingsAutomation {
 	}
 	public static void main(String[] args) {
 		xCodeAutomationForViz8(
-				"/Users/ncl/Desktop/mCoE/CN/XCodeCurBuildProperties.xml",
+				"/Users/ncl/Desktop/mCoE/CN/XcodePropsCN.xml",
 				"/Users/ncl/Desktop/mCoE/CN/Config.properties", "9", "false",
 				"", "CN");
 		/*
