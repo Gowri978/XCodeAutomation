@@ -58,12 +58,20 @@ public class XCodeSettingsAutomation {
 	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF1 	= "A685ECE320A5F82800A22EB0";
 	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF2 	= "A685ECE620A5F86900A22EB0";
 	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF3 	= "A685ECE720A5F86900A22EB0";
-	public static final String KRELEASE_NODE 						= "1D6058950D05DD3E006BFB54";
+	
+	public static final String KRELEASE_RELEASE_NODE 				= "1D6058950D05DD3E006BFB54";
+	public static final String KRELEASE_DEBUG_NODE 					= "1D6058940D05DD3E006BFB54";
+	public static final String KRELEASE_PDEBUG_NODE 				= "5EB24D111B6B7BA300369597";
+	public static final String KRELEASE_PROTECTED_NODE 				= "5EB24D0B1B6B7B9800369597";
+	public static final String KRELEASE_DISTRIBUTION_NODE 			= "CEAE36E712F01BB100DCFC0E";
 	public static final String KONYJS_DEBUG_NODE 					= "0C1CBA0320DB764200226998";
 	public static final String KONYJS_PDEBUG_NODE 					= "0C1CBA0420DB764200226998";
 	public static final String KONYJS_RELEASE_NODE 					= "0C1CBA0520DB764200226998";
 	public static final String KONYJS_PROTECTED_NODE 				= "0C1CBA0620DB764200226998";
 	public static final String KONYJS_DISTRIBUTION_NODE 			= "0C1CBA0720DB764200226998";
+
+	public static final String KPROTECTED_PROTECTED_NODE 			= "5EB24D841B6B7C0200369597";
+	public static final String KPROTECTED_DISTRIBUTION_NODE 		= "5EB24D851B6B7C0200369597";
 	
 	public static String SVPROGRESSHUD_M_FILE_REF 					= "6151AFC922C4ADE400265F9B";
 	public static String SVPROGRESSHUD_M_BUILDFILE_REF 				= "58725ABC99DB6D5AD8884A14";
@@ -334,6 +342,7 @@ public class XCodeSettingsAutomation {
 			boolean konyJSNodeFound = false;
 			boolean isTargetBuildSettingsFound = false;
 			boolean isProvisioningStyleAdded = false;
+            boolean kProtectedNodeFound = false;
 
 			getFileReferencesforChinaApp(nodeKeyList,region);
 			// String nodeStringValue = "";
@@ -342,13 +351,26 @@ public class XCodeSettingsAutomation {
 				if (nod.getNodeType() == Node.ELEMENT_NODE)
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				// nodeStringValue = nod.getNextSibling().getNodeValue();
-
-				if (nodeKeyName.equals(KRELEASE_NODE)) {
+				
+				//Check for all KRelease Nodes
+				if (nodeKeyName.equals(KRELEASE_RELEASE_NODE)){
+							/*|| nodeKeyName.equals(KRELEASE_PDEBUG_NODE)
+							|| nodeKeyName.equals(KRELEASE_DEBUG_NODE)
+							|| nodeKeyName.equals(KRELEASE_PROTECTED_NODE)
+							|| nodeKeyName.equals(KRELEASE_DISTRIBUTION_NODE)) {*/
 					isProvisioningStyleAdded = false;
 					kReleaseNodeFound = true;
 					konyJSNodeFound = false;
+					kProtectedNodeFound = false;
 				}
-
+				//Check for KProtected Node
+				if (nodeKeyName.equals(KPROTECTED_PROTECTED_NODE)) {
+                    isProvisioningStyleAdded = false;
+                    kReleaseNodeFound = false;
+                    konyJSNodeFound = false;
+                    kProtectedNodeFound = true;
+                }
+				//Check for all KonyJS Nodes
 				if (nodeKeyName.equals(KONYJS_DEBUG_NODE)
 						|| nodeKeyName.equals(KONYJS_PDEBUG_NODE)
 						|| nodeKeyName.equals(KONYJS_RELEASE_NODE)
@@ -357,19 +379,31 @@ public class XCodeSettingsAutomation {
 					konyJSNodeFound = true;
 					kReleaseNodeFound = false;
 					isProvisioningStyleAdded = false;
+					kProtectedNodeFound = false;
 				}
-
-				if (nodeKeyName.equals("buildSettings"))
+				
+				//Set Flag if node is buildSettings
+				if (nodeKeyName.equals("buildSettings")){
 					isTargetBuildSettingsFound = true;
-
+				}
+				
+				//Node after KRelease to reset the flags
 				if (nodeKeyName.equals("1D6058960D05DD3E006BFB54")) {
 					isTargetBuildSettingsFound = false;
 					kReleaseNodeFound = false;
 					konyJSNodeFound = false;
 					isProvisioningStyleAdded = false;
+                    kProtectedNodeFound = false;
 				}
-
-				if (isTargetBuildSettingsFound && kReleaseNodeFound) {
+				if (nodeKeyName.equals(KPROTECTED_DISTRIBUTION_NODE)) {
+                    isTargetBuildSettingsFound = false;
+                    kReleaseNodeFound = false;
+                    konyJSNodeFound = false;
+                    isProvisioningStyleAdded = false;
+                    kProtectedNodeFound = false;
+                }
+				//Check if KRelease Build Settings Node is found and set the Parameters
+				if ((isTargetBuildSettingsFound) && ((kReleaseNodeFound) || (kProtectedNodeFound))) {
 					//Setting Code Signing Style to Manual 
 					if (nodeKeyName.equals("CODE_SIGN_RESOURCE_RULES_PATH")) {
 						pNode = nod.getNextSibling().getNextSibling()
