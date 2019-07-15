@@ -94,6 +94,11 @@ public class XCodeSettingsAutomation {
 	public static final String LOGINBUNDLE_M_BUILDACTIONREF1    	= "A642B6B6228043DF007B0BFF";
 	public static String LOGINBUNDLE_M_BUILDACTIONREF2    			= "58725ABCB7566CAE56E5A15F";
 	public static final String LOGIN_BUNDLE_FILE_NAME 				= "LoginCenterSource.bundle";
+	
+	public static final String WEIBOBUNDLE_M_BUILDACTIONREF    		= "1D60588D0D05DD3D006BFB54";
+	public static final String WEIBOBUNDLE_M_BUILDACTIONREF1    	= "610DBBDA22DCA0F10071E424";
+	public static String WEIBOBUNDLE_M_BUILDACTIONREF2    			= "58725ABC46B7A913000C970E";
+	public static final String WEIBO_BUNDLE_FILE_NAME 				= "WeiboSDK.bundle";
 
 	public static void xCodeAutomation(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion,
@@ -1074,6 +1079,13 @@ public class XCodeSettingsAutomation {
 						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1, nod);
 			}
+			// Adding the Files Details and Encoding based on Reference above
+			if (nodeKeyName.equals(WEIBOBUNDLE_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
+						WEIBOBUNDLE_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
+						nod);
+			}
 		}
 	}
 
@@ -1189,6 +1201,7 @@ public class XCodeSettingsAutomation {
 		boolean isSVIFileFound = false;
 		boolean isSVRFileFound = false;
 		boolean isLoginBundleFileFound = false;
+		boolean isWeiboBundleFileFound = false;
 		String nodeKeyName = "";
 		Map<String,String> fileRefMap = new HashMap<String,String>();
 		Map<String,String> reverseFileRefMap = new HashMap<String,String>();
@@ -1283,9 +1296,20 @@ public class XCodeSettingsAutomation {
 							isLoginBundleFileFound = true;
 						}
 					}
-					
 				}
-				if(isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound){
+				if("path".equalsIgnoreCase(nodeKeyName)){
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if(WEIBO_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)){
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if("key".equalsIgnoreCase(keyNode.getNodeName())){
+							WEIBOBUNDLE_M_BUILDACTIONREF2 = keyNode.getTextContent();
+							isWeiboBundleFileFound = true;
+						}
+					}
+				}
+				
+				if(isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound && isWeiboBundleFileFound){
 					break;
 				}
 			}
