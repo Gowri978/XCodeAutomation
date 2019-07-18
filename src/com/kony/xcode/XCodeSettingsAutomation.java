@@ -33,79 +33,100 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 public class XCodeSettingsAutomation {
-	public static final String DTBAPPDELEGATE_M_REF 				= "A651E1C320A2E1CD00DC5DBC";
-	public static final String DTBAPPDELEGATE_H_REF 				= "A651E1C220A2E15F00DC5DBC";
-	public static final String DTBAPPDELEGATE_M_FILE_NAME 			= "DTBAppDelegate.m";
-	public static final String DTBAPPDELEGATE_H_FILE_NAME 			= "DTBAppDelegate.h";
-	public static final String APPDELEGATE_FOLDER 					= "38FEE1831BDFA666000739B1";
-	public static final String DTBAPPDELEGATE_M_BUILDREF 			= "A651E1C420A2E1CE00DC5DBC";
-	public static final String DTBAPPDELEGATE_M_BUILDREF1 		  	= "6145E2C9222F25C7004E9172";
-	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF    	= "1D60588E0D05DD3D006BFB54";
-	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF1   	= "0C1CB9F520DB764200226998";
-	public static final String KONYAPPDELEGATE_H_FILE 			  	= "38FEE1861BDFA666000739B1";
-	public static final String TEALIUM_IOS_FW_REF 				  	= "A685ECE020A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_FILE_NAME 		  	= "TealiumIOS.framework";
-	public static final String FRAMEWORKS_FOLDER 				  	= "7C2065F41C63396D00B7BEE7";
-	public static final String TEALIUM_IOS_FW_FILE_REF 			  	= "A685ECE020A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF1 		  	= "A685ECE220A5F82800A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF2 		 	= "A685ECE420A5F86900A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDREF3 		  	= "A685ECE520A5F86900A22EB0";
-	public static final String TEALIUM_IOS_FW_BUILDACTIONREF1 	  	= "1D60588F0D05DD3D006BFB54";
-	public static final String TEALIUM_IOS_FW_BUILDACTIONREF2 	  	= "3EE2236F1E5EF31F001AAB89";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_REF 	  	= "A685ECE120A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_NAME 	= "TealiumIOSLifecycle.framework";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_REF  	= "A685ECE120A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF1 	= "A685ECE320A5F82800A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF2 	= "A685ECE620A5F86900A22EB0";
-	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF3 	= "A685ECE720A5F86900A22EB0";
-	
-	public static final String KRELEASE_RELEASE_NODE 				= "1D6058950D05DD3E006BFB54";
-	public static final String KRELEASE_DEBUG_NODE 					= "1D6058940D05DD3E006BFB54";
-	public static final String KRELEASE_PDEBUG_NODE 				= "5EB24D111B6B7BA300369597";
-	public static final String KRELEASE_PROTECTED_NODE 				= "5EB24D0B1B6B7B9800369597";
-	public static final String KRELEASE_DISTRIBUTION_NODE 			= "CEAE36E712F01BB100DCFC0E";
-	public static final String KONYJS_DEBUG_NODE 					= "0C1CBA0320DB764200226998";
-	public static final String KONYJS_PDEBUG_NODE 					= "0C1CBA0420DB764200226998";
-	public static final String KONYJS_RELEASE_NODE 					= "0C1CBA0520DB764200226998";
-	public static final String KONYJS_PROTECTED_NODE 				= "0C1CBA0620DB764200226998";
-	public static final String KONYJS_DISTRIBUTION_NODE 			= "0C1CBA0720DB764200226998";
+	public static final String DTBAPPDELEGATE_M_REF = "A651E1C320A2E1CD00DC5DBC";
+	public static final String DTBAPPDELEGATE_H_REF = "A651E1C220A2E15F00DC5DBC";
+	public static final String DTBAPPDELEGATE_M_FILE_NAME = "DTBAppDelegate.m";
+	public static final String DTBAPPDELEGATE_H_FILE_NAME = "DTBAppDelegate.h";
+	public static final String APPDELEGATE_FOLDER = "38FEE1831BDFA666000739B1";
+	public static final String DTBAPPDELEGATE_M_BUILDREF = "A651E1C420A2E1CE00DC5DBC";
+	public static final String DTBAPPDELEGATE_M_BUILDREF1 = "6145E2C9222F25C7004E9172";
+	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF1 = "0C1CB9F520DB764200226998";
+	public static final String KONYAPPDELEGATE_H_FILE = "38FEE1861BDFA666000739B1";
+	public static final String TEALIUM_IOS_FW_REF = "A685ECE020A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_FILE_NAME = "TealiumIOS.framework";
+	public static final String FRAMEWORKS_FOLDER = "7C2065F41C63396D00B7BEE7";
+	public static final String TEALIUM_IOS_FW_FILE_REF = "A685ECE020A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF1 = "A685ECE220A5F82800A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF2 = "A685ECE420A5F86900A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDREF3 = "A685ECE520A5F86900A22EB0";
+	public static final String TEALIUM_IOS_FW_BUILDACTIONREF1 = "1D60588F0D05DD3D006BFB54";
+	public static final String TEALIUM_IOS_FW_BUILDACTIONREF2 = "3EE2236F1E5EF31F001AAB89";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_REF = "A685ECE120A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_NAME = "TealiumIOSLifecycle.framework";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_FILE_REF = "A685ECE120A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF1 = "A685ECE320A5F82800A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF2 = "A685ECE620A5F86900A22EB0";
+	public static final String TEALIUM_IOS_LIFECYCLE_FW_BUILDREF3 = "A685ECE720A5F86900A22EB0";
 
-	public static final String KPROTECTED_PROTECTED_NODE 			= "5EB24D841B6B7C0200369597";
-	public static final String KPROTECTED_DISTRIBUTION_NODE 		= "5EB24D851B6B7C0200369597";
-	
-	public static String SVPROGRESSHUD_M_FILE_REF 					= "6151AFC922C4ADE400265F9B";
-	public static String SVPROGRESSHUD_M_BUILDFILE_REF 				= "58725ABC99DB6D5AD8884A14";
-	public static String SVPROGRESSHUD_M_BUILDFILE_REF1 			= "58725ABC99DB6D5AD8884A14";
-	public static final String SVPROGRESSHUD_M_FILE_NAME 			= "SVProgressHUD.m";
-	
-	public static String SVRADIAL_M_FILE_REF 						= "6151AFC722C4ADDE00265F9B";
-	public static String SVRADIAL_M_BUILDFILE_REF 					= "58725ABC457CCDEF69AF7D5B";
-	public static final String SVRADIAL_M_FILE_NAME 				= "SVRadialGradientLayer.m";
-	
-	public static String SVPROGRESSANIM_M_FILE_REF 					= "6151AFC822C4ADE100265F9B";
-	public static String SVPROGRESSANIM_M_BUILDFILE_REF 			= "58725ABC2017F96A10E4028B";
-	public static final String SVPROGRESSANIM_M_FILE_NAME 			= "SVProgressAnimatedView.m";
-	
-	public static String SVINDEFINITE_M_FILE_REF 					= "6151AFCA22C4ADE600265F9B";
-	public static String SVINDEFINITE_M_BUILDFILE_REF 				= "58725ABCB5E48944818BF6A4";
-	public static final String SVINDEFINITE_M_FILE_NAME 			= "SVIndefiniteAnimatedView.m";
-	
-	public static final String LOGINBUNDLE_M_BUILDACTIONREF    		= "1D60588D0D05DD3D006BFB54";
-	public static final String LOGINBUNDLE_M_BUILDACTIONREF1    	= "A642B6B6228043DF007B0BFF";
-	public static String LOGINBUNDLE_M_BUILDACTIONREF2    			= "58725ABCB7566CAE56E5A15F";
-	public static final String LOGIN_BUNDLE_FILE_NAME 				= "LoginCenterSource.bundle";
-	
-	public static final String WEIBOBUNDLE_M_BUILDACTIONREF    		= "1D60588D0D05DD3D006BFB54";
-	public static final String WEIBOBUNDLE_M_BUILDACTIONREF1    	= "610DBBDA22DCA0F10071E424";
-	public static String WEIBOBUNDLE_M_BUILDACTIONREF2    			= "58725ABC46B7A913000C970E";
-	public static final String WEIBO_BUNDLE_FILE_NAME 				= "WeiboSDK.bundle";
+	public static final String KRELEASE_RELEASE_NODE = "1D6058950D05DD3E006BFB54";
+	public static final String KRELEASE_DEBUG_NODE = "1D6058940D05DD3E006BFB54";
+	public static final String KRELEASE_PDEBUG_NODE = "5EB24D111B6B7BA300369597";
+	public static final String KRELEASE_PROTECTED_NODE = "5EB24D0B1B6B7B9800369597";
+	public static final String KRELEASE_DISTRIBUTION_NODE = "CEAE36E712F01BB100DCFC0E";
+	public static final String KONYJS_DEBUG_NODE = "0C1CBA0320DB764200226998";
+	public static final String KONYJS_PDEBUG_NODE = "0C1CBA0420DB764200226998";
+	public static final String KONYJS_RELEASE_NODE = "0C1CBA0520DB764200226998";
+	public static final String KONYJS_PROTECTED_NODE = "0C1CBA0620DB764200226998";
+	public static final String KONYJS_DISTRIBUTION_NODE = "0C1CBA0720DB764200226998";
+
+	public static final String KPROTECTED_PROTECTED_NODE = "5EB24D841B6B7C0200369597";
+	public static final String KPROTECTED_DISTRIBUTION_NODE = "5EB24D851B6B7C0200369597";
+
+	public static String SVPROGRESSHUD_M_FILE_REF = "6151AFC922C4ADE400265F9B";
+	public static String SVPROGRESSHUD_M_BUILDFILE_REF = "58725ABC99DB6D5AD8884A14";
+	public static String SVPROGRESSHUD_M_BUILDFILE_REF1 = "58725ABC99DB6D5AD8884A14";
+	public static final String SVPROGRESSHUD_M_FILE_NAME = "SVProgressHUD.m";
+
+	public static String SVRADIAL_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
+	public static String SVRADIAL_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
+	public static final String SVRADIAL_M_FILE_NAME = "SVRadialGradientLayer.m";
+
+	public static String SVPROGRESSANIM_M_FILE_REF = "6151AFC822C4ADE100265F9B";
+	public static String SVPROGRESSANIM_M_BUILDFILE_REF = "58725ABC2017F96A10E4028B";
+	public static final String SVPROGRESSANIM_M_FILE_NAME = "SVProgressAnimatedView.m";
+
+	public static String SVINDEFINITE_M_FILE_REF = "6151AFCA22C4ADE600265F9B";
+	public static String SVINDEFINITE_M_BUILDFILE_REF = "58725ABCB5E48944818BF6A4";
+	public static final String SVINDEFINITE_M_FILE_NAME = "SVIndefiniteAnimatedView.m";
+
+	public static final String LOGINBUNDLE_M_BUILDACTIONREF = "1D60588D0D05DD3D006BFB54";
+	public static final String LOGINBUNDLE_M_BUILDACTIONREF1 = "A642B6B6228043DF007B0BFF";
+	public static String LOGINBUNDLE_M_BUILDACTIONREF2 = "58725ABCB7566CAE56E5A15F";
+	public static final String LOGIN_BUNDLE_FILE_NAME = "LoginCenterSource.bundle";
+
+	public static final String WEIBOBUNDLE_M_BUILDACTIONREF = "1D60588D0D05DD3D006BFB54";
+	public static final String WEIBOBUNDLE_M_BUILDACTIONREF1 = "610DBBDA22DCA0F10071E424";
+	public static String WEIBOBUNDLE_M_BUILDACTIONREF2 = "58725ABC46B7A913000C970E";
+	public static final String WEIBO_BUNDLE_FILE_NAME = "WeiboSDK.bundle";
+
+	public static final String SYSCONFIG_FW_BUILDACTIONREF = "1D60588F0D05DD3D006BFB54";
+	public static final String SYSCONFIG_FW_BUILDACTIONREF1 = "610DBBE022DDDA1C0071E424";
+	public static String SYSCONFIG_FW_BUILDACTIONREF2 = "58725ABCC8DB7F05D0841B7C";
+	public static final String SYSCONFIG_FW_FILE_NAME = "SystemConfiguration.framework";
+
+	public static final String CORETELEPHONY_FW_BUILDACTIONREF = "1D60588F0D05DD3D006BFB54";
+	public static final String CORETELEPHONY_FW_BUILDACTIONREF1 = "610DBBE122DDDA220071E424";
+	public static String CORETELEPHONY_FW_BUILDACTIONREF2 = "58725ABC3BFDC64DA7B8B930";
+	public static final String CORETELEPHONY_FW_FILE_NAME = "CoreTelephony.framework";
 
 	public static void xCodeAutomation(String XcodeXmlPath,
-			String ConfigXmlPath, String XcodeVersion,
-			String enablePushNotifications, String entitlementsFile,
-			String region) {
+			String ConfigXmlPath, String XcodeVersion, String capabilitiesList,
+			String entitlementsFile, String region) {
 		String configProperties = ConfigXmlPath;
 
+		String enablePushNotifications = "false";
+		String enableKeychainSharing = "false";
+
+		String[] capList = capabilitiesList.split(":");
+		for (int i = 0; i < capList.length; i++) {
+			if ("push".equalsIgnoreCase(capList[i])) {
+				enablePushNotifications = "true";
+			}
+			if ("keychainsharing".equalsIgnoreCase(capList[i])) {
+				enableKeychainSharing = "true";
+			}
+		}
 		System.out.println("Inside build settings");
 		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 				.newInstance();
@@ -229,6 +250,47 @@ public class XCodeSettingsAutomation {
 								dictElement
 										.appendChild(dictCapabilitiesElement);
 							}
+							if ("true".equalsIgnoreCase(enableKeychainSharing)) {
+								System.out
+										.println("Creating node for Keychain Sharing ");
+								Element capabilitiesKey = document
+										.createElement("key");
+								Text capabilitiesKeyTxt = document
+										.createTextNode("SystemCapabilities");
+								capabilitiesKey.appendChild(capabilitiesKeyTxt);
+
+								Element pushKey = document.createElement("key");
+								Text pushKeyTxt = document
+										.createTextNode("com.apple.Keychain");
+								pushKey.appendChild(pushKeyTxt);
+
+								Element enableKey = document
+										.createElement("key");
+								Text enableKeyTxt = document
+										.createTextNode("enabled");
+								enableKey.appendChild(enableKeyTxt);
+
+								Element enableKeyValue = document
+										.createElement("string");
+								Text enableKeyValueTxt = document
+										.createTextNode("1");
+								enableKeyValue.appendChild(enableKeyValueTxt);
+
+								Element dictPushElement = document
+										.createElement("dict");
+								dictPushElement.appendChild(enableKey);
+								dictPushElement.appendChild(enableKeyValue);
+
+								Element dictCapabilitiesElement = document
+										.createElement("dict");
+								dictCapabilitiesElement.appendChild(pushKey);
+								dictCapabilitiesElement
+										.appendChild(dictPushElement);
+
+								dictElement.appendChild(capabilitiesKey);
+								dictElement
+										.appendChild(dictCapabilitiesElement);
+							}
 							dictNode.appendChild(cflagKey);
 							dictNode.appendChild(dictElement);
 						}
@@ -313,12 +375,22 @@ public class XCodeSettingsAutomation {
 	 */
 
 	public static void xCodeAutomationForViz8(String XcodeXmlPath,
-			String ConfigXmlPath, String XcodeVersion,
-			String enablePushNotifications, String entitlementsFile,
-			String region) {
+			String ConfigXmlPath, String XcodeVersion, String capabilitiesList,
+			String entitlementsFile, String region) {
 
 		String configProperties = ConfigXmlPath;
+		String enablePushNotifications = "false";
+		String enableKeychainSharing = "false";
 
+		String[] capList = capabilitiesList.split(":");
+		for (int i = 0; i < capList.length; i++) {
+			if ("push".equalsIgnoreCase(capList[i])) {
+				enablePushNotifications = "true";
+			}
+			if ("keychainsharing".equalsIgnoreCase(capList[i])) {
+				enableKeychainSharing = "true";
+			}
+		}
 		System.out.println("Inside build settings xCodeAutomationForViz8:");
 		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 				.newInstance();
@@ -347,35 +419,37 @@ public class XCodeSettingsAutomation {
 			boolean konyJSNodeFound = false;
 			boolean isTargetBuildSettingsFound = false;
 			boolean isProvisioningStyleAdded = false;
-            boolean kProtectedNodeFound = false;
+			boolean kProtectedNodeFound = false;
 
-			getFileReferencesforChinaApp(nodeKeyList,region);
+			getFileReferencesforChinaApp(nodeKeyList, region);
 			// String nodeStringValue = "";
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
 				if (nod.getNodeType() == Node.ELEMENT_NODE)
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				// nodeStringValue = nod.getNextSibling().getNodeValue();
-				
-				//Check for all KRelease Nodes
-				if (nodeKeyName.equals(KRELEASE_RELEASE_NODE)){
-							/*|| nodeKeyName.equals(KRELEASE_PDEBUG_NODE)
-							|| nodeKeyName.equals(KRELEASE_DEBUG_NODE)
-							|| nodeKeyName.equals(KRELEASE_PROTECTED_NODE)
-							|| nodeKeyName.equals(KRELEASE_DISTRIBUTION_NODE)) {*/
+
+				// Check for all KRelease Nodes
+				if (nodeKeyName.equals(KRELEASE_RELEASE_NODE)) {
+					/*
+					 * || nodeKeyName.equals(KRELEASE_PDEBUG_NODE) ||
+					 * nodeKeyName.equals(KRELEASE_DEBUG_NODE) ||
+					 * nodeKeyName.equals(KRELEASE_PROTECTED_NODE) ||
+					 * nodeKeyName.equals(KRELEASE_DISTRIBUTION_NODE)) {
+					 */
 					isProvisioningStyleAdded = false;
 					kReleaseNodeFound = true;
 					konyJSNodeFound = false;
 					kProtectedNodeFound = false;
 				}
-				//Check for KProtected Node
+				// Check for KProtected Node
 				if (nodeKeyName.equals(KPROTECTED_PROTECTED_NODE)) {
-                    isProvisioningStyleAdded = false;
-                    kReleaseNodeFound = false;
-                    konyJSNodeFound = false;
-                    kProtectedNodeFound = true;
-                }
-				//Check for all KonyJS Nodes
+					isProvisioningStyleAdded = false;
+					kReleaseNodeFound = false;
+					konyJSNodeFound = false;
+					kProtectedNodeFound = true;
+				}
+				// Check for all KonyJS Nodes
 				if (nodeKeyName.equals(KONYJS_DEBUG_NODE)
 						|| nodeKeyName.equals(KONYJS_PDEBUG_NODE)
 						|| nodeKeyName.equals(KONYJS_RELEASE_NODE)
@@ -386,30 +460,32 @@ public class XCodeSettingsAutomation {
 					isProvisioningStyleAdded = false;
 					kProtectedNodeFound = false;
 				}
-				
-				//Set Flag if node is buildSettings
-				if (nodeKeyName.equals("buildSettings")){
+
+				// Set Flag if node is buildSettings
+				if (nodeKeyName.equals("buildSettings")) {
 					isTargetBuildSettingsFound = true;
 				}
-				
-				//Node after KRelease to reset the flags
+
+				// Node after KRelease to reset the flags
 				if (nodeKeyName.equals("1D6058960D05DD3E006BFB54")) {
 					isTargetBuildSettingsFound = false;
 					kReleaseNodeFound = false;
 					konyJSNodeFound = false;
 					isProvisioningStyleAdded = false;
-                    kProtectedNodeFound = false;
+					kProtectedNodeFound = false;
 				}
 				if (nodeKeyName.equals(KPROTECTED_DISTRIBUTION_NODE)) {
-                    isTargetBuildSettingsFound = false;
-                    kReleaseNodeFound = false;
-                    konyJSNodeFound = false;
-                    isProvisioningStyleAdded = false;
-                    kProtectedNodeFound = false;
-                }
-				//Check if KRelease Build Settings Node is found and set the Parameters
-				if ((isTargetBuildSettingsFound) && ((kReleaseNodeFound) || (kProtectedNodeFound))) {
-					//Setting Code Signing Style to Manual 
+					isTargetBuildSettingsFound = false;
+					kReleaseNodeFound = false;
+					konyJSNodeFound = false;
+					isProvisioningStyleAdded = false;
+					kProtectedNodeFound = false;
+				}
+				// Check if KRelease Build Settings Node is found and set the
+				// Parameters
+				if ((isTargetBuildSettingsFound)
+						&& ((kReleaseNodeFound) || (kProtectedNodeFound))) {
+					// Setting Code Signing Style to Manual
 					if (nodeKeyName.equals("CODE_SIGN_RESOURCE_RULES_PATH")) {
 						pNode = nod.getNextSibling().getNextSibling()
 								.getFirstChild().getNodeValue();
@@ -448,7 +524,7 @@ public class XCodeSettingsAutomation {
 							}
 						}
 					}
-					//Adding Code Signing Style to Manual
+					// Adding Code Signing Style to Manual
 					if (nodeKeyName.equals("CODE_SIGN_STYLE")) {
 						if (nod.getNextSibling().getFirstChild() == null) {
 							Text stringValue = document
@@ -462,7 +538,7 @@ public class XCodeSettingsAutomation {
 										.setNodeValue("Manual");
 						}
 					}
-					//Setting Provisioning Profile from Properties
+					// Setting Provisioning Profile from Properties
 					if (nodeKeyName
 							.equals("PROVISIONING_PROFILE[sdk=iphoneos*]")) {
 						pNode = nod.getNextSibling().getNextSibling()
@@ -518,7 +594,8 @@ public class XCodeSettingsAutomation {
 					setBuildSettingsParameters(document, nod, nodeKeyName,
 							properties, true);
 				}
-				// Setting Region Specific Settings like adding extra files & settings
+				// Setting Region Specific Settings like adding extra files &
+				// settings
 				setRegionSpecificSettings(document, nod, nodeKeyName, region);
 
 				int version = Integer.parseInt(XcodeVersion);
@@ -586,11 +663,51 @@ public class XCodeSettingsAutomation {
 							dictElement.appendChild(capabilitiesKey);
 							dictElement.appendChild(dictCapabilitiesElement);
 						}
+						if ("true".equalsIgnoreCase(enableKeychainSharing)) {
+							System.out
+									.println("Creating node for Keychain Sharing ");
+							Element capabilitiesKey = document
+									.createElement("key");
+							Text capabilitiesKeyTxt = document
+									.createTextNode("SystemCapabilities");
+							capabilitiesKey.appendChild(capabilitiesKeyTxt);
+
+							Element pushKey = document.createElement("key");
+							Text pushKeyTxt = document
+									.createTextNode("com.apple.Keychain");
+							pushKey.appendChild(pushKeyTxt);
+
+							Element enableKey = document.createElement("key");
+							Text enableKeyTxt = document
+									.createTextNode("enabled");
+							enableKey.appendChild(enableKeyTxt);
+
+							Element enableKeyValue = document
+									.createElement("string");
+							Text enableKeyValueTxt = document
+									.createTextNode("1");
+							enableKeyValue.appendChild(enableKeyValueTxt);
+
+							Element dictPushElement = document
+									.createElement("dict");
+							dictPushElement.appendChild(enableKey);
+							dictPushElement.appendChild(enableKeyValue);
+
+							Element dictCapabilitiesElement = document
+									.createElement("dict");
+							dictCapabilitiesElement.appendChild(pushKey);
+							dictCapabilitiesElement
+									.appendChild(dictPushElement);
+
+							dictElement.appendChild(capabilitiesKey);
+							dictElement.appendChild(dictCapabilitiesElement);
+						}
 						dictNode.appendChild(cflagKey);
 						dictNode.appendChild(dictElement);
 						isProvisioningStyleAdded = true;
 					}
-					if ("true".equalsIgnoreCase(enablePushNotifications)) {
+					if ("true".equalsIgnoreCase(enablePushNotifications)
+							|| "true".equalsIgnoreCase(enableKeychainSharing)) {
 						if (nodeKeyName.equals("objects")) {
 							System.out
 									.println("Creating node for Entitlements reference ");
@@ -690,7 +807,7 @@ public class XCodeSettingsAutomation {
 		node.getParentNode().insertBefore(dictEntitlementRefElement, node);
 		return refKey;
 	}
-	
+
 	public static Element addBuildFileRefWithComplierFlags(Document document,
 			String buildFileRef, String fileRef, Node node) {
 		Element refKey = document.createElement("key");
@@ -712,31 +829,31 @@ public class XCodeSettingsAutomation {
 		Element refKey1Value = document.createElement("string");
 		Text refKey1ValueTxt = document.createTextNode("PBXBuildFile");
 		refKey1Value.appendChild(refKey1ValueTxt);
-		
+
 		Element refKey2 = document.createElement("key");
 		Text refKey2Txt = document.createTextNode("settings");
 		refKey2.appendChild(refKey2Txt);
-		
+
 		Element dictEntitlementRefElement1 = document.createElement("dict");
-		
+
 		Element refKey3 = document.createElement("key");
 		Text refKey3Txt = document.createTextNode("COMPILER_FLAGS");
 		refKey3.appendChild(refKey3Txt);
-		
+
 		Element refKey3Value = document.createElement("string");
 		Text refKey3ValueTxt = document.createTextNode("-fobjc-arc");
 		refKey3Value.appendChild(refKey3ValueTxt);
-		
+
 		dictEntitlementRefElement1.appendChild(refKey3);
 		dictEntitlementRefElement1.appendChild(refKey3Value);
-		
+
 		Element dictEntitlementRefElement = document.createElement("dict");
 		dictEntitlementRefElement.appendChild(refKey0);
 		dictEntitlementRefElement.appendChild(refKey0Value);
 
 		dictEntitlementRefElement.appendChild(refKey1);
 		dictEntitlementRefElement.appendChild(refKey1Value);
-		
+
 		dictEntitlementRefElement.appendChild(refKey2);
 		dictEntitlementRefElement.appendChild(dictEntitlementRefElement1);
 
@@ -951,9 +1068,10 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
-	
+
 	/**
 	 * Function to add Build Mask Reference in KRelease or KonyJS
+	 * 
 	 * @param document
 	 * @param buildFileRef
 	 * @param nod
@@ -986,7 +1104,9 @@ public class XCodeSettingsAutomation {
 	}
 
 	/**
-	 * Method to set Region Specific Settings in XCode Build Settings or Build Phases
+	 * Method to set Region Specific Settings in XCode Build Settings or Build
+	 * Phases
+	 * 
 	 * @param document
 	 * @param nod
 	 * @param nodeKeyName
@@ -995,7 +1115,8 @@ public class XCodeSettingsAutomation {
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region) {
 		if ("EIA_APAC".equalsIgnoreCase(region)
-				|| "LAS".equalsIgnoreCase(region) || "CN".equalsIgnoreCase(region)) {
+				|| "LAS".equalsIgnoreCase(region)
+				|| "CN".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
 			// App Delegate Extension Folder
 			if (nodeKeyName.equals(APPDELEGATE_FOLDER)) {
@@ -1038,7 +1159,7 @@ public class XCodeSettingsAutomation {
 			}
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
-				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);	
+				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);
 			}
 			// Adding the Files for Build Phases for KonyJS
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
@@ -1050,34 +1171,42 @@ public class XCodeSettingsAutomation {
 			// in the
 			// Visualizer FFI itself
 		}
-		if("CN".equalsIgnoreCase(region)){
+		if ("CN_CH".equalsIgnoreCase(region) || "CN".equalsIgnoreCase(region)) {
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
-				addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF , nod);	
-				addBuildFileRefWithComplierFlags(document,SVPROGRESSHUD_M_BUILDFILE_REF,
+				addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF,
+						nod);
+				addBuildFileRefWithComplierFlags(document,
+						SVPROGRESSHUD_M_BUILDFILE_REF,
 						SVPROGRESSHUD_M_FILE_REF, nod);
-				
-				addBuildActionMaskRef(document,SVRADIAL_M_BUILDFILE_REF, nod);	
-				addBuildFileRefWithComplierFlags(document,SVRADIAL_M_BUILDFILE_REF,
-						SVRADIAL_M_FILE_REF, nod);
-				
-				addBuildActionMaskRef(document,SVPROGRESSANIM_M_BUILDFILE_REF , nod);	
-				addBuildFileRefWithComplierFlags(document,SVPROGRESSANIM_M_BUILDFILE_REF,
+
+				addBuildActionMaskRef(document, SVRADIAL_M_BUILDFILE_REF, nod);
+				addBuildFileRefWithComplierFlags(document,
+						SVRADIAL_M_BUILDFILE_REF, SVRADIAL_M_FILE_REF, nod);
+
+				addBuildActionMaskRef(document, SVPROGRESSANIM_M_BUILDFILE_REF,
+						nod);
+				addBuildFileRefWithComplierFlags(document,
+						SVPROGRESSANIM_M_BUILDFILE_REF,
 						SVPROGRESSANIM_M_FILE_REF, nod);
-				
-				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDFILE_REF, nod);	
-				addBuildFileRefWithComplierFlags(document,SVINDEFINITE_M_BUILDFILE_REF,
-						SVINDEFINITE_M_FILE_REF, nod);
+
+				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDFILE_REF,
+						nod);
+				addBuildFileRefWithComplierFlags(document,
+						SVINDEFINITE_M_BUILDFILE_REF, SVINDEFINITE_M_FILE_REF,
+						nod);
 			}
-			//Changing the compiler flag value in the Build Phases for China Content Hub App
+			// Changing the compiler flag value in the Build Phases for China
+			// Content Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
 				updateCompilerFlags(nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document,LOGINBUNDLE_M_BUILDACTIONREF1,
+				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1, nod);
+				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(WEIBOBUNDLE_M_BUILDACTIONREF)) {
@@ -1085,6 +1214,20 @@ public class XCodeSettingsAutomation {
 						WEIBOBUNDLE_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
 						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference above
+			if (nodeKeyName.equals(SYSCONFIG_FW_BUILDACTIONREF)) {
+				addBuildFileRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
+						SYSCONFIG_FW_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference above
+			if (nodeKeyName.equals(CORETELEPHONY_FW_BUILDACTIONREF)) {
+				addBuildFileRef(document, CORETELEPHONY_FW_BUILDACTIONREF1,
+						CORETELEPHONY_FW_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document,
+						CORETELEPHONY_FW_BUILDACTIONREF1, nod);
 			}
 		}
 	}
@@ -1150,7 +1293,7 @@ public class XCodeSettingsAutomation {
 	}
 
 	public static Properties filterProfileProps(Properties properties) {
-		//System.out.println("Actual Properties:" + properties.toString());
+		// System.out.println("Actual Properties:" + properties.toString());
 		ArrayList<String> ProfileProps = new ArrayList<String>(Arrays.asList(
 				"DEVELOPMENT_TEAM", "CODE_SIGN_IDENTITY[sdk=iphoneos*]",
 				"CODE_SIGN_IDENTITY", "PROVISIONING_PROFILE",
@@ -1164,7 +1307,7 @@ public class XCodeSettingsAutomation {
 				temp.put(key, properties.get(key));
 			}
 		}
-		//System.out.println("Filtered Properties:" + temp.toString());
+		// System.out.println("Filtered Properties:" + temp.toString());
 		return temp;
 	}
 
@@ -1173,18 +1316,20 @@ public class XCodeSettingsAutomation {
 		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 			Node fileRefKey = dict.getFirstChild();
 			if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
-				if ("fileRef".equalsIgnoreCase(fileRefKey
-						.getFirstChild().getNodeValue())) {
+				if ("fileRef".equalsIgnoreCase(fileRefKey.getFirstChild()
+						.getNodeValue())) {
 					Node fileRefValue = fileRefKey.getNextSibling();
 					String SVDFile = fileRefValue.getTextContent();
-					if(SVPROGRESSHUD_M_FILE_REF.equalsIgnoreCase(SVDFile)){
+					if (SVPROGRESSHUD_M_FILE_REF.equalsIgnoreCase(SVDFile)) {
 						Node isaKey = fileRefValue.getNextSibling();
 						Node isaValue = isaKey.getNextSibling();
 						Node settingsKey = isaValue.getNextSibling();
 						Node dictNode = settingsKey.getNextSibling();
 						if ("dict".equalsIgnoreCase(dictNode.getNodeName())) {
 							Node compilerFlagKey = dictNode.getFirstChild();
-							if ("COMPILER_FLAGS".equalsIgnoreCase(compilerFlagKey.getTextContent())){
+							if ("COMPILER_FLAGS"
+									.equalsIgnoreCase(compilerFlagKey
+											.getTextContent())) {
 								Node key2 = compilerFlagKey.getNextSibling();
 								key2.setTextContent("-fobjc-arc");
 							}
@@ -1194,21 +1339,24 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
-	
-	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,String region){
+
+	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,
+			String region) {
 		boolean isSVDFileFound = false;
 		boolean isSVPFileFound = false;
 		boolean isSVIFileFound = false;
 		boolean isSVRFileFound = false;
 		boolean isLoginBundleFileFound = false;
 		boolean isWeiboBundleFileFound = false;
+		boolean isSysConfigFWFileFound = false;
+		boolean isCoreTeleFWFileFound = false;
 		String nodeKeyName = "";
-		Map<String,String> fileRefMap = new HashMap<String,String>();
-		Map<String,String> reverseFileRefMap = new HashMap<String,String>();
-		if("CN".equalsIgnoreCase(region)){
+		Map<String, String> fileRefMap = new HashMap<String, String>();
+		Map<String, String> reverseFileRefMap = new HashMap<String, String>();
+		if ("CN".equalsIgnoreCase(region) || "CN_CH".equalsIgnoreCase(region)) {
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
-				if (nod.getNodeType() == Node.ELEMENT_NODE){
+				if (nod.getNodeType() == Node.ELEMENT_NODE) {
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				}
 				// Adding the Files for Build Phases for KonyJS
@@ -1217,107 +1365,150 @@ public class XCodeSettingsAutomation {
 					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 						Node fileRefKey = dict.getFirstChild();
 						if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
-							if ("buildActionMask".equalsIgnoreCase(fileRefKey.getTextContent())) {
-								Node filesKey = fileRefKey.getNextSibling().getNextSibling();
-								if("files".equalsIgnoreCase(filesKey.getTextContent())){
+							if ("buildActionMask".equalsIgnoreCase(fileRefKey
+									.getTextContent())) {
+								Node filesKey = fileRefKey.getNextSibling()
+										.getNextSibling();
+								if ("files".equalsIgnoreCase(filesKey
+										.getTextContent())) {
 									Node arrayNode = filesKey.getNextSibling();
-									NodeList arrayList = arrayNode.getChildNodes();
+									NodeList arrayList = arrayNode
+											.getChildNodes();
 									for (int j = 0; j < arrayList.getLength(); j++) {
 										Node node = arrayList.item(j);
 										String fileRefs = node.getTextContent();
 										fileRefMap.put(fileRefs, "");
-									}					
-								}							
+									}
+								}
 							}
 						}
 					}
 				}
-				if(fileRefMap.containsKey(nodeKeyName)){
+				if (fileRefMap.containsKey(nodeKeyName)) {
 					Node dict = nod.getNextSibling();
 					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 						Node fileRefKey = dict.getFirstChild();
 						if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
-							if ("fileRef".equalsIgnoreCase(fileRefKey.getTextContent())) {
+							if ("fileRef".equalsIgnoreCase(fileRefKey
+									.getTextContent())) {
 								Node stringKey = fileRefKey.getNextSibling();
 								String fileRef = stringKey.getTextContent();
-								fileRefMap.put(nodeKeyName,fileRef);
-								reverseFileRefMap.put(fileRef,nodeKeyName);
+								fileRefMap.put(nodeKeyName, fileRef);
+								reverseFileRefMap.put(fileRef, nodeKeyName);
 							}
 						}
 					}
 				}
 			}
-			for(int i = 0; i < nodeKeyList.getLength(); i++){
+			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
-				if (nod.getNodeType() == Node.ELEMENT_NODE){
+				if (nod.getNodeType() == Node.ELEMENT_NODE) {
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				}
-				if(fileRefMap.containsValue(nodeKeyName)){
+				if (fileRefMap.containsValue(nodeKeyName)) {
 					Node dict = nod.getNextSibling();
 					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 						NodeList dictArray = dict.getChildNodes();
 						for (int k = 0; k < dictArray.getLength(); k++) {
 							Node node = dictArray.item(k);
 							String fileRefs = node.getTextContent();
-							if("path".equalsIgnoreCase(fileRefs)){
-								Node stringNode = dictArray.item(k+1);
+							if ("path".equalsIgnoreCase(fileRefs)) {
+								Node stringNode = dictArray.item(k + 1);
 								String fileName = stringNode.getTextContent();
-								if(SVPROGRESSHUD_M_FILE_NAME.equalsIgnoreCase(fileName)){
+								if (SVPROGRESSHUD_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
 									SVPROGRESSHUD_M_FILE_REF = nodeKeyName;
-									SVPROGRESSHUD_M_BUILDFILE_REF1 = reverseFileRefMap.get(nodeKeyName);
+									SVPROGRESSHUD_M_BUILDFILE_REF1 = reverseFileRefMap
+											.get(nodeKeyName);
 									isSVDFileFound = true;
 								}
-								if(SVRADIAL_M_FILE_NAME.equalsIgnoreCase(fileName)){
+								if (SVRADIAL_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
 									SVRADIAL_M_FILE_REF = nodeKeyName;
-									//SVRADIAL_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									// SVRADIAL_M_BUILDFILE_REF =
+									// reverseFileRefMap.get(nodeKeyName);
 									isSVRFileFound = true;
 								}
-								if(SVPROGRESSANIM_M_FILE_NAME.equalsIgnoreCase(fileName)){
+								if (SVPROGRESSANIM_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
 									SVPROGRESSANIM_M_FILE_REF = nodeKeyName;
-									//SVPROGRESSANIM_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									// SVPROGRESSANIM_M_BUILDFILE_REF =
+									// reverseFileRefMap.get(nodeKeyName);
 									isSVPFileFound = true;
 								}
-								if(SVINDEFINITE_M_FILE_NAME.equalsIgnoreCase(fileName)){
+								if (SVINDEFINITE_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
 									SVINDEFINITE_M_FILE_REF = nodeKeyName;
-									//SVINDEFINITE_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									// SVINDEFINITE_M_BUILDFILE_REF =
+									// reverseFileRefMap.get(nodeKeyName);
 									isSVIFileFound = true;
 								}
 							}
 						}
 					}
 				}
-				if("path".equalsIgnoreCase(nodeKeyName)){
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if(LOGIN_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)){
+					if (LOGIN_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
-						if("key".equalsIgnoreCase(keyNode.getNodeName())){
-							LOGINBUNDLE_M_BUILDACTIONREF2 = keyNode.getTextContent();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							LOGINBUNDLE_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
 							isLoginBundleFileFound = true;
 						}
 					}
 				}
-				if("path".equalsIgnoreCase(nodeKeyName)){
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if(WEIBO_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)){
+					if (WEIBO_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
-						if("key".equalsIgnoreCase(keyNode.getNodeName())){
-							WEIBOBUNDLE_M_BUILDACTIONREF2 = keyNode.getTextContent();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							WEIBOBUNDLE_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
 							isWeiboBundleFileFound = true;
 						}
 					}
 				}
-				
-				if(isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound && isWeiboBundleFileFound){
+				if ("name".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SYSCONFIG_FW_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SYSCONFIG_FW_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSysConfigFWFileFound = true;
+						}
+					}
+				}
+				if ("name".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (CORETELEPHONY_FW_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							CORETELEPHONY_FW_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isCoreTeleFWFileFound = true;
+						}
+					}
+				}
+
+				if (isSVDFileFound && isSVRFileFound && isSVPFileFound
+						&& isSVIFileFound && isLoginBundleFileFound
+						&& isWeiboBundleFileFound && isSysConfigFWFileFound
+						&& isCoreTeleFWFileFound) {
 					break;
 				}
 			}
 		}
 	}
+
 	public static void main(String[] args) {
-		xCodeAutomationForViz8(
-				"/Users/ncl/Desktop/mCoE/CN/XcodePropsCN.xml",
+		xCodeAutomationForViz8("/Users/ncl/Desktop/mCoE/CN/XcodePropsCN.xml",
 				"/Users/ncl/Desktop/mCoE/CN/Config.properties", "9", "false",
 				"", "CN");
 		/*

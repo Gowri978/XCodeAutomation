@@ -10,7 +10,7 @@ public class MasterClass{
     String infoPlistConfigPath = null;
     String infoPlistXmlPath = null;
     String XcodeVersion = null;
-    String enablePushNotifications = null;
+    String capabilitiesList = null;
     String entitlementsFile = null;
     String bundleKey = null;
     String region = null;
@@ -21,7 +21,7 @@ public class MasterClass{
     XcodeXmlPath = args[2];
     ConfigXmlPath = args[3];
     XcodeVersion = args[4];
-    enablePushNotifications = args[5];
+    capabilitiesList = args[5];
     entitlementsFile = args[6];
     bundleKey = args[7];
     region = args[8];
@@ -44,7 +44,7 @@ public class MasterClass{
     System.out.println("XcodeXmlPath is :" + XcodeXmlPath);
     System.out.println("ConfigXmlPath is :" + ConfigXmlPath);
     System.out.println("XcodeVersion is :" + XcodeVersion);
-    System.out.println("enablePushNotifications is :" + enablePushNotifications);
+    System.out.println("capabilitiesList is :" + capabilitiesList);
     System.out.println("entitlementsFile is :" + entitlementsFile);
     System.out.println("bundlekey is :" + bundleKey);
     System.out.println("region is :" + region);
@@ -52,10 +52,10 @@ public class MasterClass{
     
     System.out.println("Calling xCodeAutomation function to modity XCode properties");
 	if(vizVersion.equals("V8")) {
-			XCodeSettingsAutomation.xCodeAutomationForViz8(XcodeXmlPath,ConfigXmlPath,XcodeVersion,enablePushNotifications,entitlementsFile, region);
+			XCodeSettingsAutomation.xCodeAutomationForViz8(XcodeXmlPath,ConfigXmlPath,XcodeVersion,capabilitiesList,entitlementsFile, region);
 	}
 	else {
-			XCodeSettingsAutomation.xCodeAutomation(XcodeXmlPath, ConfigXmlPath, XcodeVersion, enablePushNotifications, entitlementsFile, region);
+			XCodeSettingsAutomation.xCodeAutomation(XcodeXmlPath, ConfigXmlPath, XcodeVersion, capabilitiesList, entitlementsFile, region);
 	}
 			
     System.out.println("Done with xcode settings and now calling InfoPlistConfigurator");
