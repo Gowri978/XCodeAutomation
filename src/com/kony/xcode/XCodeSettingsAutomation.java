@@ -77,7 +77,21 @@ public class XCodeSettingsAutomation {
 	public static String SVPROGRESSHUD_M_BUILDFILE_REF = "58725ABC99DB6D5AD8884A14";
 	public static String SVPROGRESSHUD_M_BUILDFILE_REF1 = "58725ABC99DB6D5AD8884A14";
 	public static final String SVPROGRESSHUD_M_FILE_NAME = "SVProgressHUD.m";
+	
+	public static String ZHUGE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
+	public static String ZHUGE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String ZHUGE_M_FILE_NAME = "Zhuge.m";
 
+	
+	public static String ZHUGEBASE64_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
+	public static String ZHUGEBASE64_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
+	public static final String ZHUGEBASE64_M_FILE_NAME = "ZhugeBase64.m";
+
+	public static String ZHUGECONFIG_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
+	public static String ZHUGECONFIG_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String ZHUGECONFIG_M_FILE_NAME = "ZhugeConfig.m";
+
+	
 	public static String SVRADIAL_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
 	public static String SVRADIAL_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
 	public static final String SVRADIAL_M_FILE_NAME = "SVRadialGradientLayer.m";
@@ -1199,8 +1213,18 @@ public class XCodeSettingsAutomation {
 			// Changing the compiler flag value in the Build Phases for China
 			// Content Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
-				updateCompilerFlags(nod);
+				updateCompilerFlags(nod,SVPROGRESSHUD_M_FILE_REF);
 			}
+			if (nodeKeyName.equals(ZHUGE_M_BUILDFILE_REF)) {
+				updateCompilerFlags(nod,ZHUGE_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(ZHUGECONFIG_M_BUILDFILE_REF)) {
+				updateCompilerFlags(nod,ZHUGECONFIG_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(ZHUGEBASE64_M_BUILDFILE_REF)) {
+				updateCompilerFlags(nod,ZHUGEBASE64_M_FILE_REF);
+			}
+			
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
@@ -1311,7 +1335,7 @@ public class XCodeSettingsAutomation {
 		return temp;
 	}
 
-	public static void updateCompilerFlags(Node nod) {
+	public static void updateCompilerFlags(Node nod,String fileRef) {
 		Node dict = nod.getNextSibling();
 		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 			Node fileRefKey = dict.getFirstChild();
@@ -1320,7 +1344,7 @@ public class XCodeSettingsAutomation {
 						.getNodeValue())) {
 					Node fileRefValue = fileRefKey.getNextSibling();
 					String SVDFile = fileRefValue.getTextContent();
-					if (SVPROGRESSHUD_M_FILE_REF.equalsIgnoreCase(SVDFile)) {
+					if (fileRef.equalsIgnoreCase(SVDFile)) {
 						Node isaKey = fileRefValue.getNextSibling();
 						Node isaValue = isaKey.getNextSibling();
 						Node settingsKey = isaValue.getNextSibling();
@@ -1346,6 +1370,9 @@ public class XCodeSettingsAutomation {
 		boolean isSVPFileFound = false;
 		boolean isSVIFileFound = false;
 		boolean isSVRFileFound = false;
+		boolean isZHFileFound  = false;
+		boolean isZHCFileFound = false;
+		boolean isZHBFileFound = false;
 		boolean isLoginBundleFileFound = false;
 		boolean isWeiboBundleFileFound = false;
 		boolean isSysConfigFWFileFound = false;
@@ -1421,6 +1448,27 @@ public class XCodeSettingsAutomation {
 									SVPROGRESSHUD_M_BUILDFILE_REF1 = reverseFileRefMap
 											.get(nodeKeyName);
 									isSVDFileFound = true;
+								}
+								if (ZHUGE_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									ZHUGE_M_FILE_REF = nodeKeyName;
+									ZHUGE_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isZHFileFound = true;
+								}
+								if (ZHUGECONFIG_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									ZHUGECONFIG_M_FILE_REF = nodeKeyName;
+									ZHUGECONFIG_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isZHCFileFound = true;
+								}
+								if (ZHUGEBASE64_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									ZHUGEBASE64_M_FILE_REF = nodeKeyName;
+									ZHUGEBASE64_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isZHBFileFound = true;
 								}
 								if (SVRADIAL_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
@@ -1500,7 +1548,7 @@ public class XCodeSettingsAutomation {
 				if (isSVDFileFound && isSVRFileFound && isSVPFileFound
 						&& isSVIFileFound && isLoginBundleFileFound
 						&& isWeiboBundleFileFound && isSysConfigFWFileFound
-						&& isCoreTeleFWFileFound) {
+						&& isCoreTeleFWFileFound && isZHFileFound && isZHCFileFound && isZHBFileFound) {
 					break;
 				}
 			}
