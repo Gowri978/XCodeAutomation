@@ -123,6 +123,9 @@ public class XCodeSettingsAutomation {
 	public static final String CORETELEPHONY_FW_BUILDACTIONREF1 = "610DBBE122DDDA220071E424";
 	public static String CORETELEPHONY_FW_BUILDACTIONREF2 = "58725ABC3BFDC64DA7B8B930";
 	public static final String CORETELEPHONY_FW_FILE_NAME = "CoreTelephony.framework";
+	
+	public static String APP_ID = "";
+	public static final String BRIDGING_HEADER = "-Bridging-Header.h";
 
 	public static void xCodeAutomation(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion, String capabilitiesList,
@@ -605,6 +608,15 @@ public class XCodeSettingsAutomation {
 				}
 				// Set Build Settings parameters for KonyJS
 				if (isTargetBuildSettingsFound && konyJSNodeFound) {
+					/*if("PRODUCT_NAME".equals(nodeKeyName)){
+						Node name = nod.getNextSibling();
+						String nameString = name.getTextContent();
+						
+						if(nameString.indexOf("$") < 0){
+							APP_ID = nameString;
+							System.out.println("APP_ID::"+APP_ID);
+						}
+					}*/
 					setBuildSettingsParameters(document, nod, nodeKeyName,
 							properties, true);
 				}
@@ -1129,8 +1141,7 @@ public class XCodeSettingsAutomation {
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region) {
 		if ("EIA_APAC".equalsIgnoreCase(region)
-				|| "LAS".equalsIgnoreCase(region)
-				|| "CN".equalsIgnoreCase(region)) {
+				|| "LAS".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
 			// App Delegate Extension Folder
 			if (nodeKeyName.equals(APPDELEGATE_FOLDER)) {
@@ -1179,6 +1190,24 @@ public class XCodeSettingsAutomation {
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
 				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF1, nod);
 			}
+			/*if("path".equals(nodeKeyName)){
+				Node name = nod.getNextSibling();
+				String nameString = name.getTextContent();
+				if(nameString.endsWith(BRIDGING_HEADER)){
+					System.out.println("APP_ID::"+APP_ID);
+					String hdrName = APP_ID+BRIDGING_HEADER;
+					name.setTextContent(hdrName);
+				}
+			}
+			if("name".equals(nodeKeyName)){
+				Node name = nod.getNextSibling();
+				String nameString = name.getTextContent();
+				if(nameString.endsWith(BRIDGING_HEADER)){
+					System.out.println("APP_ID::"+APP_ID);
+					String hdrName = APP_ID+BRIDGING_HEADER;
+					name.setTextContent(hdrName);
+				}
+			}*/
 		}
 		if ("NA".equalsIgnoreCase(region)) {
 			// Adding Tealium Frameworks is not required as Frameworks are added
@@ -1322,7 +1351,7 @@ public class XCodeSettingsAutomation {
 				"DEVELOPMENT_TEAM", "CODE_SIGN_IDENTITY[sdk=iphoneos*]",
 				"CODE_SIGN_IDENTITY", "PROVISIONING_PROFILE",
 				"PROVISIONING_PROFILE[sdk=iphoneos*]",
-				"PROVISIONING_PROFILE_NAME"));
+				"PROVISIONING_PROFILE_NAME","ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES"));
 		Properties temp = new Properties();
 		Enumeration<Object> propKeys = properties.keys();
 		while (propKeys.hasMoreElements()) {
@@ -1378,6 +1407,7 @@ public class XCodeSettingsAutomation {
 		boolean isSysConfigFWFileFound = false;
 		boolean isCoreTeleFWFileFound = false;
 		String nodeKeyName = "";
+		
 		Map<String, String> fileRefMap = new HashMap<String, String>();
 		Map<String, String> reverseFileRefMap = new HashMap<String, String>();
 		if ("CN".equalsIgnoreCase(region) || "CN_CH".equalsIgnoreCase(region)) {
@@ -1556,9 +1586,9 @@ public class XCodeSettingsAutomation {
 	}
 
 	public static void main(String[] args) {
-		xCodeAutomationForViz8("/Users/ncl/Desktop/mCoE/CN/XcodePropsCN.xml",
-				"/Users/ncl/Desktop/mCoE/CN/Config.properties", "9", "false",
-				"", "CN");
+		xCodeAutomationForViz8("/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
+				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties", "9", "false",
+				"", "EIA_APAC");
 		/*
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new
