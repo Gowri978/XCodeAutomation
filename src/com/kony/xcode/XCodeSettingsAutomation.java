@@ -42,6 +42,7 @@ public class XCodeSettingsAutomation {
 	public static final String DTBAPPDELEGATE_M_BUILDREF1 = "6145E2C9222F25C7004E9172";
 	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String DTBAPPDELEGATE_M_BUILDACTIONREF1 = "0C1CB9F520DB764200226998";
+	public static final String KONYJS_M_BUILDACTIONREF = "0C1CB9F820DB764200226998";
 	public static final String KONYAPPDELEGATE_H_FILE = "38FEE1861BDFA666000739B1";
 	public static final String TEALIUM_IOS_FW_REF = "A685ECE020A5F82800A22EB0";
 	public static final String TEALIUM_IOS_FW_FILE_NAME = "TealiumIOS.framework";
@@ -82,7 +83,6 @@ public class XCodeSettingsAutomation {
 	public static String ZHUGE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String ZHUGE_M_FILE_NAME = "Zhuge.m";
 
-	
 	public static String ZHUGEBASE64_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
 	public static String ZHUGEBASE64_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
 	public static final String ZHUGEBASE64_M_FILE_NAME = "ZhugeBase64.m";
@@ -91,7 +91,6 @@ public class XCodeSettingsAutomation {
 	public static String ZHUGECONFIG_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String ZHUGECONFIG_M_FILE_NAME = "ZhugeConfig.m";
 
-	
 	public static String SVRADIAL_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
 	public static String SVRADIAL_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
 	public static final String SVRADIAL_M_FILE_NAME = "SVRadialGradientLayer.m";
@@ -123,6 +122,95 @@ public class XCodeSettingsAutomation {
 	public static final String CORETELEPHONY_FW_BUILDACTIONREF1 = "610DBBE122DDDA220071E424";
 	public static String CORETELEPHONY_FW_BUILDACTIONREF2 = "58725ABC3BFDC64DA7B8B930";
 	public static final String CORETELEPHONY_FW_FILE_NAME = "CoreTelephony.framework";
+	
+	public static final String AMWAYLOGIN_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String AMWAYLOGIN_M_BUILDACTIONREF1 = "61C8A0B022F4567D00E1D3BF";
+	public static String AMWAYLOGIN_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
+	public static final String AMWAYLOGIN_BUNDLE_FILE_NAME = "FFIAmwayLogin.m";
+	
+	public static final String LOGINMANAGER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String LOGINMANAGER_M_BUILDACTIONREF1 = "61C8A0B122F456BD00E1D3BF";
+	public static String LOGINMANAGER_M_BUILDACTIONREF2 = "58725ABC57EF94E6802E0089";
+	public static final String LOGINMANAGER_BUNDLE_FILE_NAME = "FFILoginManager.m";
+	
+	public static final String WXAPIMANAGER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String WXAPIMANAGER_M_BUILDACTIONREF1 = "61C8A0B222F4571600E1D3BF";
+	public static String WXAPIMANAGER_M_BUILDACTIONREF2 = "58725ABCA43038F987792A33";
+	public static final String WXAPIMANAGER_BUNDLE_FILE_NAME = "WXAPIManager.m";
+	
+	public static final String ISSMSGOPERATOR_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ISSMSGOPERATOR_M_BUILDACTIONREF1 = "61C8A0B322F4575600E1D3BF";
+	public static String ISSMSGOPERATOR_M_BUILDACTIONREF2 = "58725ABC4F7528935FD9EF42";
+	public static final String ISSMSGOPERATOR_BUNDLE_FILE_NAME = "ISSMessageOperator.m";
+	
+	public static final String ISSMSGCENTER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static String ISSMSGCENTER_M_BUILDACTIONREF1 = "61C8A0B422F457A100E1D3BF";
+	public static String ISSMSGCENTER_M_BUILDACTIONREF2 = "58725ABC1819BBC6709B1E2B";
+	public static final String ISSMSGCENTER_BUNDLE_FILE_NAME = "ISSmessageCenter.m";
+	
+	public static final String ISSMSG_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ISSMSG_M_BUILDACTIONREF1 = "61C8A0B522F457DD00E1D3BF";
+	public static String ISSMSG_M_BUILDACTIONREF2 = "58725ABC56F924CC8DF38141";
+	
+	public static String ISSMSG_M_FILE_REF = "58725ABC56F924CC8DF38141";
+	public static String ISSMSG_M_BUILDFILE_REF = "58725ABCD9066C3FBDFEA577";
+	public static final String ISSMSG_BUNDLE_FILE_NAME = "ISSMessage.mm";
+	
+	public static final String MSGALERTVW_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String MSGALERTVW_M_BUILDACTIONREF1 = "61C8A0AE22F452CA00E1D3BF";
+	public static String MSGALERTVW_M_BUILDACTIONREF2 = "58725ABCD6E035B53A341A2B";
+	public static final String MSGALERTVW_BUNDLE_FILE_NAME = "MessageAlertView.m";
+	
+	public static final String ISSDESC_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ISSDESC_M_BUILDACTIONREF1 = "61C8A0B622F4581F00E1D3BF";
+	public static String ISSDESC_M_BUILDACTIONREF2 = "58725ABC1EDBE3B496BE1FD2";
+	public static final String ISSDESC_BUNDLE_FILE_NAME = "ISSDescription.m";
+	
+	public static final String ISSNWTOOL_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ISSNWTOOL_M_BUILDACTIONREF1 = "61C8A0B722F4586100E1D3BF";
+	public static String ISSNWTOOL_M_BUILDACTIONREF2 = "58725ABCB1094625BD2730C5";
+	public static final String ISSNWTOOL_BUNDLE_FILE_NAME = "ISSNetworkTool.m";
+	
+	public static final String ISSURL_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ISSURL_M_BUILDACTIONREF1 = "61C8A0AF22F4560D00E1D3BF";
+	public static String ISSURL_M_BUILDACTIONREF2 = "58725ABC79657FC16299630C";
+	public static final String ISSURL_BUNDLE_FILE_NAME = "ISSURL.m";
+	
+	public static String UIMASADD_M_FILE_REF = "58725ABC58AF84786B7CFF95";
+	public static String UIMASADD_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String UIMASADD_M_FILE_NAME = "View+MASAdditions.m";
+
+	public static String MASVIEWCONS_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
+	public static String MASVIEWCONS_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
+	public static final String MASVIEWCONS_M_FILE_NAME = "MASViewConstraint.m";
+
+	public static String MASCONS_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
+	public static String MASCONS_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String MASCONS_M_FILE_NAME = "MASConstraint.m";
+	
+	public static String MASCONSMAKER_M_FILE_REF = "58725ABC58AF84786B7CFF95";
+	public static String MASCONSMAKER_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String MASCONSMAKER_M_FILE_NAME = "MASConstraintMaker.m";
+
+	public static String MASCOMPCONS_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
+	public static String MASCOMPCONS_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
+	public static final String MASCOMPCONS_M_FILE_NAME = "MASCompositeConstraint.m";
+
+	public static String JSONMODEL_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
+	public static String JSONMODEL_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
+	public static final String JSONMODEL_M_FILE_NAME = "JSONModel.m";
+	
+	public static final String MJREFRESH_FILEREF_KONYJS = "0C1CB9F820DB764200226998";
+	public static final String MJREFRESH_FILEREF_KRELEASE = "1D60588D0D05DD3D006BFB54";
+	public static String MJREFRESH_BUILDFILE_REF = "58725ABC7867852FE76DF1FF";
+	public static String MJREFRESH_FILE_REF = "58725ABC03000E7E50283E61";
+	public static final String MJREFRESH_BUNDLE_FILE_NAME = "MJRefresh.bundle";
+	
+	//public static final String ASSETS_FILEREF_KONYJS = "0C1CB9F820DB764200226998";
+	//public static final String ASSETS_FILEREF_KRLEASE = "1D60588D0D05DD3D006BFB54";
+	public static String ASSETS_BUILDFILE_REF = "61C8A0BC22F4614B00E1D3BF";
+	public static String ASSETS_FILE_REF = "58725ABC1917288CA11376E9";
+	public static final String ASSETS_BUNDLE_FILE_NAME = "Assets.xcassets";
 	
 	public static String APP_ID = "";
 	public static final String BRIDGING_HEADER = "-Bridging-Header.h";
@@ -1094,8 +1182,39 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
+	
+	public static void removeBuildActionMaskRef(Document document,
+			String buildFileRef, Node nod) {
+		Element dtbBuildRef = document.createElement("string");
+		Text dtbBuildRefValue = document.createTextNode(buildFileRef);
+		dtbBuildRef.appendChild(dtbBuildRefValue);
 
-	/**
+		Node dict = nod.getNextSibling();
+		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+			Node buildActionMaskKey = dict.getFirstChild();
+			if ("key".equalsIgnoreCase(buildActionMaskKey.getNodeName())) {
+				if ("buildActionMask".equalsIgnoreCase(buildActionMaskKey
+						.getFirstChild().getNodeValue())) {
+					Node string = buildActionMaskKey.getNextSibling();
+					Node key = string.getNextSibling();
+					Node array = key.getNextSibling();
+					Node node = null;
+					if ("array".equalsIgnoreCase(array.getNodeName())) {
+						NodeList nList = array.getChildNodes();
+						for(int index=0; index< nList.getLength(); index++){
+							node = nList.item(index);
+							if(buildFileRef.equals(node.getTextContent())){
+								break;
+							}
+						}
+						array.removeChild(node);
+					}
+				}
+			}
+		}
+	}
+
+	/** 
 	 * Function to add Build Mask Reference in KRelease or KonyJS
 	 * 
 	 * @param document
@@ -1214,7 +1333,7 @@ public class XCodeSettingsAutomation {
 			// in the
 			// Visualizer FFI itself
 		}
-		if ("CN_CH".equalsIgnoreCase(region) || "CN".equalsIgnoreCase(region)) {
+		if ("CN_CH".equalsIgnoreCase(region)) {
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
 				addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF,
@@ -1282,6 +1401,127 @@ public class XCodeSettingsAutomation {
 				addBuildActionMaskRef(document,
 						CORETELEPHONY_FW_BUILDACTIONREF1, nod);
 			}
+		}
+		if ("CN_DH".equalsIgnoreCase(region)) {
+			// Changing the compiler flag value in the Build Phases for China
+			// Digital Hub App
+			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
+				removeCompilerFlags(nod,SVPROGRESSHUD_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(UIMASADD_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,UIMASADD_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(MASVIEWCONS_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,MASVIEWCONS_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(MASCONS_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,MASCONS_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(MASCONSMAKER_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,MASCONSMAKER_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(MASCOMPCONS_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,MASCOMPCONS_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(JSONMODEL_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,JSONMODEL_M_FILE_REF);
+			}
+			if (nodeKeyName.equals(ISSMSG_M_BUILDFILE_REF)) {
+				removeCompilerFlags(nod,ISSMSG_M_FILE_REF);
+			}
+			
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(AMWAYLOGIN_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
+						AMWAYLOGIN_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(LOGINMANAGER_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
+						LOGINMANAGER_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(WXAPIMANAGER_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
+						WXAPIMANAGER_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSMSGOPERATOR_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
+						ISSMSGOPERATOR_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSMSGCENTER_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
+						ISSMSGCENTER_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSMSG_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSMSG_M_BUILDACTIONREF1,
+						ISSMSG_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSMSG_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSDESC_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSDESC_M_BUILDACTIONREF1,
+						ISSDESC_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSDESC_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSNWTOOL_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
+						ISSNWTOOL_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(ISSURL_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ISSURL_M_BUILDACTIONREF1,
+						ISSURL_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ISSURL_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for KRelease
+			if (nodeKeyName.equals(MSGALERTVW_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, MSGALERTVW_M_BUILDACTIONREF1,
+						MSGALERTVW_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, MSGALERTVW_M_BUILDACTIONREF1,
+						nod);
+			}
+			// Removing the Action Build Mask for KonyJS
+			if (nodeKeyName.equals(MJREFRESH_FILEREF_KONYJS)) {
+				removeBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF,
+						nod);
+				removeBuildActionMaskRef(document, ASSETS_BUILDFILE_REF,
+						nod);
+			}
+			// Adding the Action Build Mask for KRelease
+			if (nodeKeyName.equals(MJREFRESH_FILEREF_KRELEASE)) {
+				addBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF,
+						nod);
+				addBuildActionMaskRef(document, ASSETS_BUILDFILE_REF,
+						nod);
+			}
+			
 		}
 	}
 
@@ -1392,6 +1632,37 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
+	
+	public static void removeCompilerFlags(Node nod,String fileRef) {
+		Node dict = nod.getNextSibling();
+		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
+			Node fileRefKey = dict.getFirstChild();
+			if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
+				if ("fileRef".equalsIgnoreCase(fileRefKey.getFirstChild()
+						.getNodeValue())) {
+					Node fileRefValue = fileRefKey.getNextSibling();
+					String SVDFile = fileRefValue.getTextContent();
+					if (fileRef.equalsIgnoreCase(SVDFile)) {
+						Node isaKey = fileRefValue.getNextSibling();
+						Node isaValue = isaKey.getNextSibling();
+						Node settingsKey = isaValue.getNextSibling();
+						Node dictNode = settingsKey.getNextSibling();
+						dict.removeChild(settingsKey);
+						dict.removeChild(dictNode);
+						/*if ("dict".equalsIgnoreCase(dictNode.getNodeName())) {
+							Node compilerFlagKey = dictNode.getFirstChild();
+							if ("COMPILER_FLAGS"
+									.equalsIgnoreCase(compilerFlagKey
+											.getTextContent())) {
+								Node key2 = compilerFlagKey.getNextSibling();
+								key2.setTextContent("-fobjc-arc");
+							}
+						}*/
+					}
+				}
+			}
+		}
+	}
 
 	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,
 			String region) {
@@ -1406,18 +1677,37 @@ public class XCodeSettingsAutomation {
 		boolean isWeiboBundleFileFound = false;
 		boolean isSysConfigFWFileFound = false;
 		boolean isCoreTeleFWFileFound = false;
+		boolean isAmwayLoginFileFound = false;
+		boolean isLoginManagerFileFound = false;
+		boolean isWXAPIManagerFileFound = false;
+		boolean isISSMsgOperatorFileFound = false;
+		boolean isISSMsgCenterFileFound = false;
+		boolean isISSMSGFileFound = false;
+		boolean isISSDescFileFound = false;
+		boolean isISSNEToolFileFound = false;
+		boolean isISSURLFileFound = false;
+		boolean isUIMASFileFound = false;
+		boolean isMVCFileFound = false;
+		boolean isMCFileFound = false;
+		boolean isMCMFileFound = false;
+		boolean isMCCFileFound = false;
+		boolean isJMFileFound = false;
+		boolean isISSMsgFileFound = false;
+		boolean isMJRFileFound = false;
+		boolean isAXFileFound = false;
+		
 		String nodeKeyName = "";
 		
 		Map<String, String> fileRefMap = new HashMap<String, String>();
 		Map<String, String> reverseFileRefMap = new HashMap<String, String>();
-		if ("CN".equalsIgnoreCase(region) || "CN_CH".equalsIgnoreCase(region)) {
+		if ("CN_DH".equalsIgnoreCase(region) || "CN_CH".equalsIgnoreCase(region)) {
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
 				if (nod.getNodeType() == Node.ELEMENT_NODE) {
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				}
 				// Adding the Files for Build Phases for KonyJS
-				if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
+				if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1) || nodeKeyName.equals(KONYJS_M_BUILDACTIONREF)) {
 					Node dict = nod.getNextSibling();
 					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 						Node fileRefKey = dict.getFirstChild();
@@ -1521,6 +1811,69 @@ public class XCodeSettingsAutomation {
 									// reverseFileRefMap.get(nodeKeyName);
 									isSVIFileFound = true;
 								}
+								if (UIMASADD_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									UIMASADD_M_FILE_REF = nodeKeyName;
+									UIMASADD_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isUIMASFileFound = true;
+								}
+								if (MASVIEWCONS_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									MASVIEWCONS_M_FILE_REF = nodeKeyName;
+									MASVIEWCONS_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isMVCFileFound = true;
+								}
+								if (MASCONS_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									MASCONS_M_FILE_REF = nodeKeyName;
+									MASCONS_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isMCFileFound = true;
+								}
+								if (MASCONSMAKER_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									MASCONSMAKER_M_FILE_REF = nodeKeyName;
+									MASCONSMAKER_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isMCMFileFound = true;
+								}
+								if (MASCOMPCONS_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									MASCOMPCONS_M_FILE_REF = nodeKeyName;
+									MASCOMPCONS_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isMCCFileFound = true;
+								}
+								if (JSONMODEL_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									JSONMODEL_M_FILE_REF = nodeKeyName;
+									JSONMODEL_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isJMFileFound = true;
+								}
+								if (ISSMSG_BUNDLE_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									ISSMSG_M_FILE_REF = nodeKeyName;
+									ISSMSG_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isISSMsgFileFound = true;
+								}
+								if (MJREFRESH_BUNDLE_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									MJREFRESH_FILE_REF = nodeKeyName;
+									MJREFRESH_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isMJRFileFound = true;
+								}
+								if (ASSETS_BUNDLE_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									ASSETS_FILE_REF = nodeKeyName;
+									ASSETS_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isAXFileFound = true;
+								}
 							}
 						}
 					}
@@ -1574,11 +1927,134 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
-
-				if (isSVDFileFound && isSVRFileFound && isSVPFileFound
-						&& isSVIFileFound && isLoginBundleFileFound
-						&& isWeiboBundleFileFound && isSysConfigFWFileFound
-						&& isCoreTeleFWFileFound && isZHFileFound && isZHCFileFound && isZHBFileFound) {
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (AMWAYLOGIN_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							AMWAYLOGIN_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isAmwayLoginFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (LOGINMANAGER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							LOGINMANAGER_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isLoginManagerFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (WXAPIMANAGER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							WXAPIMANAGER_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isWXAPIManagerFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSMSGOPERATOR_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSMSGOPERATOR_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSMsgOperatorFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSMSGCENTER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSMSGCENTER_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSMsgCenterFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSMSG_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSMSG_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSMSGFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSDESC_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSDESC_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSDescFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSNWTOOL_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSNWTOOL_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSNEToolFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ISSURL_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ISSURL_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSURLFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (MSGALERTVW_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							MSGALERTVW_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isISSURLFileFound = true;
+						}
+					}
+				}
+				
+				if (isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound
+						&& isWeiboBundleFileFound && isSysConfigFWFileFound && isCoreTeleFWFileFound && isZHFileFound 
+						&& isZHCFileFound && isZHBFileFound && isAmwayLoginFileFound && isLoginManagerFileFound 
+						&& isWXAPIManagerFileFound && isISSMsgOperatorFileFound && isISSMsgCenterFileFound 
+						&& isISSMSGFileFound && isISSDescFileFound && isISSNEToolFileFound && isISSURLFileFound
+						&& isUIMASFileFound && isMVCFileFound && isMCFileFound && isMCMFileFound && isMCCFileFound 
+						&& isJMFileFound && isISSMsgFileFound && isMJRFileFound && isAXFileFound) {
 					break;
 				}
 			}
@@ -1587,8 +2063,8 @@ public class XCodeSettingsAutomation {
 
 	public static void main(String[] args) {
 		xCodeAutomationForViz8("/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
-				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties", "9", "false",
-				"", "EIA_APAC");
+				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties", "10", "false",
+				"", "CN_DH");
 		/*
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new
