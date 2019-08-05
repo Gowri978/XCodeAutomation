@@ -212,6 +212,10 @@ public class XCodeSettingsAutomation {
 	public static String ASSETS_FILE_REF = "58725ABC1917288CA11376E9";
 	public static final String ASSETS_BUNDLE_FILE_NAME = "Assets.xcassets";
 	
+	public static final String JSMESSAGE_CENTER_FFI_FILE_NAME = "JSMessageCenterIOSMsgCenterFFIFFIClass.m";
+	public static final String JSMESSAGE_CENTER_FFI_C_FILE_TYPE = "sourcecode.c.objc";
+	public static final String JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE = "sourcecode.cpp.objcpp";
+
 	public static String APP_ID = "";
 	public static final String BRIDGING_HEADER = "-Bridging-Header.h";
 
@@ -2047,7 +2051,34 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
-				
+				if (("CN_DH".equalsIgnoreCase(region))
+						&& ("path".equalsIgnoreCase(nodeKeyName))) {
+					Node pathNode = nod.getNextSibling();
+					Node fileTypeNode = nod.getPreviousSibling();
+					String path = pathNode.getTextContent();
+					String fileType = fileTypeNode.getTextContent();
+					if (JSMESSAGE_CENTER_FFI_FILE_NAME.equals(path)) {
+						pathNode.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME+"m");
+						if (JSMESSAGE_CENTER_FFI_C_FILE_TYPE.equals(fileType)) {
+							fileTypeNode
+									.setTextContent(JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE);
+						} else if (JSMESSAGE_CENTER_FFI_FILE_NAME
+								.equals(fileType)) {
+							Node nameNode = fileTypeNode.getPreviousSibling();
+							if ("name".equals(nameNode.getTextContent())) {
+								Node typeValeN = nameNode.getPreviousSibling();
+								Node fileTypeN = typeValeN.getPreviousSibling();
+								if ("lastKnownFileType".equals(fileTypeN
+										.getTextContent())) {
+									typeValeN
+											.setTextContent(JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE);
+									fileTypeNode
+											.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME+"m");
+								}
+							}
+						}
+					}
+				}
 				if (isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound
 						&& isWeiboBundleFileFound && isSysConfigFWFileFound && isCoreTeleFWFileFound && isZHFileFound 
 						&& isZHCFileFound && isZHBFileFound && isAmwayLoginFileFound && isLoginManagerFileFound 
