@@ -74,11 +74,14 @@ public class XCodeSettingsAutomation {
 	public static final String KPROTECTED_PROTECTED_NODE = "5EB24D841B6B7C0200369597";
 	public static final String KPROTECTED_DISTRIBUTION_NODE = "5EB24D851B6B7C0200369597";
 
+	public static final String SVPROGRESSHUD_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String SVPROGRESSHUD_M_BUILDACTIONREF1 = "61D292EF233CFE4400518346";
+	public static String SVPROGRESSHUD_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
 	public static String SVPROGRESSHUD_M_FILE_REF = "6151AFC922C4ADE400265F9B";
 	public static String SVPROGRESSHUD_M_BUILDFILE_REF = "58725ABC99DB6D5AD8884A14";
 	public static String SVPROGRESSHUD_M_BUILDFILE_REF1 = "58725ABC99DB6D5AD8884A14";
 	public static final String SVPROGRESSHUD_M_FILE_NAME = "SVProgressHUD.m";
-	
+
 	public static String ZHUGE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String ZHUGE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String ZHUGE_M_FILE_NAME = "Zhuge.m";
@@ -91,14 +94,23 @@ public class XCodeSettingsAutomation {
 	public static String ZHUGECONFIG_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String ZHUGECONFIG_M_FILE_NAME = "ZhugeConfig.m";
 
+	public static final String SVRADIAL_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String SVRADIAL_M_BUILDACTIONREF1 = "61D292F1233CFE4A00518346";
+	public static String SVRADIAL_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
 	public static String SVRADIAL_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
 	public static String SVRADIAL_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
 	public static final String SVRADIAL_M_FILE_NAME = "SVRadialGradientLayer.m";
 
+	public static final String SVPROGRESSANIM_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String SVPROGRESSANIM_M_BUILDACTIONREF1 = "61D292F2233CFE4D00518346";
+	public static String SVPROGRESSANIM_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
 	public static String SVPROGRESSANIM_M_FILE_REF = "6151AFC822C4ADE100265F9B";
 	public static String SVPROGRESSANIM_M_BUILDFILE_REF = "58725ABC2017F96A10E4028B";
 	public static final String SVPROGRESSANIM_M_FILE_NAME = "SVProgressAnimatedView.m";
 
+	public static final String SVINDEFINITE_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String SVINDEFINITE_M_BUILDACTIONREF1 = "61D292F3233CFE4F00518346";
+	public static String SVINDEFINITE_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
 	public static String SVINDEFINITE_M_FILE_REF = "6151AFCA22C4ADE600265F9B";
 	public static String SVINDEFINITE_M_BUILDFILE_REF = "58725ABCB5E48944818BF6A4";
 	public static final String SVINDEFINITE_M_FILE_NAME = "SVIndefiniteAnimatedView.m";
@@ -107,6 +119,11 @@ public class XCodeSettingsAutomation {
 	public static final String LOGINBUNDLE_M_BUILDACTIONREF1 = "A642B6B6228043DF007B0BFF";
 	public static String LOGINBUNDLE_M_BUILDACTIONREF2 = "58725ABCB7566CAE56E5A15F";
 	public static final String LOGIN_BUNDLE_FILE_NAME = "LoginCenterSource.bundle";
+
+	public static final String SVPBUNDLE_M_BUILDACTIONREF = "1D60588D0D05DD3D006BFB54";
+	public static final String SVPBUNDLE_M_BUILDACTIONREF1 = "61D292ED233CFD7A00518346";
+	public static String SVPBUNDLE_M_BUILDACTIONREF2 = "58725ABC3777B74B11EBFA43";
+	public static final String SVP_BUNDLE_FILE_NAME = "SVProgressHUD.bundle";
 
 	public static final String WEIBOBUNDLE_M_BUILDACTIONREF = "1D60588D0D05DD3D006BFB54";
 	public static final String WEIBOBUNDLE_M_BUILDACTIONREF1 = "610DBBDA22DCA0F10071E424";
@@ -122,60 +139,60 @@ public class XCodeSettingsAutomation {
 	public static final String CORETELEPHONY_FW_BUILDACTIONREF1 = "610DBBE122DDDA220071E424";
 	public static String CORETELEPHONY_FW_BUILDACTIONREF2 = "58725ABC3BFDC64DA7B8B930";
 	public static final String CORETELEPHONY_FW_FILE_NAME = "CoreTelephony.framework";
-	
+
 	public static final String AMWAYLOGIN_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String AMWAYLOGIN_M_BUILDACTIONREF1 = "61C8A0B022F4567D00E1D3BF";
 	public static String AMWAYLOGIN_M_BUILDACTIONREF2 = "58725ABC53B1BBE93B84FCCD";
 	public static final String AMWAYLOGIN_BUNDLE_FILE_NAME = "FFIAmwayLogin.m";
-	
+
 	public static final String LOGINMANAGER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String LOGINMANAGER_M_BUILDACTIONREF1 = "61C8A0B122F456BD00E1D3BF";
 	public static String LOGINMANAGER_M_BUILDACTIONREF2 = "58725ABC57EF94E6802E0089";
 	public static final String LOGINMANAGER_BUNDLE_FILE_NAME = "FFILoginManager.m";
-	
+
 	public static final String WXAPIMANAGER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String WXAPIMANAGER_M_BUILDACTIONREF1 = "61C8A0B222F4571600E1D3BF";
 	public static String WXAPIMANAGER_M_BUILDACTIONREF2 = "58725ABCA43038F987792A33";
 	public static final String WXAPIMANAGER_BUNDLE_FILE_NAME = "WXAPIManager.m";
-	
+
 	public static final String ISSMSGOPERATOR_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String ISSMSGOPERATOR_M_BUILDACTIONREF1 = "61C8A0B322F4575600E1D3BF";
 	public static String ISSMSGOPERATOR_M_BUILDACTIONREF2 = "58725ABC4F7528935FD9EF42";
 	public static final String ISSMSGOPERATOR_BUNDLE_FILE_NAME = "ISSMessageOperator.m";
-	
+
 	public static final String ISSMSGCENTER_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static String ISSMSGCENTER_M_BUILDACTIONREF1 = "61C8A0B422F457A100E1D3BF";
 	public static String ISSMSGCENTER_M_BUILDACTIONREF2 = "58725ABC1819BBC6709B1E2B";
 	public static final String ISSMSGCENTER_BUNDLE_FILE_NAME = "ISSmessageCenter.m";
-	
+
 	public static final String ISSMSG_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String ISSMSG_M_BUILDACTIONREF1 = "61C8A0B522F457DD00E1D3BF";
 	public static String ISSMSG_M_BUILDACTIONREF2 = "58725ABC56F924CC8DF38141";
-	
+
 	public static String ISSMSG_M_FILE_REF = "58725ABC56F924CC8DF38141";
 	public static String ISSMSG_M_BUILDFILE_REF = "58725ABCD9066C3FBDFEA577";
 	public static final String ISSMSG_BUNDLE_FILE_NAME = "ISSMessage.mm";
-	
+
 	public static final String MSGALERTVW_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String MSGALERTVW_M_BUILDACTIONREF1 = "61C8A0AE22F452CA00E1D3BF";
 	public static String MSGALERTVW_M_BUILDACTIONREF2 = "58725ABCD6E035B53A341A2B";
 	public static final String MSGALERTVW_BUNDLE_FILE_NAME = "MessageAlertView.m";
-	
+
 	public static final String ISSDESC_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String ISSDESC_M_BUILDACTIONREF1 = "61C8A0B622F4581F00E1D3BF";
 	public static String ISSDESC_M_BUILDACTIONREF2 = "58725ABC1EDBE3B496BE1FD2";
 	public static final String ISSDESC_BUNDLE_FILE_NAME = "ISSDescription.m";
-	
+
 	public static final String ISSNWTOOL_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String ISSNWTOOL_M_BUILDACTIONREF1 = "61C8A0B722F4586100E1D3BF";
 	public static String ISSNWTOOL_M_BUILDACTIONREF2 = "58725ABCB1094625BD2730C5";
 	public static final String ISSNWTOOL_BUNDLE_FILE_NAME = "ISSNetworkTool.m";
-	
+
 	public static final String ISSURL_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
 	public static final String ISSURL_M_BUILDACTIONREF1 = "61C8A0AF22F4560D00E1D3BF";
 	public static String ISSURL_M_BUILDACTIONREF2 = "58725ABC79657FC16299630C";
 	public static final String ISSURL_BUNDLE_FILE_NAME = "ISSURL.m";
-	
+
 	public static String UIMASADD_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String UIMASADD_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String UIMASADD_M_FILE_NAME = "View+MASAdditions.m";
@@ -187,7 +204,7 @@ public class XCodeSettingsAutomation {
 	public static String MASCONS_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
 	public static String MASCONS_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String MASCONS_M_FILE_NAME = "MASConstraint.m";
-	
+
 	public static String MASCONSMAKER_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String MASCONSMAKER_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String MASCONSMAKER_M_FILE_NAME = "MASConstraintMaker.m";
@@ -199,67 +216,69 @@ public class XCodeSettingsAutomation {
 	public static String JSONMODEL_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
 	public static String JSONMODEL_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String JSONMODEL_M_FILE_NAME = "JSONModel.m";
-	
+
 	public static String CDVAUTH_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CDVAUTH_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CDVAUTH_M_FILE_NAME = "CDVAuthorization.m";
-	
+
 	public static String CBROW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CBROW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CBROW_M_FILE_NAME = "CBrowserFFI.m";
-	
+
 	public static String PGNATIVE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String PGNATIVE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String PGNATIVE_M_FILE_NAME = "PGNative.m";
-	
+
 	public static String CDVBARSCAN_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CDVBARSCAN_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CDVBARSCAN_M_FILE_NAME = "CDVBarcodeScanner.m";
-	
+
 	public static String NSAC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String NSAC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String NSAC_M_FILE_NAME = "NSArray+Comparisons.m";
-	
+
 	public static String SCANVW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String SCANVW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String SCANVW_M_FILE_NAME = "ScanView.m";
-	
+
 	public static String QRCVC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String QRCVC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String QRCVC_M_FILE_NAME = "QRCodeViewController.m";
-	
+
 	public static String CDVC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CDVC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CDVC_M_FILE_NAME = "CDVCamera.m";
-	
+
 	public static String AHAUTHHELP_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String AHAUTHHELP_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String AHAUTHHELP_M_FILE_NAME = "AHAuthorizationHelper.m";
-	
+
 	public static String CDVJHW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CDVJHW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CDVJHW_M_FILE_NAME = "CDVJpegHeaderWriter.m";
-	
+
 	public static String NSDICTEX_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String NSDICTEX_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String NSDICTEX_M_FILE_NAME = "NSDictionary+Extensions.m";
-	
+
 	public static String NSDB_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String NSDB_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String NSDB_M_FILE_NAME = "NSData+Base64.m";
-	
+
 	public static final String MJREFRESH_FILEREF_KONYJS = "0C1CB9F820DB764200226998";
 	public static final String MJREFRESH_FILEREF_KRELEASE = "1D60588D0D05DD3D006BFB54";
 	public static String MJREFRESH_BUILDFILE_REF = "58725ABC7867852FE76DF1FF";
 	public static String MJREFRESH_FILE_REF = "58725ABC03000E7E50283E61";
 	public static final String MJREFRESH_BUNDLE_FILE_NAME = "MJRefresh.bundle";
-	
-	//public static final String ASSETS_FILEREF_KONYJS = "0C1CB9F820DB764200226998";
-	//public static final String ASSETS_FILEREF_KRLEASE = "1D60588D0D05DD3D006BFB54";
+
+	// public static final String ASSETS_FILEREF_KONYJS =
+	// "0C1CB9F820DB764200226998";
+	// public static final String ASSETS_FILEREF_KRLEASE =
+	// "1D60588D0D05DD3D006BFB54";
 	public static String ASSETS_BUILDFILE_REF = "61C8A0BC22F4614B00E1D3BF";
 	public static String ASSETS_FILE_REF = "58725ABC1917288CA11376E9";
 	public static final String ASSETS_BUNDLE_FILE_NAME = "Assets.xcassets";
-	
+
 	public static final String JSMESSAGE_CENTER_FFI_FILE_NAME = "JSMessageCenterIOSMsgCenterFFIFFIClass.m";
 	public static final String JSMESSAGE_CENTER_FFI_C_FILE_TYPE = "sourcecode.c.objc";
 	public static final String JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE = "sourcecode.cpp.objcpp";
@@ -748,15 +767,14 @@ public class XCodeSettingsAutomation {
 				}
 				// Set Build Settings parameters for KonyJS
 				if (isTargetBuildSettingsFound && konyJSNodeFound) {
-					/*if("PRODUCT_NAME".equals(nodeKeyName)){
-						Node name = nod.getNextSibling();
-						String nameString = name.getTextContent();
-						
-						if(nameString.indexOf("$") < 0){
-							APP_ID = nameString;
-							System.out.println("APP_ID::"+APP_ID);
-						}
-					}*/
+					/*
+					 * if("PRODUCT_NAME".equals(nodeKeyName)){ Node name =
+					 * nod.getNextSibling(); String nameString =
+					 * name.getTextContent();
+					 * 
+					 * if(nameString.indexOf("$") < 0){ APP_ID = nameString;
+					 * System.out.println("APP_ID::"+APP_ID); } }
+					 */
 					setBuildSettingsParameters(document, nod, nodeKeyName,
 							properties, true);
 				}
@@ -1234,7 +1252,7 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
-	
+
 	public static void removeBuildActionMaskRef(Document document,
 			String buildFileRef, Node nod) {
 		Element dtbBuildRef = document.createElement("string");
@@ -1253,9 +1271,9 @@ public class XCodeSettingsAutomation {
 					Node node = null;
 					if ("array".equalsIgnoreCase(array.getNodeName())) {
 						NodeList nList = array.getChildNodes();
-						for(int index=0; index< nList.getLength(); index++){
+						for (int index = 0; index < nList.getLength(); index++) {
 							node = nList.item(index);
-							if(buildFileRef.equals(node.getTextContent())){
+							if (buildFileRef.equals(node.getTextContent())) {
 								break;
 							}
 						}
@@ -1266,7 +1284,7 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
-	/** 
+	/**
 	 * Function to add Build Mask Reference in KRelease or KonyJS
 	 * 
 	 * @param document
@@ -1361,24 +1379,18 @@ public class XCodeSettingsAutomation {
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
 				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF1, nod);
 			}
-			/*if("path".equals(nodeKeyName)){
-				Node name = nod.getNextSibling();
-				String nameString = name.getTextContent();
-				if(nameString.endsWith(BRIDGING_HEADER)){
-					System.out.println("APP_ID::"+APP_ID);
-					String hdrName = APP_ID+BRIDGING_HEADER;
-					name.setTextContent(hdrName);
-				}
-			}
-			if("name".equals(nodeKeyName)){
-				Node name = nod.getNextSibling();
-				String nameString = name.getTextContent();
-				if(nameString.endsWith(BRIDGING_HEADER)){
-					System.out.println("APP_ID::"+APP_ID);
-					String hdrName = APP_ID+BRIDGING_HEADER;
-					name.setTextContent(hdrName);
-				}
-			}*/
+			/*
+			 * if("path".equals(nodeKeyName)){ Node name = nod.getNextSibling();
+			 * String nameString = name.getTextContent();
+			 * if(nameString.endsWith(BRIDGING_HEADER)){
+			 * System.out.println("APP_ID::"+APP_ID); String hdrName =
+			 * APP_ID+BRIDGING_HEADER; name.setTextContent(hdrName); } }
+			 * if("name".equals(nodeKeyName)){ Node name = nod.getNextSibling();
+			 * String nameString = name.getTextContent();
+			 * if(nameString.endsWith(BRIDGING_HEADER)){
+			 * System.out.println("APP_ID::"+APP_ID); String hdrName =
+			 * APP_ID+BRIDGING_HEADER; name.setTextContent(hdrName); } }
+			 */
 		}
 		if ("NA".equalsIgnoreCase(region)) {
 			// Adding Tealium Frameworks is not required as Frameworks are added
@@ -1413,18 +1425,18 @@ public class XCodeSettingsAutomation {
 			// Changing the compiler flag value in the Build Phases for China
 			// Content Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
-				updateCompilerFlags(nod,SVPROGRESSHUD_M_FILE_REF);
+				updateCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGE_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod,ZHUGE_M_FILE_REF);
+				updateCompilerFlags(nod, ZHUGE_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGECONFIG_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod,ZHUGECONFIG_M_FILE_REF);
+				updateCompilerFlags(nod, ZHUGECONFIG_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGEBASE64_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod,ZHUGEBASE64_M_FILE_REF);
+				updateCompilerFlags(nod, ZHUGEBASE64_M_FILE_REF);
 			}
-			
+
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
@@ -1458,137 +1470,145 @@ public class XCodeSettingsAutomation {
 			// Changing the compiler flag value in the Build Phases for China
 			// Digital Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
-				removeCompilerFlags(nod,SVPROGRESSHUD_M_FILE_REF);
+				removeCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(UIMASADD_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,UIMASADD_M_FILE_REF);
+				removeCompilerFlags(nod, UIMASADD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASVIEWCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,MASVIEWCONS_M_FILE_REF);
+				removeCompilerFlags(nod, MASVIEWCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,MASCONS_M_FILE_REF);
+				removeCompilerFlags(nod, MASCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCONSMAKER_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,MASCONSMAKER_M_FILE_REF);
+				removeCompilerFlags(nod, MASCONSMAKER_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCOMPCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,MASCOMPCONS_M_FILE_REF);
+				removeCompilerFlags(nod, MASCOMPCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(JSONMODEL_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,JSONMODEL_M_FILE_REF);
+				removeCompilerFlags(nod, JSONMODEL_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ISSMSG_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,ISSMSG_M_FILE_REF);
+				removeCompilerFlags(nod, ISSMSG_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVAUTH_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,CDVAUTH_M_FILE_REF);
+				removeCompilerFlags(nod, CDVAUTH_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CBROW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,CBROW_M_FILE_REF);
+				removeCompilerFlags(nod, CBROW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(PGNATIVE_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,PGNATIVE_M_FILE_REF);
+				removeCompilerFlags(nod, PGNATIVE_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVBARSCAN_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,CDVBARSCAN_M_FILE_REF);
+				removeCompilerFlags(nod, CDVBARSCAN_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSAC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,NSAC_M_FILE_REF);
+				removeCompilerFlags(nod, NSAC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(SCANVW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,SCANVW_M_FILE_REF);
+				removeCompilerFlags(nod, SCANVW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(QRCVC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,QRCVC_M_FILE_REF);
+				removeCompilerFlags(nod, QRCVC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,CDVC_M_FILE_REF);
+				removeCompilerFlags(nod, CDVC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(AHAUTHHELP_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,AHAUTHHELP_M_FILE_REF);
+				removeCompilerFlags(nod, AHAUTHHELP_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVJHW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,CDVJHW_M_FILE_REF);
+				removeCompilerFlags(nod, CDVJHW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSDICTEX_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,NSDICTEX_M_FILE_REF);
+				removeCompilerFlags(nod, NSDICTEX_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSDB_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod,NSDB_M_FILE_REF);
+				removeCompilerFlags(nod, NSDB_M_FILE_REF);
 			}
-			
-			// Adding the Files Details and Encoding based on Reference for KRelease
+
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(AMWAYLOGIN_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
 						AMWAYLOGIN_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(LOGINMANAGER_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
 						LOGINMANAGER_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(WXAPIMANAGER_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
 						WXAPIMANAGER_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSMSGOPERATOR_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
 						ISSMSGOPERATOR_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
-						nod);
+				addBuildActionMaskRef(document,
+						ISSMSGOPERATOR_M_BUILDACTIONREF1, nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSMSGCENTER_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
 						ISSMSGCENTER_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSMSG_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSMSG_M_BUILDACTIONREF1,
 						ISSMSG_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSMSG_M_BUILDACTIONREF1,
-						nod);
+				addBuildActionMaskRef(document, ISSMSG_M_BUILDACTIONREF1, nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSDESC_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSDESC_M_BUILDACTIONREF1,
 						ISSDESC_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSDESC_M_BUILDACTIONREF1,
-						nod);
+				addBuildActionMaskRef(document, ISSDESC_M_BUILDACTIONREF1, nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSNWTOOL_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
 						ISSNWTOOL_M_BUILDACTIONREF2, nod);
 				addBuildActionMaskRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(ISSURL_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, ISSURL_M_BUILDACTIONREF1,
 						ISSURL_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSURL_M_BUILDACTIONREF1,
-						nod);
+				addBuildActionMaskRef(document, ISSURL_M_BUILDACTIONREF1, nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
 			if (nodeKeyName.equals(MSGALERTVW_M_BUILDACTIONREF)) {
 				addBuildFileRef(document, MSGALERTVW_M_BUILDACTIONREF1,
 						MSGALERTVW_M_BUILDACTIONREF2, nod);
@@ -1597,18 +1617,55 @@ public class XCodeSettingsAutomation {
 			}
 			// Removing the Action Build Mask for KonyJS
 			if (nodeKeyName.equals(MJREFRESH_FILEREF_KONYJS)) {
-				removeBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF,
-						nod);
-				removeBuildActionMaskRef(document, ASSETS_BUILDFILE_REF,
-						nod);
+				removeBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
+				removeBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
 			}
 			// Adding the Action Build Mask for KRelease
 			if (nodeKeyName.equals(MJREFRESH_FILEREF_KRELEASE)) {
-				addBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF,
+				addBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
+				addBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
+			}
+
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(SVRADIAL_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, SVRADIAL_M_BUILDACTIONREF1,
+						SVRADIAL_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, SVRADIAL_M_BUILDACTIONREF1, nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(SVPROGRESSANIM_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, SVPROGRESSANIM_M_BUILDACTIONREF1,
+						SVPROGRESSANIM_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document,
+						SVPROGRESSANIM_M_BUILDACTIONREF1, nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(SVINDEFINITE_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
+						SVINDEFINITE_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
 						nod);
-				addBuildActionMaskRef(document, ASSETS_BUILDFILE_REF,
+			}
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, SVPROGRESSHUD_M_BUILDACTIONREF1,
+						SVPROGRESSHUD_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document,
+						SVPROGRESSHUD_M_BUILDACTIONREF1, nod);
+			}
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(SVPBUNDLE_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
+						SVPBUNDLE_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
 						nod);
-			}	
+			}
+
 		}
 	}
 
@@ -1678,7 +1735,8 @@ public class XCodeSettingsAutomation {
 				"DEVELOPMENT_TEAM", "CODE_SIGN_IDENTITY[sdk=iphoneos*]",
 				"CODE_SIGN_IDENTITY", "PROVISIONING_PROFILE",
 				"PROVISIONING_PROFILE[sdk=iphoneos*]",
-				"PROVISIONING_PROFILE_NAME","ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES"));
+				"PROVISIONING_PROFILE_NAME",
+				"ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES"));
 		Properties temp = new Properties();
 		Enumeration<Object> propKeys = properties.keys();
 		while (propKeys.hasMoreElements()) {
@@ -1691,7 +1749,7 @@ public class XCodeSettingsAutomation {
 		return temp;
 	}
 
-	public static void updateCompilerFlags(Node nod,String fileRef) {
+	public static void updateCompilerFlags(Node nod, String fileRef) {
 		Node dict = nod.getNextSibling();
 		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 			Node fileRefKey = dict.getFirstChild();
@@ -1719,8 +1777,8 @@ public class XCodeSettingsAutomation {
 			}
 		}
 	}
-	
-	public static void removeCompilerFlags(Node nod,String fileRef) {
+
+	public static void removeCompilerFlags(Node nod, String fileRef) {
 		Node dict = nod.getNextSibling();
 		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 			Node fileRefKey = dict.getFirstChild();
@@ -1732,19 +1790,23 @@ public class XCodeSettingsAutomation {
 					if (fileRef.equalsIgnoreCase(SVDFile)) {
 						Node isaKey = fileRefValue.getNextSibling();
 						Node isaValue = isaKey.getNextSibling();
-						Node settingsKey = isaValue.getNextSibling();
-						Node dictNode = settingsKey.getNextSibling();
-						dict.removeChild(settingsKey);
-						dict.removeChild(dictNode);
-						/*if ("dict".equalsIgnoreCase(dictNode.getNodeName())) {
-							Node compilerFlagKey = dictNode.getFirstChild();
-							if ("COMPILER_FLAGS"
-									.equalsIgnoreCase(compilerFlagKey
-											.getTextContent())) {
-								Node key2 = compilerFlagKey.getNextSibling();
-								key2.setTextContent("-fobjc-arc");
+						if (null != isaValue) {
+							Node settingsKey = isaValue.getNextSibling();
+							if (null != settingsKey) {
+								Node dictNode = settingsKey.getNextSibling();
+								dict.removeChild(settingsKey);
+								dict.removeChild(dictNode);
 							}
-						}*/
+						}
+
+						/*
+						 * if ("dict".equalsIgnoreCase(dictNode.getNodeName()))
+						 * { Node compilerFlagKey = dictNode.getFirstChild(); if
+						 * ("COMPILER_FLAGS" .equalsIgnoreCase(compilerFlagKey
+						 * .getTextContent())) { Node key2 =
+						 * compilerFlagKey.getNextSibling();
+						 * key2.setTextContent("-fobjc-arc"); } }
+						 */
 					}
 				}
 			}
@@ -1757,7 +1819,7 @@ public class XCodeSettingsAutomation {
 		boolean isSVPFileFound = false;
 		boolean isSVIFileFound = false;
 		boolean isSVRFileFound = false;
-		boolean isZHFileFound  = false;
+		boolean isZHFileFound = false;
 		boolean isZHCFileFound = false;
 		boolean isZHBFileFound = false;
 		boolean isLoginBundleFileFound = false;
@@ -1794,19 +1856,27 @@ public class XCodeSettingsAutomation {
 		boolean isCDVJHMFileFound = false;
 		boolean isNSDEXFileFound = false;
 		boolean isNSDBFileFound = false;
-		
+
+		boolean isSVPBundleFileFound = false;
+		boolean isSVRRefFileFound = false;
+		boolean isSVPARefFileFound = false;
+		boolean isSVIRefFileFound = false;
+		boolean isSVPHRefFileFound = false;
+
 		String nodeKeyName = "";
-		
+
 		Map<String, String> fileRefMap = new HashMap<String, String>();
 		Map<String, String> reverseFileRefMap = new HashMap<String, String>();
-		if ("CN_DH".equalsIgnoreCase(region) || "CN_CH".equalsIgnoreCase(region)) {
+		if ("CN_DH".equalsIgnoreCase(region)
+				|| "CN_CH".equalsIgnoreCase(region)) {
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
 				if (nod.getNodeType() == Node.ELEMENT_NODE) {
 					nodeKeyName = nod.getFirstChild().getNodeValue();
 				}
 				// Adding the Files for Build Phases for KonyJS
-				if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1) || nodeKeyName.equals(KONYJS_M_BUILDACTIONREF)) {
+				if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)
+						|| nodeKeyName.equals(KONYJS_M_BUILDACTIONREF)) {
 					Node dict = nod.getNextSibling();
 					if ("dict".equalsIgnoreCase(dict.getNodeName())) {
 						Node fileRefKey = dict.getFirstChild();
@@ -1899,15 +1969,15 @@ public class XCodeSettingsAutomation {
 								if (SVPROGRESSANIM_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
 									SVPROGRESSANIM_M_FILE_REF = nodeKeyName;
-									// SVPROGRESSANIM_M_BUILDFILE_REF =
-									// reverseFileRefMap.get(nodeKeyName);
+									// SVPROGRESSANIM_M_BUILDFILE_REF
+									// =reverseFileRefMap.get(nodeKeyName);
 									isSVPFileFound = true;
 								}
 								if (SVINDEFINITE_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
 									SVINDEFINITE_M_FILE_REF = nodeKeyName;
-									// SVINDEFINITE_M_BUILDFILE_REF =
-									// reverseFileRefMap.get(nodeKeyName);
+									// SVINDEFINITE_M_BUILDFILE_REF
+									// =reverseFileRefMap.get(nodeKeyName);
 									isSVIFileFound = true;
 								}
 								if (UIMASADD_M_FILE_NAME
@@ -1973,18 +2043,19 @@ public class XCodeSettingsAutomation {
 											.get(nodeKeyName);
 									isAXFileFound = true;
 								}
-								
-								
+
 								if (CDVAUTH_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
 									CDVAUTH_M_FILE_REF = nodeKeyName;
-									CDVAUTH_M_BUILDFILE_REF = reverseFileRefMap.get(nodeKeyName);
+									CDVAUTH_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
 									isCDVFileFound = true;
 								}
 								if (CBROW_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
 									CBROW_M_FILE_REF = nodeKeyName;
-									CBROW_M_BUILDFILE_REF =  reverseFileRefMap.get(nodeKeyName);
+									CBROW_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
 									isCBRWFileFound = true;
 								}
 								if (PGNATIVE_M_FILE_NAME
@@ -2001,8 +2072,7 @@ public class XCodeSettingsAutomation {
 											.get(nodeKeyName);
 									isCDVBSFileFound = true;
 								}
-								if (NSAC_M_FILE_NAME
-										.equalsIgnoreCase(fileName)) {
+								if (NSAC_M_FILE_NAME.equalsIgnoreCase(fileName)) {
 									NSAC_M_FILE_REF = nodeKeyName;
 									NSAC_M_BUILDFILE_REF = reverseFileRefMap
 											.get(nodeKeyName);
@@ -2022,8 +2092,7 @@ public class XCodeSettingsAutomation {
 											.get(nodeKeyName);
 									isQRCVCFileFound = true;
 								}
-								if (CDVC_M_FILE_NAME
-										.equalsIgnoreCase(fileName)) {
+								if (CDVC_M_FILE_NAME.equalsIgnoreCase(fileName)) {
 									CDVC_M_FILE_REF = nodeKeyName;
 									CDVC_M_BUILDFILE_REF = reverseFileRefMap
 											.get(nodeKeyName);
@@ -2050,16 +2119,13 @@ public class XCodeSettingsAutomation {
 											.get(nodeKeyName);
 									isNSDEXFileFound = true;
 								}
-								if (NSDB_M_FILE_NAME
-										.equalsIgnoreCase(fileName)) {
+								if (NSDB_M_FILE_NAME.equalsIgnoreCase(fileName)) {
 									NSDB_M_FILE_REF = nodeKeyName;
 									NSDB_M_BUILDFILE_REF = reverseFileRefMap
 											.get(nodeKeyName);
 									isNSDBFileFound = true;
 								}
-								
-								
-								
+
 							}
 						}
 					}
@@ -2116,7 +2182,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (AMWAYLOGIN_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (AMWAYLOGIN_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							AMWAYLOGIN_M_BUILDACTIONREF2 = keyNode
@@ -2128,7 +2195,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (LOGINMANAGER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (LOGINMANAGER_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							LOGINMANAGER_M_BUILDACTIONREF2 = keyNode
@@ -2140,7 +2208,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (WXAPIMANAGER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (WXAPIMANAGER_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							WXAPIMANAGER_M_BUILDACTIONREF2 = keyNode
@@ -2152,7 +2221,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (ISSMSGOPERATOR_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (ISSMSGOPERATOR_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							ISSMSGOPERATOR_M_BUILDACTIONREF2 = keyNode
@@ -2164,7 +2234,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (ISSMSGCENTER_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (ISSMSGCENTER_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							ISSMSGCENTER_M_BUILDACTIONREF2 = keyNode
@@ -2179,8 +2250,7 @@ public class XCodeSettingsAutomation {
 					if (ISSMSG_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
-							ISSMSG_M_BUILDACTIONREF2 = keyNode
-									.getTextContent();
+							ISSMSG_M_BUILDACTIONREF2 = keyNode.getTextContent();
 							isISSMSGFileFound = true;
 						}
 					}
@@ -2200,7 +2270,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (ISSNWTOOL_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (ISSNWTOOL_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							ISSNWTOOL_M_BUILDACTIONREF2 = keyNode
@@ -2215,8 +2286,7 @@ public class XCodeSettingsAutomation {
 					if (ISSURL_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
-							ISSURL_M_BUILDACTIONREF2 = keyNode
-									.getTextContent();
+							ISSURL_M_BUILDACTIONREF2 = keyNode.getTextContent();
 							isISSURLFileFound = true;
 						}
 					}
@@ -2224,7 +2294,8 @@ public class XCodeSettingsAutomation {
 				if ("path".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
-					if (MSGALERTVW_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+					if (MSGALERTVW_BUNDLE_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
 						Node keyNode = nod.getParentNode().getPreviousSibling();
 						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
 							MSGALERTVW_M_BUILDACTIONREF2 = keyNode
@@ -2233,6 +2304,70 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
+
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SVP_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SVPBUNDLE_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSVPBundleFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SVRADIAL_M_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SVRADIAL_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSVRRefFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SVPROGRESSANIM_M_FILE_NAME
+							.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SVPROGRESSANIM_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSVPARefFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SVINDEFINITE_M_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SVINDEFINITE_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSVIRefFileFound = true;
+						}
+					}
+				}
+
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (SVPROGRESSHUD_M_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							SVPROGRESSHUD_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isSVPHRefFileFound = true;
+						}
+					}
+				}
+
 				if (("CN_DH".equalsIgnoreCase(region))
 						&& ("path".equalsIgnoreCase(nodeKeyName))) {
 					Node pathNode = nod.getNextSibling();
@@ -2240,7 +2375,8 @@ public class XCodeSettingsAutomation {
 					String path = pathNode.getTextContent();
 					String fileType = fileTypeNode.getTextContent();
 					if (JSMESSAGE_CENTER_FFI_FILE_NAME.equals(path)) {
-						pathNode.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME+"m");
+						pathNode.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME
+								+ "m");
 						if (JSMESSAGE_CENTER_FFI_C_FILE_TYPE.equals(fileType)) {
 							fileTypeNode
 									.setTextContent(JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE);
@@ -2255,22 +2391,34 @@ public class XCodeSettingsAutomation {
 									typeValeN
 											.setTextContent(JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE);
 									fileTypeNode
-											.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME+"m");
+											.setTextContent(JSMESSAGE_CENTER_FFI_FILE_NAME
+													+ "m");
 								}
 							}
 						}
 					}
 				}
-				if (isSVDFileFound && isSVRFileFound && isSVPFileFound && isSVIFileFound && isLoginBundleFileFound
-						&& isWeiboBundleFileFound && isSysConfigFWFileFound && isCoreTeleFWFileFound && isZHFileFound 
-						&& isZHCFileFound && isZHBFileFound && isAmwayLoginFileFound && isLoginManagerFileFound 
-						&& isWXAPIManagerFileFound && isISSMsgOperatorFileFound && isISSMsgCenterFileFound 
-						&& isISSMSGFileFound && isISSDescFileFound && isISSNEToolFileFound && isISSURLFileFound
-						&& isUIMASFileFound && isMVCFileFound && isMCFileFound && isMCMFileFound && isMCCFileFound 
-						&& isJMFileFound && isISSMsgFileFound && isMJRFileFound && isAXFileFound && isCDVFileFound
-						&& isCBRWFileFound && isPGNFileFound && isCDVBSFileFound && isNSACFileFound && isSCANVWFileFound
-						&& isQRCVCFileFound && isCDVCFileFound && isAHAHFileFound && isCDVJHMFileFound && isNSDEXFileFound
-						&& isNSDBFileFound) {
+				if (isSVDFileFound && isSVRFileFound && isSVPFileFound
+						&& isSVIFileFound && isLoginBundleFileFound
+						&& isWeiboBundleFileFound && isSysConfigFWFileFound
+						&& isCoreTeleFWFileFound && isZHFileFound
+						&& isZHCFileFound && isZHBFileFound
+						&& isAmwayLoginFileFound && isLoginManagerFileFound
+						&& isWXAPIManagerFileFound && isISSMsgOperatorFileFound
+						&& isISSMsgCenterFileFound && isISSMSGFileFound
+						&& isISSDescFileFound && isISSNEToolFileFound
+						&& isISSURLFileFound && isUIMASFileFound
+						&& isMVCFileFound && isMCFileFound && isMCMFileFound
+						&& isMCCFileFound && isJMFileFound && isISSMsgFileFound
+						&& isMJRFileFound && isAXFileFound && isCDVFileFound
+						&& isCBRWFileFound && isPGNFileFound
+						&& isCDVBSFileFound && isNSACFileFound
+						&& isSCANVWFileFound && isQRCVCFileFound
+						&& isCDVCFileFound && isAHAHFileFound
+						&& isCDVJHMFileFound && isNSDEXFileFound
+						&& isNSDBFileFound && isSVPBundleFileFound
+						&& isSVRRefFileFound && isSVPARefFileFound
+						&& isSVIRefFileFound && isSVPHRefFileFound) {
 					break;
 				}
 			}
@@ -2278,9 +2426,10 @@ public class XCodeSettingsAutomation {
 	}
 
 	public static void main(String[] args) {
-		xCodeAutomationForViz8("/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
-				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties", "10", "false",
-				"", "CN_DH");
+		xCodeAutomationForViz8(
+				"/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
+				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties",
+				"10", "false", "", "CN_DH");
 		/*
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new
