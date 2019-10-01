@@ -124,6 +124,16 @@ public class XCodeSettingsAutomation {
 	public static final String SVPBUNDLE_M_BUILDACTIONREF1 = "61D292ED233CFD7A00518346";
 	public static String SVPBUNDLE_M_BUILDACTIONREF2 = "58725ABC3777B74B11EBFA43";
 	public static final String SVP_BUNDLE_FILE_NAME = "SVProgressHUD.bundle";
+	
+	public static final String ZHGM_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String ZHGM_M_BUILDACTIONREF1 = "A66DE6E923435CA700A4AB58";
+	public static String ZHGM_M_BUILDACTIONREF2 = "58725ABC7BF1CAFA48090477";
+	public static final String ZHGM_M_FILE_NAME = "ZhuGeManager.m";
+	
+	public static final String LNM_M_BUILDACTIONREF = "1D60588E0D05DD3D006BFB54";
+	public static final String LNM_M_BUILDACTIONREF1 = "A693E6E523436BCD00E41C29";
+	public static String LNM_M_BUILDACTIONREF2 = "58725ABCC2F8D98A08EF61C6";
+	public static final String LNM_M_FILE_NAME = "LocalNotificationManager.m";
 
 	public static final String WEIBOBUNDLE_M_BUILDACTIONREF = "1D60588D0D05DD3D006BFB54";
 	public static final String WEIBOBUNDLE_M_BUILDACTIONREF1 = "610DBBDA22DCA0F10071E424";
@@ -1665,7 +1675,22 @@ public class XCodeSettingsAutomation {
 				addBuildActionMaskRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
-
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(ZHGM_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, ZHGM_M_BUILDACTIONREF1,
+						ZHGM_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, ZHGM_M_BUILDACTIONREF1,
+						nod);
+			}	
+			// Adding the Files Details and Encoding based on Reference for
+			// KRelease
+			if (nodeKeyName.equals(LNM_M_BUILDACTIONREF)) {
+				addBuildFileRef(document, LNM_M_BUILDACTIONREF1,
+						LNM_M_BUILDACTIONREF2, nod);
+				addBuildActionMaskRef(document, LNM_M_BUILDACTIONREF1,
+						nod);
+			}
 		}
 	}
 
@@ -1862,6 +1887,8 @@ public class XCodeSettingsAutomation {
 		boolean isSVPARefFileFound = false;
 		boolean isSVIRefFileFound = false;
 		boolean isSVPHRefFileFound = false;
+		boolean isZHGMRefFileFound = false;
+		boolean isLNMRefFileFound = false;
 
 		String nodeKeyName = "";
 
@@ -2367,6 +2394,32 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
+				
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (ZHGM_M_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							ZHGM_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isZHGMRefFileFound = true;
+						}
+					}
+				}
+				
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (LNM_M_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							LNM_M_BUILDACTIONREF2 = keyNode
+									.getTextContent();
+							isLNMRefFileFound = true;
+						}
+					}
+				}
 
 				if (("CN_DH".equalsIgnoreCase(region))
 						&& ("path".equalsIgnoreCase(nodeKeyName))) {
@@ -2418,7 +2471,8 @@ public class XCodeSettingsAutomation {
 						&& isCDVJHMFileFound && isNSDEXFileFound
 						&& isNSDBFileFound && isSVPBundleFileFound
 						&& isSVRRefFileFound && isSVPARefFileFound
-						&& isSVIRefFileFound && isSVPHRefFileFound) {
+						&& isSVIRefFileFound && isSVPHRefFileFound 
+						&& isZHGMRefFileFound && isLNMRefFileFound) {
 					break;
 				}
 			}
