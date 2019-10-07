@@ -32,6 +32,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
+import com.kony.project.BusinessCenter;
+
 public class XCodeSettingsAutomation {
 	public static final String DTBAPPDELEGATE_M_REF = "A651E1C320A2E1CD00DC5DBC";
 	public static final String DTBAPPDELEGATE_H_REF = "A651E1C220A2E15F00DC5DBC";
@@ -296,6 +298,15 @@ public class XCodeSettingsAutomation {
 	public static String APP_ID = "";
 	public static final String BRIDGING_HEADER = "-Bridging-Header.h";
 
+	/**
+	 * Method for Xcode settings for Older versions of Viz (Below 8.x)
+	 * @param XcodeXmlPath
+	 * @param ConfigXmlPath
+	 * @param XcodeVersion
+	 * @param capabilitiesList
+	 * @param entitlementsFile
+	 * @param region
+	 */
 	public static void xCodeAutomation(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion, String capabilitiesList,
 			String entitlementsFile, String region) {
@@ -493,7 +504,7 @@ public class XCodeSettingsAutomation {
 										.appendChild(entitlementRefKeyTxt);
 
 								dictNode.appendChild(entitlementRefKey);
-								dictNode.appendChild(addEntitlementRef(
+								dictNode.appendChild(XCodeUtils.addEntitlementRef(
 										document, entitlementsFile));
 							}
 							if (nodeKeyName.equals("mainGroup")) {
@@ -520,7 +531,7 @@ public class XCodeSettingsAutomation {
 						}
 					}
 					setRegionSpecificSettings(document, nod, nodeKeyName,
-							region);
+							region,"");
 
 					setBuildSettingsParameters(document, nod, nodeKeyName,
 							properties, false);
@@ -554,15 +565,20 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
-	/**
-	 * @param args
-	 * @return
-	 * @return
-	 */
 
+	/**
+	 * Method for Xcode Settings for Newer versions of Viz (Post 8.x)
+	 * @param XcodeXmlPath
+	 * @param ConfigXmlPath
+	 * @param XcodeVersion
+	 * @param capabilitiesList
+	 * @param entitlementsFile
+	 * @param region
+	 * @param appNameLocales
+	 */
 	public static void xCodeAutomationForViz8(String XcodeXmlPath,
 			String ConfigXmlPath, String XcodeVersion, String capabilitiesList,
-			String entitlementsFile, String region) {
+			String entitlementsFile, String region,String appNameLocales) {
 
 		String configProperties = ConfigXmlPath;
 		String enablePushNotifications = "false";
@@ -790,7 +806,7 @@ public class XCodeSettingsAutomation {
 				}
 				// Setting Region Specific Settings like adding extra files &
 				// settings
-				setRegionSpecificSettings(document, nod, nodeKeyName, region);
+				setRegionSpecificSettings(document, nod, nodeKeyName, region,appNameLocales);
 
 				int version = Integer.parseInt(XcodeVersion);
 				if (version >= 8) {
@@ -913,7 +929,7 @@ public class XCodeSettingsAutomation {
 							entitlementRefKey.appendChild(entitlementRefKeyTxt);
 
 							dictNode.appendChild(entitlementRefKey);
-							dictNode.appendChild(addEntitlementRef(document,
+							dictNode.appendChild(XCodeUtils.addEntitlementRef(document,
 									entitlementsFile));
 						}
 						if (nodeKeyName.equals("mainGroup")) {
@@ -968,366 +984,6 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
-	public static Element addBuildFileRef(Document document,
-			String buildFileRef, String fileRef, Node node) {
-		Element refKey = document.createElement("key");
-		Text refKeyTxt = document.createTextNode(buildFileRef);
-		refKey.appendChild(refKeyTxt);
-
-		Element refKey0 = document.createElement("key");
-		Text refKey0Txt = document.createTextNode("fileRef");
-		refKey0.appendChild(refKey0Txt);
-
-		Element refKey0Value = document.createElement("string");
-		Text refKey0ValueTxt = document.createTextNode(fileRef);
-		refKey0Value.appendChild(refKey0ValueTxt);
-
-		Element refKey1 = document.createElement("key");
-		Text refKey1Txt = document.createTextNode("isa");
-		refKey1.appendChild(refKey1Txt);
-
-		Element refKey1Value = document.createElement("string");
-		Text refKey1ValueTxt = document.createTextNode("PBXBuildFile");
-		refKey1Value.appendChild(refKey1ValueTxt);
-
-		Element dictEntitlementRefElement = document.createElement("dict");
-		dictEntitlementRefElement.appendChild(refKey0);
-		dictEntitlementRefElement.appendChild(refKey0Value);
-
-		dictEntitlementRefElement.appendChild(refKey1);
-		dictEntitlementRefElement.appendChild(refKey1Value);
-
-		node.getParentNode().insertBefore(refKey, node);
-		node.getParentNode().insertBefore(dictEntitlementRefElement, node);
-		return refKey;
-	}
-
-	public static Element addBuildFileRefWithComplierFlags(Document document,
-			String buildFileRef, String fileRef, Node node) {
-		Element refKey = document.createElement("key");
-		Text refKeyTxt = document.createTextNode(buildFileRef);
-		refKey.appendChild(refKeyTxt);
-
-		Element refKey0 = document.createElement("key");
-		Text refKey0Txt = document.createTextNode("fileRef");
-		refKey0.appendChild(refKey0Txt);
-
-		Element refKey0Value = document.createElement("string");
-		Text refKey0ValueTxt = document.createTextNode(fileRef);
-		refKey0Value.appendChild(refKey0ValueTxt);
-
-		Element refKey1 = document.createElement("key");
-		Text refKey1Txt = document.createTextNode("isa");
-		refKey1.appendChild(refKey1Txt);
-
-		Element refKey1Value = document.createElement("string");
-		Text refKey1ValueTxt = document.createTextNode("PBXBuildFile");
-		refKey1Value.appendChild(refKey1ValueTxt);
-
-		Element refKey2 = document.createElement("key");
-		Text refKey2Txt = document.createTextNode("settings");
-		refKey2.appendChild(refKey2Txt);
-
-		Element dictEntitlementRefElement1 = document.createElement("dict");
-
-		Element refKey3 = document.createElement("key");
-		Text refKey3Txt = document.createTextNode("COMPILER_FLAGS");
-		refKey3.appendChild(refKey3Txt);
-
-		Element refKey3Value = document.createElement("string");
-		Text refKey3ValueTxt = document.createTextNode("-fobjc-arc");
-		refKey3Value.appendChild(refKey3ValueTxt);
-
-		dictEntitlementRefElement1.appendChild(refKey3);
-		dictEntitlementRefElement1.appendChild(refKey3Value);
-
-		Element dictEntitlementRefElement = document.createElement("dict");
-		dictEntitlementRefElement.appendChild(refKey0);
-		dictEntitlementRefElement.appendChild(refKey0Value);
-
-		dictEntitlementRefElement.appendChild(refKey1);
-		dictEntitlementRefElement.appendChild(refKey1Value);
-
-		dictEntitlementRefElement.appendChild(refKey2);
-		dictEntitlementRefElement.appendChild(dictEntitlementRefElement1);
-
-		node.getParentNode().insertBefore(refKey, node);
-		node.getParentNode().insertBefore(dictEntitlementRefElement, node);
-		return refKey;
-	}
-
-	public static Element addBuildAttibutesFileRef(Document document,
-			String buildFileRef, String fileRef, Node node) {
-		Element refKey = document.createElement("key");
-		Text refKeyTxt = document.createTextNode(buildFileRef);
-		refKey.appendChild(refKeyTxt);
-
-		Element refKey0 = document.createElement("key");
-		Text refKey0Txt = document.createTextNode("fileRef");
-		refKey0.appendChild(refKey0Txt);
-
-		Element refKey0Value = document.createElement("string");
-		Text refKey0ValueTxt = document.createTextNode(fileRef);
-		refKey0Value.appendChild(refKey0ValueTxt);
-
-		Element refKey1 = document.createElement("key");
-		Text refKey1Txt = document.createTextNode("isa");
-		refKey1.appendChild(refKey1Txt);
-
-		Element refKey1Value = document.createElement("string");
-		Text refKey1ValueTxt = document.createTextNode("PBXBuildFile");
-		refKey1Value.appendChild(refKey1ValueTxt);
-
-		Element refKey2 = document.createElement("key");
-		Text refKey2Txt = document.createTextNode("settings");
-		refKey2.appendChild(refKey2Txt);
-
-		Element dictAttributes = document.createElement("dict");
-		Element refKey3 = document.createElement("key");
-		Text refKey3Txt = document.createTextNode("ATTRIBUTES");
-		refKey3.appendChild(refKey3Txt);
-
-		Element arrayAttrib = document.createElement("array");
-		Element refKey4Value = document.createElement("string");
-		Text refKey4ValueTxt = document.createTextNode("CodeSignOnCopy");
-		refKey4Value.appendChild(refKey4ValueTxt);
-
-		Element refKey5Value = document.createElement("string");
-		Text refKey5ValueTxt = document.createTextNode("RemoveHeadersOnCopy");
-		refKey5Value.appendChild(refKey5ValueTxt);
-
-		arrayAttrib.appendChild(refKey4Value);
-		arrayAttrib.appendChild(refKey5Value);
-
-		dictAttributes.appendChild(refKey3);
-		dictAttributes.appendChild(arrayAttrib);
-
-		Element dictRefElement = document.createElement("dict");
-		dictRefElement.appendChild(refKey0);
-		dictRefElement.appendChild(refKey0Value);
-
-		dictRefElement.appendChild(refKey1);
-		dictRefElement.appendChild(refKey1Value);
-
-		dictRefElement.appendChild(refKey2);
-		dictRefElement.appendChild(dictAttributes);
-
-		node.getParentNode().insertBefore(refKey, node);
-		node.getParentNode().insertBefore(dictRefElement, node);
-		return refKey;
-	}
-
-	public static void addNewFileRef(Document document, String fileName,
-			String fileRef, Node parentNode, boolean isFileEncoding) {
-		Element dictEntitlementRefElement = document.createElement("dict");
-
-		Element refKey = document.createElement("key");
-		Text refKeyTxt = document.createTextNode(fileRef);
-		refKey.appendChild(refKeyTxt);
-		if (isFileEncoding) {
-			Element refKey0 = document.createElement("key");
-			Text refKey0Txt = document.createTextNode("fileEncoding");
-			refKey0.appendChild(refKey0Txt);
-
-			Element refKey0Value = document.createElement("string");
-			Text refKey0ValueTxt = document.createTextNode("4");
-			refKey0Value.appendChild(refKey0ValueTxt);
-
-			dictEntitlementRefElement.appendChild(refKey0);
-			dictEntitlementRefElement.appendChild(refKey0Value);
-		}
-		Element refKey1 = document.createElement("key");
-		Text refKey1Txt = document.createTextNode("isa");
-		refKey1.appendChild(refKey1Txt);
-
-		Element refKey1Value = document.createElement("string");
-		Text refKey1ValueTxt = document.createTextNode("PBXFileReference");
-		refKey1Value.appendChild(refKey1ValueTxt);
-
-		Element refKey2 = document.createElement("key");
-		Text refKey2Txt = document.createTextNode("lastKnownFileType");
-		refKey2.appendChild(refKey2Txt);
-
-		Element refKey2Value = document.createElement("string");
-		String textNode = "";
-		if (fileName.endsWith(".m")) {
-			textNode = "sourcecode.c.objc";
-		} else if (fileName.endsWith(".h")) {
-			textNode = "sourcecode.c.h";
-		} else if (fileName.endsWith(".framework")) {
-			textNode = "wrapper.framework";
-		} else if (fileName.endsWith(".a")) {
-			textNode = "archive.ar";
-		} else if (fileName.endsWith(".a")) {
-			textNode = "Resource";
-		}
-		Text refKey2ValueTxt = document.createTextNode(textNode);
-		refKey2Value.appendChild(refKey2ValueTxt);
-
-		Element refKey3 = document.createElement("key");
-		Text refKey3Txt = document.createTextNode("path");
-		refKey3.appendChild(refKey3Txt);
-
-		Element refKey3Value = document.createElement("string");
-		Text refKey3ValueTxt = document.createTextNode(fileName);
-		refKey3Value.appendChild(refKey3ValueTxt);
-
-		Element refKey4 = document.createElement("key");
-		Text refKey4Txt = document.createTextNode("sourceTree");
-		refKey4.appendChild(refKey4Txt);
-
-		Element refKey4Value = document.createElement("string");
-		Text refKey4ValueTxt = document.createTextNode("<group>");
-		refKey4Value.appendChild(refKey4ValueTxt);
-
-		dictEntitlementRefElement.appendChild(refKey1);
-		dictEntitlementRefElement.appendChild(refKey1Value);
-		dictEntitlementRefElement.appendChild(refKey2);
-		dictEntitlementRefElement.appendChild(refKey2Value);
-		dictEntitlementRefElement.appendChild(refKey3);
-		dictEntitlementRefElement.appendChild(refKey3Value);
-		dictEntitlementRefElement.appendChild(refKey4);
-		dictEntitlementRefElement.appendChild(refKey4Value);
-		parentNode.getParentNode().insertBefore(refKey, parentNode);
-		parentNode.getParentNode().insertBefore(dictEntitlementRefElement,
-				parentNode);
-	}
-
-	public static Element addEntitlementRef(Document document, String fileName) {
-		Element refKey1 = document.createElement("key");
-		Text refKey1Txt = document.createTextNode("isa");
-		refKey1.appendChild(refKey1Txt);
-
-		Element refKey1Value = document.createElement("string");
-		Text refKey1ValueTxt = document.createTextNode("PBXFileReference");
-		refKey1Value.appendChild(refKey1ValueTxt);
-
-		Element refKey2 = document.createElement("key");
-		Text refKey2Txt = document.createTextNode("lastKnownFileType");
-		refKey2.appendChild(refKey2Txt);
-
-		Element refKey2Value = document.createElement("string");
-		Text refKey2ValueTxt = document
-				.createTextNode("text.plist.entitlements");
-		refKey2Value.appendChild(refKey2ValueTxt);
-
-		Element refKey3 = document.createElement("key");
-		Text refKey3Txt = document.createTextNode("path");
-		refKey3.appendChild(refKey3Txt);
-
-		Element refKey3Value = document.createElement("string");
-		Text refKey3ValueTxt = document.createTextNode(fileName);
-		refKey3Value.appendChild(refKey3ValueTxt);
-
-		Element refKey4 = document.createElement("key");
-		Text refKey4Txt = document.createTextNode("sourceTree");
-		refKey4.appendChild(refKey4Txt);
-
-		Element refKey4Value = document.createElement("string");
-		Text refKey4ValueTxt = document.createTextNode("<group>");
-		refKey4Value.appendChild(refKey4ValueTxt);
-
-		Element dictEntitlementRefElement = document.createElement("dict");
-		dictEntitlementRefElement.appendChild(refKey1);
-		dictEntitlementRefElement.appendChild(refKey1Value);
-		dictEntitlementRefElement.appendChild(refKey2);
-		dictEntitlementRefElement.appendChild(refKey2Value);
-		dictEntitlementRefElement.appendChild(refKey3);
-		dictEntitlementRefElement.appendChild(refKey3Value);
-		dictEntitlementRefElement.appendChild(refKey4);
-		dictEntitlementRefElement.appendChild(refKey4Value);
-
-		return dictEntitlementRefElement;
-	}
-
-	public static void addBuildActionMaskRef(Document document,
-			String buildFileRef, Node nod) {
-		Element dtbBuildRef = document.createElement("string");
-		Text dtbBuildRefValue = document.createTextNode(buildFileRef);
-		dtbBuildRef.appendChild(dtbBuildRefValue);
-
-		Node dict = nod.getNextSibling();
-		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
-			Node buildActionMaskKey = dict.getFirstChild();
-			if ("key".equalsIgnoreCase(buildActionMaskKey.getNodeName())) {
-				if ("buildActionMask".equalsIgnoreCase(buildActionMaskKey
-						.getFirstChild().getNodeValue())) {
-					Node string = buildActionMaskKey.getNextSibling();
-					Node key = string.getNextSibling();
-					Node array = key.getNextSibling();
-					if ("array".equalsIgnoreCase(array.getNodeName())) {
-						array.appendChild(dtbBuildRef);
-					}
-				}
-			}
-		}
-	}
-
-	public static void removeBuildActionMaskRef(Document document,
-			String buildFileRef, Node nod) {
-		Element dtbBuildRef = document.createElement("string");
-		Text dtbBuildRefValue = document.createTextNode(buildFileRef);
-		dtbBuildRef.appendChild(dtbBuildRefValue);
-
-		Node dict = nod.getNextSibling();
-		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
-			Node buildActionMaskKey = dict.getFirstChild();
-			if ("key".equalsIgnoreCase(buildActionMaskKey.getNodeName())) {
-				if ("buildActionMask".equalsIgnoreCase(buildActionMaskKey
-						.getFirstChild().getNodeValue())) {
-					Node string = buildActionMaskKey.getNextSibling();
-					Node key = string.getNextSibling();
-					Node array = key.getNextSibling();
-					Node node = null;
-					if ("array".equalsIgnoreCase(array.getNodeName())) {
-						NodeList nList = array.getChildNodes();
-						for (int index = 0; index < nList.getLength(); index++) {
-							node = nList.item(index);
-							if (buildFileRef.equals(node.getTextContent())) {
-								break;
-							}
-						}
-						array.removeChild(node);
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Function to add Build Mask Reference in KRelease or KonyJS
-	 * 
-	 * @param document
-	 * @param buildFileRef
-	 * @param nod
-	 */
-	public static void addBuildActionMaskEmbedRef(Document document,
-			String buildFileRef, Node nod) {
-		Element dtbBuildRef = document.createElement("string");
-		Text dtbBuildRefValue = document.createTextNode(buildFileRef);
-		dtbBuildRef.appendChild(dtbBuildRefValue);
-
-		Node dict = nod.getNextSibling();
-		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
-			Node buildActionMaskKey = dict.getFirstChild();
-			if ("key".equalsIgnoreCase(buildActionMaskKey.getNodeName())) {
-				if ("buildActionMask".equalsIgnoreCase(buildActionMaskKey
-						.getFirstChild().getNodeValue())) {
-					Node string = buildActionMaskKey.getNextSibling();
-					Node key = string.getNextSibling();
-					Node keyString = key.getNextSibling();
-					Node key1 = keyString.getNextSibling();
-					Node keyString1 = key1.getNextSibling();
-					Node key2 = keyString1.getNextSibling();
-					Node keyString2 = key2.getNextSibling();
-					if ("array".equalsIgnoreCase(keyString2.getNodeName())) {
-						keyString2.appendChild(dtbBuildRef);
-					}
-				}
-			}
-		}
-	}
-
 	/**
 	 * Method to set Region Specific Settings in XCode Build Settings or Build
 	 * Phases
@@ -1338,7 +994,7 @@ public class XCodeSettingsAutomation {
 	 * @param region
 	 */
 	public static void setRegionSpecificSettings(Document document, Node nod,
-			String nodeKeyName, String region) {
+			String nodeKeyName, String region, String appNameLocales) {
 		if ("EIA_APAC".equalsIgnoreCase(region)
 				|| "LAS".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
@@ -1371,108 +1027,94 @@ public class XCodeSettingsAutomation {
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(KONYAPPDELEGATE_H_FILE)) {
-				addNewFileRef(document, "DTBAppDelegate.m",
+				XCodeUtils.addNewFileRef(document, "DTBAppDelegate.m",
 						DTBAPPDELEGATE_M_REF, nod, true);
-				addNewFileRef(document, "DTBAppDelegate.h",
+				XCodeUtils.addNewFileRef(document, "DTBAppDelegate.h",
 						DTBAPPDELEGATE_H_REF, nod, true);
 
-				addBuildFileRef(document, DTBAPPDELEGATE_M_BUILDREF,
+				XCodeUtils.addBuildFileRef(document, DTBAPPDELEGATE_M_BUILDREF,
 						DTBAPPDELEGATE_M_REF, nod);
-				addBuildFileRef(document, DTBAPPDELEGATE_M_BUILDREF1,
+				XCodeUtils.addBuildFileRef(document, DTBAPPDELEGATE_M_BUILDREF1,
 						DTBAPPDELEGATE_M_REF, nod);
 			}
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
-				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF, nod);
 			}
 			// Adding the Files for Build Phases for KonyJS
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF1)) {
-				addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF1, nod);
+				XCodeUtils.addBuildActionMaskRef(document, DTBAPPDELEGATE_M_BUILDREF1, nod);
 			}
-			/*
-			 * if("path".equals(nodeKeyName)){ Node name = nod.getNextSibling();
-			 * String nameString = name.getTextContent();
-			 * if(nameString.endsWith(BRIDGING_HEADER)){
-			 * System.out.println("APP_ID::"+APP_ID); String hdrName =
-			 * APP_ID+BRIDGING_HEADER; name.setTextContent(hdrName); } }
-			 * if("name".equals(nodeKeyName)){ Node name = nod.getNextSibling();
-			 * String nameString = name.getTextContent();
-			 * if(nameString.endsWith(BRIDGING_HEADER)){
-			 * System.out.println("APP_ID::"+APP_ID); String hdrName =
-			 * APP_ID+BRIDGING_HEADER; name.setTextContent(hdrName); } }
-			 */
 		}
 		if ("NA".equalsIgnoreCase(region)) {
-			// Adding Tealium Frameworks is not required as Frameworks are added
-			// in the
-			// Visualizer FFI itself
+			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("CN_CH".equalsIgnoreCase(region)) {
 			// Adding the Files in Build Phases for KRelease
 			if (nodeKeyName.equals(DTBAPPDELEGATE_M_BUILDACTIONREF)) {
-				addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF,
+				XCodeUtils.addBuildActionMaskRef(document, SVPROGRESSHUD_M_BUILDFILE_REF,
 						nod);
-				addBuildFileRefWithComplierFlags(document,
+				XCodeUtils.addBuildFileRefWithComplierFlags(document,
 						SVPROGRESSHUD_M_BUILDFILE_REF,
 						SVPROGRESSHUD_M_FILE_REF, nod);
 
-				addBuildActionMaskRef(document, SVRADIAL_M_BUILDFILE_REF, nod);
-				addBuildFileRefWithComplierFlags(document,
+				XCodeUtils.addBuildActionMaskRef(document, SVRADIAL_M_BUILDFILE_REF, nod);
+				XCodeUtils.addBuildFileRefWithComplierFlags(document,
 						SVRADIAL_M_BUILDFILE_REF, SVRADIAL_M_FILE_REF, nod);
 
-				addBuildActionMaskRef(document, SVPROGRESSANIM_M_BUILDFILE_REF,
+				XCodeUtils.addBuildActionMaskRef(document, SVPROGRESSANIM_M_BUILDFILE_REF,
 						nod);
-				addBuildFileRefWithComplierFlags(document,
+				XCodeUtils.addBuildFileRefWithComplierFlags(document,
 						SVPROGRESSANIM_M_BUILDFILE_REF,
 						SVPROGRESSANIM_M_FILE_REF, nod);
 
-				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDFILE_REF,
+				XCodeUtils.addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDFILE_REF,
 						nod);
-				addBuildFileRefWithComplierFlags(document,
+				XCodeUtils.addBuildFileRefWithComplierFlags(document,
 						SVINDEFINITE_M_BUILDFILE_REF, SVINDEFINITE_M_FILE_REF,
 						nod);
 			}
 			// Changing the compiler flag value in the Build Phases for China
 			// Content Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
-				updateCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
+				XCodeUtils.updateCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGE_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod, ZHUGE_M_FILE_REF);
+				XCodeUtils.updateCompilerFlags(nod, ZHUGE_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGECONFIG_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod, ZHUGECONFIG_M_FILE_REF);
+				XCodeUtils.updateCompilerFlags(nod, ZHUGECONFIG_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ZHUGEBASE64_M_BUILDFILE_REF)) {
-				updateCompilerFlags(nod, ZHUGEBASE64_M_FILE_REF);
+				XCodeUtils.updateCompilerFlags(nod, ZHUGEBASE64_M_FILE_REF);
 			}
 
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(WEIBOBUNDLE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
 						WEIBOBUNDLE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, WEIBOBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(SYSCONFIG_FW_BUILDACTIONREF)) {
-				addBuildFileRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
 						SYSCONFIG_FW_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, SYSCONFIG_FW_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference above
 			if (nodeKeyName.equals(CORETELEPHONY_FW_BUILDACTIONREF)) {
-				addBuildFileRef(document, CORETELEPHONY_FW_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, CORETELEPHONY_FW_BUILDACTIONREF1,
 						CORETELEPHONY_FW_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document,
+				XCodeUtils.addBuildActionMaskRef(document,
 						CORETELEPHONY_FW_BUILDACTIONREF1, nod);
 			}
 		}
@@ -1480,220 +1122,228 @@ public class XCodeSettingsAutomation {
 			// Changing the compiler flag value in the Build Phases for China
 			// Digital Hub App
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDFILE_REF1)) {
-				removeCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, SVPROGRESSHUD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(UIMASADD_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, UIMASADD_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, UIMASADD_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASVIEWCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, MASVIEWCONS_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, MASVIEWCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, MASCONS_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, MASCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCONSMAKER_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, MASCONSMAKER_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, MASCONSMAKER_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(MASCOMPCONS_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, MASCOMPCONS_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, MASCOMPCONS_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(JSONMODEL_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, JSONMODEL_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, JSONMODEL_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(ISSMSG_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, ISSMSG_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, ISSMSG_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVAUTH_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, CDVAUTH_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, CDVAUTH_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CBROW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, CBROW_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, CBROW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(PGNATIVE_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, PGNATIVE_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, PGNATIVE_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVBARSCAN_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, CDVBARSCAN_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, CDVBARSCAN_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSAC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, NSAC_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, NSAC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(SCANVW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, SCANVW_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, SCANVW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(QRCVC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, QRCVC_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, QRCVC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVC_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, CDVC_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, CDVC_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(AHAUTHHELP_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, AHAUTHHELP_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, AHAUTHHELP_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(CDVJHW_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, CDVJHW_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, CDVJHW_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSDICTEX_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, NSDICTEX_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, NSDICTEX_M_FILE_REF);
 			}
 			if (nodeKeyName.equals(NSDB_M_BUILDFILE_REF)) {
-				removeCompilerFlags(nod, NSDB_M_FILE_REF);
+				XCodeUtils.removeCompilerFlags(nod, NSDB_M_FILE_REF);
 			}
 
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(LOGINBUNDLE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						LOGINBUNDLE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, LOGINBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(AMWAYLOGIN_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
 						AMWAYLOGIN_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, AMWAYLOGIN_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(LOGINMANAGER_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
 						LOGINMANAGER_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, LOGINMANAGER_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(WXAPIMANAGER_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
 						WXAPIMANAGER_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, WXAPIMANAGER_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSMSGOPERATOR_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSMSGOPERATOR_M_BUILDACTIONREF1,
 						ISSMSGOPERATOR_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document,
+				XCodeUtils.addBuildActionMaskRef(document,
 						ISSMSGOPERATOR_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSMSGCENTER_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
 						ISSMSGCENTER_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, ISSMSGCENTER_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSMSG_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSMSG_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSMSG_M_BUILDACTIONREF1,
 						ISSMSG_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSMSG_M_BUILDACTIONREF1, nod);
+				XCodeUtils.addBuildActionMaskRef(document, ISSMSG_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSDESC_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSDESC_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSDESC_M_BUILDACTIONREF1,
 						ISSDESC_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSDESC_M_BUILDACTIONREF1, nod);
+				XCodeUtils.addBuildActionMaskRef(document, ISSDESC_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSNWTOOL_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
 						ISSNWTOOL_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, ISSNWTOOL_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ISSURL_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ISSURL_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ISSURL_M_BUILDACTIONREF1,
 						ISSURL_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ISSURL_M_BUILDACTIONREF1, nod);
+				XCodeUtils.addBuildActionMaskRef(document, ISSURL_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(MSGALERTVW_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, MSGALERTVW_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, MSGALERTVW_M_BUILDACTIONREF1,
 						MSGALERTVW_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, MSGALERTVW_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, MSGALERTVW_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Removing the Action Build Mask for KonyJS
 			if (nodeKeyName.equals(MJREFRESH_FILEREF_KONYJS)) {
-				removeBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
-				removeBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
+				XCodeUtils.removeBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
+				XCodeUtils.removeBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
 			}
 			// Adding the Action Build Mask for KRelease
 			if (nodeKeyName.equals(MJREFRESH_FILEREF_KRELEASE)) {
-				addBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
-				addBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, MJREFRESH_BUILDFILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, ASSETS_BUILDFILE_REF, nod);
 			}
 
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(SVRADIAL_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, SVRADIAL_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SVRADIAL_M_BUILDACTIONREF1,
 						SVRADIAL_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, SVRADIAL_M_BUILDACTIONREF1, nod);
+				XCodeUtils.addBuildActionMaskRef(document, SVRADIAL_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(SVPROGRESSANIM_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, SVPROGRESSANIM_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SVPROGRESSANIM_M_BUILDACTIONREF1,
 						SVPROGRESSANIM_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document,
+				XCodeUtils.addBuildActionMaskRef(document,
 						SVPROGRESSANIM_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(SVINDEFINITE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
 						SVINDEFINITE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, SVINDEFINITE_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(SVPROGRESSHUD_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, SVPROGRESSHUD_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SVPROGRESSHUD_M_BUILDACTIONREF1,
 						SVPROGRESSHUD_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document,
+				XCodeUtils.addBuildActionMaskRef(document,
 						SVPROGRESSHUD_M_BUILDACTIONREF1, nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(SVPBUNDLE_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
 						SVPBUNDLE_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, SVPBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(ZHGM_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, ZHGM_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, ZHGM_M_BUILDACTIONREF1,
 						ZHGM_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, ZHGM_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, ZHGM_M_BUILDACTIONREF1,
 						nod);
 			}	
 			// Adding the Files Details and Encoding based on Reference for
 			// KRelease
 			if (nodeKeyName.equals(LNM_M_BUILDACTIONREF)) {
-				addBuildFileRef(document, LNM_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildFileRef(document, LNM_M_BUILDACTIONREF1,
 						LNM_M_BUILDACTIONREF2, nod);
-				addBuildActionMaskRef(document, LNM_M_BUILDACTIONREF1,
+				XCodeUtils.addBuildActionMaskRef(document, LNM_M_BUILDACTIONREF1,
 						nod);
 			}
 		}
 	}
 
+	/**
+	 * Set the Build Settings for KRelease or KonyJS with the specified properties
+	 * @param document
+	 * @param nod
+	 * @param nodeKeyName
+	 * @param properties
+	 * @param isKonyJS
+	 */
 	public static void setBuildSettingsParameters(Document document, Node nod,
 			String nodeKeyName, Properties properties, boolean isKonyJS) {
 		if (nodeKeyName.equalsIgnoreCase("buildSettings")) {
@@ -1754,6 +1404,11 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
+	/**
+	 * Method to filter the Properties not used in KonyJS
+	 * @param properties
+	 * @return
+	 */
 	public static Properties filterProfileProps(Properties properties) {
 		// System.out.println("Actual Properties:" + properties.toString());
 		ArrayList<String> ProfileProps = new ArrayList<String>(Arrays.asList(
@@ -1774,70 +1429,12 @@ public class XCodeSettingsAutomation {
 		return temp;
 	}
 
-	public static void updateCompilerFlags(Node nod, String fileRef) {
-		Node dict = nod.getNextSibling();
-		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
-			Node fileRefKey = dict.getFirstChild();
-			if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
-				if ("fileRef".equalsIgnoreCase(fileRefKey.getFirstChild()
-						.getNodeValue())) {
-					Node fileRefValue = fileRefKey.getNextSibling();
-					String SVDFile = fileRefValue.getTextContent();
-					if (fileRef.equalsIgnoreCase(SVDFile)) {
-						Node isaKey = fileRefValue.getNextSibling();
-						Node isaValue = isaKey.getNextSibling();
-						Node settingsKey = isaValue.getNextSibling();
-						Node dictNode = settingsKey.getNextSibling();
-						if ("dict".equalsIgnoreCase(dictNode.getNodeName())) {
-							Node compilerFlagKey = dictNode.getFirstChild();
-							if ("COMPILER_FLAGS"
-									.equalsIgnoreCase(compilerFlagKey
-											.getTextContent())) {
-								Node key2 = compilerFlagKey.getNextSibling();
-								key2.setTextContent("-fobjc-arc");
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	public static void removeCompilerFlags(Node nod, String fileRef) {
-		Node dict = nod.getNextSibling();
-		if ("dict".equalsIgnoreCase(dict.getNodeName())) {
-			Node fileRefKey = dict.getFirstChild();
-			if ("key".equalsIgnoreCase(fileRefKey.getNodeName())) {
-				if ("fileRef".equalsIgnoreCase(fileRefKey.getFirstChild()
-						.getNodeValue())) {
-					Node fileRefValue = fileRefKey.getNextSibling();
-					String SVDFile = fileRefValue.getTextContent();
-					if (fileRef.equalsIgnoreCase(SVDFile)) {
-						Node isaKey = fileRefValue.getNextSibling();
-						Node isaValue = isaKey.getNextSibling();
-						if (null != isaValue) {
-							Node settingsKey = isaValue.getNextSibling();
-							if (null != settingsKey) {
-								Node dictNode = settingsKey.getNextSibling();
-								dict.removeChild(settingsKey);
-								dict.removeChild(dictNode);
-							}
-						}
-
-						/*
-						 * if ("dict".equalsIgnoreCase(dictNode.getNodeName()))
-						 * { Node compilerFlagKey = dictNode.getFirstChild(); if
-						 * ("COMPILER_FLAGS" .equalsIgnoreCase(compilerFlagKey
-						 * .getTextContent())) { Node key2 =
-						 * compilerFlagKey.getNextSibling();
-						 * key2.setTextContent("-fobjc-arc"); } }
-						 */
-					}
-				}
-			}
-		}
-	}
-
+	/**
+	 * Method for fetching the File References for China specific files used in 
+	 * other subsequent methods for updation/deletion
+	 * @param nodeKeyList
+	 * @param region
+	 */
 	public static void getFileReferencesforChinaApp(NodeList nodeKeyList,
 			String region) {
 		boolean isSVDFileFound = false;
@@ -2483,7 +2080,7 @@ public class XCodeSettingsAutomation {
 		xCodeAutomationForViz8(
 				"/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
 				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties",
-				"10", "false", "", "CN_DH");
+				"10", "false", "", "NA","");
 		/*
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new

@@ -15,6 +15,7 @@ public class MasterClass{
     String bundleKey = null;
     String region = null;
 	String vizVersion = null;
+	String appNameLocales = "";
 	 
     infoPlistConfigPath = args[0];
     infoPlistXmlPath = args[1];
@@ -25,7 +26,8 @@ public class MasterClass{
     entitlementsFile = args[6];
     bundleKey = args[7];
     region = args[8];
-	vizVersion			= args[9];
+	vizVersion	= args[9];
+	appNameLocales	= args[10];
 	
 	 /* infoPlistConfigPath = "C:/Users/kit1012/Downloads/GIBBah/MeemBahrain/ci_config/Info.Plist_Config.json";
 	//infoPlistXmlPath 	= "C:/Users/kit1012/Documents/banco-bolivariano-retail-banking/ci_config/InfoPlistXml.xml";
@@ -49,10 +51,11 @@ public class MasterClass{
     System.out.println("bundlekey is :" + bundleKey);
     System.out.println("region is :" + region);
 	System.out.println("vizVersion is :"+vizVersion);
+	System.out.println("appNameLocales is :"+appNameLocales);
     
-    System.out.println("Calling xCodeAutomation function to modity XCode properties");
+    System.out.println("Calling xCodeAutomation function to modify XCode properties");
 	if(vizVersion.equals("V8")) {
-			XCodeSettingsAutomation.xCodeAutomationForViz8(XcodeXmlPath,ConfigXmlPath,XcodeVersion,capabilitiesList,entitlementsFile, region);
+			XCodeSettingsAutomation.xCodeAutomationForViz8(XcodeXmlPath,ConfigXmlPath,XcodeVersion,capabilitiesList,entitlementsFile, region,appNameLocales);
 	}
 	else {
 			XCodeSettingsAutomation.xCodeAutomation(XcodeXmlPath, ConfigXmlPath, XcodeVersion, capabilitiesList, entitlementsFile, region);
