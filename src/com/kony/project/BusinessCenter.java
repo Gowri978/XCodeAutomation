@@ -17,7 +17,7 @@ public class BusinessCenter {
 			//System.out.println("Locales are present so set the Strings::"+locales.length+"::");
 			if(locales.length > 0){
 				// Adding the Files Details and Encoding based on Reference above
-				if (nodeKeyName.equals(Constants.INFO_PLIST_STRINGS_BUILD_ACTION_REF)) {
+				if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
 					XCodeUtils.addBuildFileRef(document,Constants.INFO_PLIST_STRINGS_FILE_BUILD_REF,
 							Constants.INFO_PLIST_STRINGS_FILE_REF, nod);
 					XCodeUtils.addBuildActionMaskRef(document,Constants.INFO_PLIST_STRINGS_FILE_BUILD_REF, nod);

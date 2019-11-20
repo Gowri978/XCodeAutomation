@@ -249,26 +249,45 @@ public class Constants {
 	public static String NSDB_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String NSDB_M_FILE_NAME = "NSData+Base64.m";
 
-	public static final String MJREFRESH_FILEREF_KONYJS = "0C1CB9F820DB764200226998";	/* BuildPhase of Resources for KonyJS*/
-	public static final String MJREFRESH_FILEREF_KRELEASE = "1D60588D0D05DD3D006BFB54"; /* BuildPhase of Resources for KRelease */
-	public static String MJREFRESH_BUILDFILE_REF = "58725ABC7867852FE76DF1FF";
-	public static String MJREFRESH_FILE_REF = "58725ABC03000E7E50283E61";
-	public static final String MJREFRESH_BUNDLE_FILE_NAME = "MJRefresh.bundle";
+	public static final String MJREFRESH_FILEREF_KONYJS 				= "0C1CB9F820DB764200226998"; /* BuildPhase of Resources for KonyJS*/
+	public static final String MJREFRESH_FILEREF_KRELEASE 				= "1D60588D0D05DD3D006BFB54"; /* BuildPhase of Resources for KRelease */
+	public static String MJREFRESH_BUILDFILE_REF 						= "58725ABC7867852FE76DF1FF";
+	public static String MJREFRESH_FILE_REF								= "58725ABC03000E7E50283E61";
+	public static final String MJREFRESH_BUNDLE_FILE_NAME 				= "MJRefresh.bundle";
 
+	public static String ASSETS_BUILDFILE_REF 							= "61C8A0BC22F4614B00E1D3BF";
+	public static String ASSETS_FILE_REF 								= "58725ABC1917288CA11376E9";
+	public static final String ASSETS_BUNDLE_FILE_NAME 					= "Assets.xcassets";
 
-	public static String ASSETS_BUILDFILE_REF = "61C8A0BC22F4614B00E1D3BF";
-	public static String ASSETS_FILE_REF = "58725ABC1917288CA11376E9";
-	public static final String ASSETS_BUNDLE_FILE_NAME = "Assets.xcassets";
+	public static final String JSMESSAGE_CENTER_FFI_FILE_NAME 			= "JSMessageCenterIOSMsgCenterFFIFFIClass.m";
+	public static final String JSMESSAGE_CENTER_FFI_C_FILE_TYPE 		= "sourcecode.c.objc";
+	public static final String JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE 		= "sourcecode.cpp.objcpp";
 
-	public static final String JSMESSAGE_CENTER_FFI_FILE_NAME = "JSMessageCenterIOSMsgCenterFFIFFIClass.m";
-	public static final String JSMESSAGE_CENTER_FFI_C_FILE_TYPE = "sourcecode.c.objc";
-	public static final String JSMESSAGE_CENTER_FFI_CPP_FILE_TYPE = "sourcecode.cpp.objcpp";
-
-	public static String APP_ID = "";
-	public static final String BRIDGING_HEADER = "-Bridging-Header.h";
+	public static String APP_ID 										= "";
+	public static final String BRIDGING_HEADER 							= "-Bridging-Header.h";
 	
-	public static final String INFO_PLIST_STRINGS_BUILD_ACTION_REF 	= "1D60588D0D05DD3D006BFB54"; /* BuildPhase of Resources for KRelease */
-	public static final String INFO_PLIST_STRINGS_FILE_BUILD_REF 	= "FD16AF0D234373A700F8B4DD";
-	public static final String INFO_PLIST_STRINGS_FILE_REF 			= "FD16AF0F234373A700F8B4DD";
-	public static final String PLUGIN_CUSTOM_TEMPLATE_REF 			= "29B97314FDCFA39411CA2CEA";
+	public static final String INFO_PLIST_STRINGS_FILE_BUILD_REF 		= "FD16AF0D234373A700F8B4DD";
+	public static final String INFO_PLIST_STRINGS_FILE_REF 				= "FD16AF0F234373A700F8B4DD";
+	public static final String PLUGIN_CUSTOM_TEMPLATE_REF 				= "29B97314FDCFA39411CA2CEA";
+																		   
+	public static final String KRELEASE_RESOURCES_BUILDPHASE_REF 		= "1D60588D0D05DD3D006BFB54";
+	public static final String KRELEASE_SOURCES_BUILDPHASE_REF 			= "1D60588E0D05DD3D006BFB54";
+	public static final String KRELEASE_FRAMEWORKS_BUILDPHASE_REF 		= "1D60588F0D05DD3D006BFB54";
+	
+	public static final String KONYJS_RESOURCES_BUILDPHASE_REF 			= "0C1CB9F820DB764200226998";
+	public static final String KONYJS_SOURCES_BUILDPHASE_REF 			= "0C1CB9F520DB764200226998";
+	public static final String KONYJS_FRAMEWORKS_BUILDPHASE_REF 		= "0C1CB9F620DB764200226998";
+	
+	public static final String KPROTECTED_RESOURCES_BUILDPHASE_REF 		= "5EB24D171B6B7C0200369597";
+	public static final String KPROTECTED_SOURCES_BUILDPHASE_REF 		= "5EB24D511B6B7C0200369597";
+	public static final String KPROTECTED_FRAMEWORKS_BUILDPHASE_REF 	= "5EB24D5C1B6B7C0200369597";
+	
+	public static final String ALIPAYBUNDLE_BUILDACTIONREF 				= "6179D7FF234F407900D7B4EC";
+	public static String ALIPAY_BUNDLE_FILE_REF 						= "58725ABC6B27556DCE311C68";
+	public static final String ALIPAYBUNDLE_BUNDLE_FILE_NAME 			= "AlipaySDK.bundle";
+	
+	public static final String PAYMENTCENTER_BUNDLE_BUILDACTIONREF 		= "6179D7FD234F407600D7B4EC";
+	public static String PAYMENTCENTER_BUNDLE_FILE_REF 					= "58725ABC9D2722ADC805F466";
+	public static final String PAYMENTCENTER_BUNDLE_FILE_NAME 			= "PaymentCenter.bundle";
+	
 }

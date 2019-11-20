@@ -61,21 +61,21 @@ public class ResourceCenter {
 			XCodeUtils.addBuildFileRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED,
 					Constants.DTBAPPDELEGATE_M_REF, nod);
 		}
-		// Adding the Files in Build Phases for KRelease
-		if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KRELEASE)) {
+		// Adding File in Build Phases of KRelease
+		if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
 			XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KRELEASE, nod);
 		}
-		// Adding the Files for Build Phases for KonyJS
-		if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KONYJS)) {
+		// Adding File in Build Phases of KonyJS
+		if (nodeKeyName.equals(Constants.KONYJS_SOURCES_BUILDPHASE_REF)) {
 			XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KONYJS, nod);
 		}
-		// Adding the Files for Build Phases for KProtected
-		if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KPROTECTED)) {
+		// Adding File in Build Phases of KProtected
+		if (nodeKeyName.equals(Constants.KPROTECTED_SOURCES_BUILDPHASE_REF)) {
 			XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED, nod);
 		}
 
 		// Adding the Files Details and Encoding based on Reference for KonyJS
-		if (nodeKeyName.equals(Constants.SYSCONFIG_FW_BUILDACTIONREF_KONYJS)) {
+		if (nodeKeyName.equals(Constants.KONYJS_FRAMEWORKS_BUILDPHASE_REF)) {
 			XCodeUtils.addBuildFileRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,
 					Constants.SYSCONFIG_FW_BUILDACTIONREF2, nod);
 			XCodeUtils.addBuildActionMaskRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,

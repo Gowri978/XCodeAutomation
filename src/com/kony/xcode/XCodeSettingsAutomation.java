@@ -735,8 +735,7 @@ public class XCodeSettingsAutomation {
 	 */
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region, String appNameLocales) {
-		if ("EIA_APAC".equalsIgnoreCase(region)
-				|| "LAS".equalsIgnoreCase(region)) {
+		if ("EIA_APAC".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
 			// App Delegate Extension Folder
 			if (nodeKeyName.equals(Constants.APPDELEGATE_FOLDER)) {
@@ -784,38 +783,29 @@ public class XCodeSettingsAutomation {
 				XCodeUtils.addBuildFileRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED,
 						Constants.DTBAPPDELEGATE_M_REF, nod);
 			}
-			// Adding the Files in Build Phases for KRelease
-			if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KRELEASE)) {
+			// Adding File in Build Phases of KRelease
+			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KRELEASE, nod);
 			}
-			// Adding the Files for Build Phases for KonyJS
-			if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KONYJS)) {
+			// Adding File in Build Phases of KonyJS
+			if (nodeKeyName.equals(Constants.KONYJS_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KONYJS, nod);
 			}
-			// Adding the Files for Build Phases for KProtected
-			if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KPROTECTED)) {
+			// Adding File in Build Phases of KProtected
+			if (nodeKeyName.equals(Constants.KPROTECTED_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED, nod);
 			}
-			//Added below for Resource Center
-			if ("LAS".equalsIgnoreCase(region)) {
-				// Adding the Files Details and Encoding based on Reference for KonyJS
-				if (nodeKeyName.equals(Constants.SYSCONFIG_FW_BUILDACTIONREF_KONYJS)) {
-					XCodeUtils.addBuildFileRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,
-							Constants.SYSCONFIG_FW_BUILDACTIONREF2, nod);
-					XCodeUtils.addBuildActionMaskRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,
-							nod);
-				}
-			}
 		}
-		if ("NA_RC".equalsIgnoreCase(region)) {
+		if ("LAS".equalsIgnoreCase(region)) {
 			ResourceCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("NA".equalsIgnoreCase(region)) {
 			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("CN_CH".equalsIgnoreCase(region)) {
-			// Adding the Files in Build Phases for KRelease
-			if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KRELEASE)) {
+			
+			// Adding below Sources for KRelease in Target Membership
+			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SVPROGRESSHUD_M_BUILDFILE_REF,
 						nod);
 				XCodeUtils.addBuildFileRefWithComplierFlags(document,
@@ -838,8 +828,7 @@ public class XCodeSettingsAutomation {
 						Constants.SVINDEFINITE_M_BUILDFILE_REF, Constants.SVINDEFINITE_M_FILE_REF,
 						nod);
 			}
-			// Changing the compiler flag value in the Build Phases for China
-			// Content Hub App
+			// Updating compiler flag value in the Build Phases in KonyJS
 			if (nodeKeyName.equals(Constants.SVPROGRESSHUD_M_BUILDFILE_REF1)) {
 				XCodeUtils.updateCompilerFlags(nod, Constants.SVPROGRESSHUD_M_FILE_REF);
 			}
@@ -853,38 +842,43 @@ public class XCodeSettingsAutomation {
 				XCodeUtils.updateCompilerFlags(nod, Constants.ZHUGEBASE64_M_FILE_REF);
 			}
 
-			// Adding the Files Details and Encoding based on Reference above
-			if (nodeKeyName.equals(Constants.LOGINBUNDLE_M_BUILDACTIONREF)) {
+			// Adding below Resources for KRelease in Target Membership
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+				//Adding File reference for LoginCenter.bundle File
 				XCodeUtils.addBuildFileRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
 						Constants.LOGINBUNDLE_M_BUILDACTIONREF2, nod);
+				//Adding Build Phase reference for LoginCenter.bundle File
 				XCodeUtils.addBuildActionMaskRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference above
-			if (nodeKeyName.equals(Constants.WEIBOBUNDLE_M_BUILDACTIONREF)) {
+				
+				//Adding File reference for Weibo.bundle File
 				XCodeUtils.addBuildFileRef(document, Constants.WEIBOBUNDLE_M_BUILDACTIONREF1,
 						Constants.WEIBOBUNDLE_M_BUILDACTIONREF2, nod);
+				//Adding Build Phase reference for Weibo.bundle File
 				XCodeUtils.addBuildActionMaskRef(document, Constants.WEIBOBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
-			if (nodeKeyName.equals(Constants.SYSCONFIG_FW_BUILDACTIONREF)) {
+
+			
+			// Adding below Frameworks for KRelease in Target Membership
+			if (nodeKeyName.equals(Constants.KRELEASE_FRAMEWORKS_BUILDPHASE_REF)) {
+				//Adding File reference for SystemConfiguration.Framework File
 				XCodeUtils.addBuildFileRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,
 						Constants.SYSCONFIG_FW_BUILDACTIONREF2, nod);
+				//Adding Build Phase reference for SystemConfiguration.Framework File
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SYSCONFIG_FW_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for KRelease
-			if (nodeKeyName.equals(Constants.CORETELEPHONY_FW_BUILDACTIONREF)) {
+				
+				//Adding File reference for CoreTelephony.framework File
 				XCodeUtils.addBuildFileRef(document, Constants.CORETELEPHONY_FW_BUILDACTIONREF1,
 						Constants.CORETELEPHONY_FW_BUILDACTIONREF2, nod);
+				//Adding Build Phase reference for CoreTelephony.framework File
 				XCodeUtils.addBuildActionMaskRef(document,
 						Constants.CORETELEPHONY_FW_BUILDACTIONREF1, nod);
 			}
 		}
 		if ("CN_DH".equalsIgnoreCase(region)) {
-			// Changing the compiler flag value in the Build Phases for China
-			// Digital Hub App
+			// Updating compiler flag value in the Build Phases for KonyJS
 			if (nodeKeyName.equals(Constants.SVPROGRESSHUD_M_BUILDFILE_REF1)) {
 				XCodeUtils.removeCompilerFlags(nod, Constants.SVPROGRESSHUD_M_FILE_REF);
 			}
@@ -945,157 +939,125 @@ public class XCodeSettingsAutomation {
 			if (nodeKeyName.equals(Constants.NSDB_M_BUILDFILE_REF)) {
 				XCodeUtils.removeCompilerFlags(nod, Constants.NSDB_M_FILE_REF);
 			}
-
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.LOGINBUNDLE_M_BUILDACTIONREF)) {
+			
+			// Adding below Resources for KRelease in Target Membership 
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
 						Constants.LOGINBUNDLE_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
 						nod);
+				
+				XCodeUtils.addBuildFileRef(document, Constants.ALIPAYBUNDLE_BUILDACTIONREF,
+						Constants.ALIPAY_BUNDLE_FILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.ALIPAYBUNDLE_BUILDACTIONREF,
+						nod);
+				
+				XCodeUtils.addBuildFileRef(document, Constants.PAYMENTCENTER_BUNDLE_BUILDACTIONREF,
+						Constants.PAYMENTCENTER_BUNDLE_FILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.PAYMENTCENTER_BUNDLE_BUILDACTIONREF,
+						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.AMWAYLOGIN_M_BUILDACTIONREF)) {
+
+			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
+
 				XCodeUtils.addBuildFileRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,
 						Constants.AMWAYLOGIN_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.LOGINMANAGER_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.LOGINMANAGER_M_BUILDACTIONREF1,
 						Constants.LOGINMANAGER_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.LOGINMANAGER_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.WXAPIMANAGER_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.WXAPIMANAGER_M_BUILDACTIONREF1,
 						Constants.WXAPIMANAGER_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.WXAPIMANAGER_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSMSGOPERATOR_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.ISSMSGOPERATOR_M_BUILDACTIONREF1,
 						Constants.ISSMSGOPERATOR_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document,
 						Constants.ISSMSGOPERATOR_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSMSGCENTER_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.ISSMSGCENTER_M_BUILDACTIONREF1,
 						Constants.ISSMSGCENTER_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ISSMSGCENTER_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSMSG_M_BUILDACTIONREF)) {
+
 				XCodeUtils.addBuildFileRef(document, Constants.ISSMSG_M_BUILDACTIONREF1,
 						Constants.ISSMSG_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ISSMSG_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSDESC_M_BUILDACTIONREF)) {
+				
+
 				XCodeUtils.addBuildFileRef(document, Constants.ISSDESC_M_BUILDACTIONREF1,
 						Constants.ISSDESC_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ISSDESC_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSNWTOOL_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.ISSNWTOOL_M_BUILDACTIONREF1,
 						Constants.ISSNWTOOL_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ISSNWTOOL_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ISSURL_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.ISSURL_M_BUILDACTIONREF1,
 						Constants.ISSURL_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ISSURL_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.MSGALERTVW_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.MSGALERTVW_M_BUILDACTIONREF1,
 						Constants.MSGALERTVW_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.MSGALERTVW_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Removing the Action Build Mask for KonyJS
-			if (nodeKeyName.equals(Constants.MJREFRESH_FILEREF_KONYJS)) {
-				XCodeUtils.removeBuildActionMaskRef(document, Constants.MJREFRESH_BUILDFILE_REF, nod);
-				XCodeUtils.removeBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
-			}
-			// Adding the Action Build Mask for KRelease
-			if (nodeKeyName.equals(Constants.MJREFRESH_FILEREF_KRELEASE)) {
-				XCodeUtils.addBuildActionMaskRef(document, Constants.MJREFRESH_BUILDFILE_REF, nod);
-				XCodeUtils.addBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
-			}
-
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.SVRADIAL_M_BUILDACTIONREF)) {
+				
 				XCodeUtils.addBuildFileRef(document, Constants.SVRADIAL_M_BUILDACTIONREF1,
 						Constants.SVRADIAL_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SVRADIAL_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.SVPROGRESSANIM_M_BUILDACTIONREF)) {
+				
+
 				XCodeUtils.addBuildFileRef(document, Constants.SVPROGRESSANIM_M_BUILDACTIONREF1,
 						Constants.SVPROGRESSANIM_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document,
 						Constants.SVPROGRESSANIM_M_BUILDACTIONREF1, nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.SVINDEFINITE_M_BUILDACTIONREF)) {
+				
+
 				XCodeUtils.addBuildFileRef(document, Constants.SVINDEFINITE_M_BUILDACTIONREF1,
 						Constants.SVINDEFINITE_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SVINDEFINITE_M_BUILDACTIONREF1,
 						nod);
-			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.SVPROGRESSHUD_M_BUILDACTIONREF)) {
+				
+
 				XCodeUtils.addBuildFileRef(document, Constants.SVPROGRESSHUD_M_BUILDACTIONREF1,
 						Constants.SVPROGRESSHUD_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document,
 						Constants.SVPROGRESSHUD_M_BUILDACTIONREF1, nod);
+				
+
+				XCodeUtils.addBuildFileRef(document, Constants.ZHGM_M_BUILDACTIONREF1,
+						Constants.ZHGM_M_BUILDACTIONREF2, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.ZHGM_M_BUILDACTIONREF1,
+						nod);
+				
+
+				XCodeUtils.addBuildFileRef(document, Constants.LNM_M_BUILDACTIONREF1,
+						Constants.LNM_M_BUILDACTIONREF2, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.LNM_M_BUILDACTIONREF1,
+						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.SVPBUNDLE_M_BUILDACTIONREF)) {
+			
+			// Adding the Action Build Mask for KRelease
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+				XCodeUtils.addBuildActionMaskRef(document, Constants.MJREFRESH_BUILDFILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
+				
 				XCodeUtils.addBuildFileRef(document, Constants.SVPBUNDLE_M_BUILDACTIONREF1,
 						Constants.SVPBUNDLE_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SVPBUNDLE_M_BUILDACTIONREF1,
 						nod);
 			}
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.ZHGM_M_BUILDACTIONREF)) {
-				XCodeUtils.addBuildFileRef(document, Constants.ZHGM_M_BUILDACTIONREF1,
-						Constants.ZHGM_M_BUILDACTIONREF2, nod);
-				XCodeUtils.addBuildActionMaskRef(document, Constants.ZHGM_M_BUILDACTIONREF1,
-						nod);
-			}	
-			// Adding the Files Details and Encoding based on Reference for
-			// KRelease
-			if (nodeKeyName.equals(Constants.LNM_M_BUILDACTIONREF)) {
-				XCodeUtils.addBuildFileRef(document, Constants.LNM_M_BUILDACTIONREF1,
-						Constants.LNM_M_BUILDACTIONREF2, nod);
-				XCodeUtils.addBuildActionMaskRef(document, Constants.LNM_M_BUILDACTIONREF1,
-						nod);
+			// Removing below File Reference in Build Phases for KonyJS
+			if (nodeKeyName.equals(Constants.KONYJS_RESOURCES_BUILDPHASE_REF)) {
+				XCodeUtils.removeBuildActionMaskRef(document, Constants.MJREFRESH_BUILDFILE_REF, nod);
+				XCodeUtils.removeBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
 			}
 		}
 	}
@@ -1250,6 +1212,8 @@ public class XCodeSettingsAutomation {
 		boolean isSVPHRefFileFound = false;
 		boolean isZHGMRefFileFound = false;
 		boolean isLNMRefFileFound = false;
+		boolean isAliBundleFileFound  = false;
+		boolean isPCBundleFileFound = false;
 
 		String nodeKeyName = "";
 
@@ -1781,6 +1745,30 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String aliBundle = stringNode.getTextContent();
+					if (Constants.ALIPAYBUNDLE_BUNDLE_FILE_NAME.equalsIgnoreCase(aliBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							Constants.ALIPAY_BUNDLE_FILE_REF = keyNode
+									.getTextContent();
+							isAliBundleFileFound = true;
+						}
+					}
+				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String paycntBundle = stringNode.getTextContent();
+					if (Constants.PAYMENTCENTER_BUNDLE_FILE_NAME.equalsIgnoreCase(paycntBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							Constants.PAYMENTCENTER_BUNDLE_FILE_REF = keyNode
+									.getTextContent();
+							isPCBundleFileFound = true;
+						}
+					}
+				}
 
 				if (("CN_DH".equalsIgnoreCase(region))
 						&& ("path".equalsIgnoreCase(nodeKeyName))) {
@@ -1833,7 +1821,8 @@ public class XCodeSettingsAutomation {
 						&& isNSDBFileFound && isSVPBundleFileFound
 						&& isSVRRefFileFound && isSVPARefFileFound
 						&& isSVIRefFileFound && isSVPHRefFileFound 
-						&& isZHGMRefFileFound && isLNMRefFileFound) {
+						&& isZHGMRefFileFound && isLNMRefFileFound
+						&& isAliBundleFileFound && isPCBundleFileFound) {
 					break;
 				}
 			}
