@@ -364,6 +364,7 @@ public class XCodeSettingsAutomation {
 			boolean kProtectedNodeFound = false;
 
 			getFileReferencesforChinaApp(nodeKeyList, region);
+            getFileReferences(nodeKeyList, region);
 			// String nodeStringValue = "";
 			for (int i = 0; i < nodeKeyList.getLength(); i++) {
 				Node nod = nodeKeyList.item(i);
@@ -735,7 +736,7 @@ public class XCodeSettingsAutomation {
 	 */
 	public static void setRegionSpecificSettings(Document document, Node nod,
 			String nodeKeyName, String region, String appNameLocales) {
-		if ("EIA_APAC".equalsIgnoreCase(region)) {
+		if ("EIA_APAC".equalsIgnoreCase(region) || "APAC_IND".equalsIgnoreCase(region)) {
 			// Adding the File Reference of DTBAppDelegate.h & .m files to the
 			// App Delegate Extension Folder
 			if (nodeKeyName.equals(Constants.APPDELEGATE_FOLDER)) {
@@ -795,6 +796,52 @@ public class XCodeSettingsAutomation {
 			if (nodeKeyName.equals(Constants.KPROTECTED_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED, nod);
 			}
+            if("APAC_IND".equalsIgnoreCase(region)){
+                if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_1X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_1X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT1_1X_BUILDACTIONREF,
+                                                     nod);
+                    
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_2X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_2X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT1_2X_BUILDACTIONREF,
+                                                     nod);
+                    
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_3X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT1_3X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT1_3X_BUILDACTIONREF,
+                                                     nod);
+                    
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_1X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_1X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT_1X_BUILDACTIONREF,
+                                                     nod);
+                    
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_2X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_2X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT_2X_BUILDACTIONREF,
+                                                     nod);
+                    
+                    XCodeUtils.addBuildFileRef(document,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_3X_BUILDACTIONREF,
+                                               Constants.ICON_CHEVRON_LEFT_ALT_3X_FILE_REF, nod);
+                    XCodeUtils.addBuildActionMaskRef(document,
+                                                     Constants.ICON_CHEVRON_LEFT_ALT_3X_BUILDACTIONREF,
+                                                     nod);
+                    
+                } 
+            }
 		}
 		if ("LAS".equalsIgnoreCase(region)) {
 			ResourceCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
@@ -1153,6 +1200,80 @@ public class XCodeSettingsAutomation {
 		}
 		// System.out.println("Filtered Properties:" + temp.toString());
 		return temp;
+	}
+    public static void getFileReferences(NodeList nodeKeyList, String region) {
+        String nodeKeyName = "";
+        boolean isAlt1_1xFound = false;
+        boolean isAlt1_2xFound = false;
+        boolean isAlt1_3xFound = false;
+        boolean isAlt_1xFound = false;
+        boolean isAlt_2xFound = false;
+        boolean isAlt_3xFound = false;
+        
+        if ("APAC_IND".equalsIgnoreCase(region)) {
+            for (int i = 0; i < nodeKeyList.getLength(); i++) {
+                Node nod = nodeKeyList.item(i);
+                if (nod.getNodeType() == 1) {
+                    nodeKeyName = nod.getFirstChild().getNodeValue();
+                }
+                if ("path".equalsIgnoreCase(nodeKeyName)) {
+                    Node stringNode = nod.getNextSibling();
+                    String fileName = stringNode.getTextContent();
+                    if (Constants.ICON_CHEVRON_LEFT_ALT1_1X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT1_1X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_1xFound = true;
+                        }
+                    }
+                    if (Constants.ICON_CHEVRON_LEFT_ALT1_2X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT1_2X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_2xFound = true;
+                        }
+                    }
+                    if (Constants.ICON_CHEVRON_LEFT_ALT1_3X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT1_3X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_3xFound = true;
+                        }
+                    }
+                    if (Constants.ICON_CHEVRON_LEFT_ALT_1X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT_1X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt_1xFound = true;
+                        }
+                    }
+                    if (Constants.ICON_CHEVRON_LEFT_ALT_2X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT_2X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt_2xFound = true;
+                        }
+                    }
+                    if (Constants.ICON_CHEVRON_LEFT_ALT_3X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.ICON_CHEVRON_LEFT_ALT_3X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt_3xFound = true;
+                        } 
+                    } 
+                } 
+                if (isAlt1_1xFound && isAlt1_2xFound && isAlt1_3xFound && 
+                    isAlt_1xFound && isAlt_2xFound && isAlt_3xFound) {
+                    break;
+                }
+            }
+        }
 	}
 
 	/**

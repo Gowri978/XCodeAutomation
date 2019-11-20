@@ -289,5 +289,29 @@ public class Constants {
 	public static final String PAYMENTCENTER_BUNDLE_BUILDACTIONREF 		= "6179D7FD234F407600D7B4EC";
 	public static String PAYMENTCENTER_BUNDLE_FILE_REF 					= "58725ABC9D2722ADC805F466";
 	public static final String PAYMENTCENTER_BUNDLE_FILE_NAME 			= "PaymentCenter.bundle";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT1_1X_FILE_NAME = "icon_chevron_left_alt_1.png";
+    public static final String ICON_CHEVRON_LEFT_ALT1_1X_BUILDACTIONREF = "CE68CC39236FFCB300A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT1_1X_FILE_REF = "58725ABC018E02FB862AEDD2";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT1_2X_FILE_NAME = "icon_chevron_left_alt_1@2x.png";
+    public static final String ICON_CHEVRON_LEFT_ALT1_2X_BUILDACTIONREF = "CE68CC3E236FFD4B00A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT1_2X_FILE_REF = "58725ABC8BD960962E2D240B";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT1_3X_FILE_NAME = "icon_chevron_left_alt_1@3x.png";
+    public static final String ICON_CHEVRON_LEFT_ALT1_3X_BUILDACTIONREF = "CE68CC3F236FFD4D00A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT1_3X_FILE_REF = "58725ABCAE75B684C659F6B6";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT_1X_FILE_NAME = "icon_chevron_left_alt.png";
+    public static final String ICON_CHEVRON_LEFT_ALT_1X_BUILDACTIONREF = "CE68CC3B236FFD4200A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT_1X_FILE_REF = "58725ABC53F862E561CADF5A";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT_2X_FILE_NAME = "icon_chevron_left_alt@2x.png";
+    public static final String ICON_CHEVRON_LEFT_ALT_2X_BUILDACTIONREF = "CE68CC3C236FFD4500A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT_2X_FILE_REF = "58725ABCF9E44DD15BDC5066";
+    
+    public static final String ICON_CHEVRON_LEFT_ALT_3X_FILE_NAME = "icon_chevron_left_alt@3x.png";
+    public static final String ICON_CHEVRON_LEFT_ALT_3X_BUILDACTIONREF = "CE68CC3D236FFD4700A23DF2";
+    public static String ICON_CHEVRON_LEFT_ALT_3X_FILE_REF = "58725ABC3CAFA2A6B1D77734";
 	
 }
