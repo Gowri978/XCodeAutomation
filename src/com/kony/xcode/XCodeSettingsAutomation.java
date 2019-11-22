@@ -32,6 +32,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
+import com.kony.project.AmwayApp;
 import com.kony.project.BusinessCenter;
 import com.kony.project.ResourceCenter;
 
@@ -845,6 +846,9 @@ public class XCodeSettingsAutomation {
 		}
 		if ("LAS".equalsIgnoreCase(region)) {
 			ResourceCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
+		}
+		if ("NA_AA".equalsIgnoreCase(region)) {
+			AmwayApp.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("NA".equalsIgnoreCase(region)) {
 			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
