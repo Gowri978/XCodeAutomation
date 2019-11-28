@@ -209,6 +209,10 @@ public class Constants {
 	public static String CBROW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String CBROW_M_FILE_NAME = "CBrowserFFI.m";
 
+	public static String WECHATSHAREFFI_M_FILE_REF = "58725ABC6897F41E0BA9600A";
+	public static String WECHATSHAREFFI_M_BUILDFILE_REF = "A6D3C11F23901CA00000C2EB";
+	public static final String WECHATSHAREFFI_M_FILE_NAME = "weChatShareFFI.m";
+	
 	public static String PGNATIVE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String PGNATIVE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String PGNATIVE_M_FILE_NAME = "PGNative.m";

@@ -1093,6 +1093,11 @@ public class XCodeSettingsAutomation {
 						Constants.LNM_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.LNM_M_BUILDACTIONREF1,
 						nod);
+				
+				XCodeUtils.addBuildFileRef(document, Constants.WECHATSHAREFFI_M_BUILDFILE_REF,
+						Constants.WECHATSHAREFFI_M_FILE_REF, nod);
+				XCodeUtils.addBuildActionMaskRef(document, Constants.WECHATSHAREFFI_M_BUILDFILE_REF,
+						nod);
 			}
 			
 			// Adding the Action Build Mask for KRelease
@@ -1319,6 +1324,7 @@ public class XCodeSettingsAutomation {
 		boolean isAXFileFound = false;
 		boolean isCDVFileFound = false;
 		boolean isCBRWFileFound = false;
+		boolean isWCHSFileFound = false;
 		boolean isPGNFileFound = false;
 		boolean isCDVBSFileFound = false;
 		boolean isNSACFileFound = false;
@@ -1534,6 +1540,13 @@ public class XCodeSettingsAutomation {
 									Constants.CBROW_M_BUILDFILE_REF = reverseFileRefMap
 											.get(nodeKeyName);
 									isCBRWFileFound = true;
+								}
+								if (Constants.WECHATSHAREFFI_M_FILE_NAME
+										.equalsIgnoreCase(fileName)) {
+									Constants.WECHATSHAREFFI_M_FILE_REF = nodeKeyName;
+									Constants.WECHATSHAREFFI_M_BUILDFILE_REF = reverseFileRefMap
+											.get(nodeKeyName);
+									isWCHSFileFound = true;
 								}
 								if (Constants.PGNATIVE_M_FILE_NAME
 										.equalsIgnoreCase(fileName)) {
@@ -1938,7 +1951,7 @@ public class XCodeSettingsAutomation {
 						&& isMVCFileFound && isMCFileFound && isMCMFileFound
 						&& isMCCFileFound && isJMFileFound && isISSMsgFileFound
 						&& isMJRFileFound && isAXFileFound && isCDVFileFound
-						&& isCBRWFileFound && isPGNFileFound
+						&& isCBRWFileFound && isPGNFileFound && isWCHSFileFound
 						&& isCDVBSFileFound && isNSACFileFound
 						&& isSCANVWFileFound && isQRCVCFileFound
 						&& isCDVCFileFound && isAHAHFileFound
