@@ -854,7 +854,6 @@ public class XCodeSettingsAutomation {
 			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("CN_CH".equalsIgnoreCase(region)) {
-			
 			// Adding below Sources for KRelease in Target Membership
 			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.SVPROGRESSHUD_M_BUILDFILE_REF,
@@ -908,9 +907,14 @@ public class XCodeSettingsAutomation {
 				//Adding Build Phase reference for Weibo.bundle File
 				XCodeUtils.addBuildActionMaskRef(document, Constants.WEIBOBUNDLE_M_BUILDACTIONREF1,
 						nod);
+				
+				//Adding File reference for LoginCenter.bundle File
+				XCodeUtils.addBuildFileRef(document, Constants.UIMODEL_BUNDLE_BUILDFILE_REF,
+						Constants.UIMODEL_BUNDLE_FILE_REF, nod);
+				//Adding Build Phase reference for LoginCenter.bundle File
+				XCodeUtils.addBuildActionMaskRef(document, Constants.UIMODEL_BUNDLE_BUILDFILE_REF,
+						nod);
 			}
-
-			
 			// Adding below Frameworks for KRelease in Target Membership
 			if (nodeKeyName.equals(Constants.KRELEASE_FRAMEWORKS_BUILDPHASE_REF)) {
 				//Adding File reference for SystemConfiguration.Framework File
@@ -1011,7 +1015,6 @@ public class XCodeSettingsAutomation {
 			}
 
 			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
-
 				XCodeUtils.addBuildFileRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,
 						Constants.AMWAYLOGIN_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,

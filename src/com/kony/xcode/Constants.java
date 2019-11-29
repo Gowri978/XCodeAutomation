@@ -216,6 +216,10 @@ public class Constants {
 	public static String PGNATIVE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String PGNATIVE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String PGNATIVE_M_FILE_NAME = "PGNative.m";
+	
+	public static String UIMODEL_BUNDLE_FILE_REF 		= "58725ABC1F6F3E0CBAD6FBA7";
+	public static String UIMODEL_BUNDLE_BUILDFILE_REF 	= "A62AD6CD238D0CDE00517F19";
+	public static final String UIMODEL_BUNDLE_FILE_NAME = "UIModel.bundle";
 
 	public static String CDVBARSCAN_M_FILE_REF = "58725ABC58AF84786B7CFF95";
 	public static String CDVBARSCAN_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
@@ -253,8 +257,6 @@ public class Constants {
 	public static String NSDB_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
 	public static final String NSDB_M_FILE_NAME = "NSData+Base64.m";
 
-	public static final String MJREFRESH_FILEREF_KONYJS 				= "0C1CB9F820DB764200226998"; /* BuildPhase of Resources for KonyJS*/
-	public static final String MJREFRESH_FILEREF_KRELEASE 				= "1D60588D0D05DD3D006BFB54"; /* BuildPhase of Resources for KRelease */
 	public static String MJREFRESH_BUILDFILE_REF 						= "58725ABC7867852FE76DF1FF";
 	public static String MJREFRESH_FILE_REF								= "58725ABC03000E7E50283E61";
 	public static final String MJREFRESH_BUNDLE_FILE_NAME 				= "MJRefresh.bundle";
