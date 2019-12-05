@@ -1647,6 +1647,18 @@ public class XCodeSettingsAutomation {
 						}
 					}
 				}
+				if ("path".equalsIgnoreCase(nodeKeyName)) {
+					Node stringNode = nod.getNextSibling();
+					String loginBundle = stringNode.getTextContent();
+					if (Constants.UIMODEL_BUNDLE_FILE_NAME.equalsIgnoreCase(loginBundle)) {
+						Node keyNode = nod.getParentNode().getPreviousSibling();
+						if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+							Constants.UIMODEL_BUNDLE_FILE_REF = keyNode
+									.getTextContent();
+							isWeiboBundleFileFound = true;
+						}
+					}
+				}
 				if ("name".equalsIgnoreCase(nodeKeyName)) {
 					Node stringNode = nod.getNextSibling();
 					String loginBundle = stringNode.getTextContent();
