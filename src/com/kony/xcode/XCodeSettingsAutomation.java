@@ -844,6 +844,30 @@ public class XCodeSettingsAutomation {
                 } 
             }
 		}
+		if("EIA_IND".equalsIgnoreCase(region)){
+            if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+                XCodeUtils.addBuildFileRef(document,
+                                           Constants.BACK_GREY_1X_BUILDACTIONREF,
+                                           Constants.BACK_GREY_1X_FILE_REF, nod);
+                XCodeUtils.addBuildActionMaskRef(document,
+                                                 Constants.BACK_GREY_1X_BUILDACTIONREF,
+                                                 nod);
+                
+                XCodeUtils.addBuildFileRef(document,
+                                           Constants.BACK_GREY_2X_BUILDACTIONREF,
+                                           Constants.BACK_GREY_2X_FILE_REF, nod);
+                XCodeUtils.addBuildActionMaskRef(document,
+                                                 Constants.BACK_GREY_2X_BUILDACTIONREF,
+                                                 nod);
+                
+                XCodeUtils.addBuildFileRef(document,
+                                           Constants.BACK_GREY_3X_BUILDACTIONREF,
+                                           Constants.BACK_GREY_3X_FILE_REF, nod);
+                XCodeUtils.addBuildActionMaskRef(document,
+                                                 Constants.BACK_GREY_3X_BUILDACTIONREF,
+                                                 nod);              
+            } 
+        }
 		if ("LAS".equalsIgnoreCase(region)) {
 			ResourceCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
@@ -1221,6 +1245,9 @@ public class XCodeSettingsAutomation {
         boolean isAlt_1xFound = false;
         boolean isAlt_2xFound = false;
         boolean isAlt_3xFound = false;
+        boolean isBG_1xFound = false;
+        boolean isBG_2xFound = false;
+        boolean isBG_3xFound = false;
         
         if ("APAC_IND".equalsIgnoreCase(region)) {
             for (int i = 0; i < nodeKeyList.getLength(); i++) {
@@ -1282,6 +1309,45 @@ public class XCodeSettingsAutomation {
                 } 
                 if (isAlt1_1xFound && isAlt1_2xFound && isAlt1_3xFound && 
                     isAlt_1xFound && isAlt_2xFound && isAlt_3xFound) {
+                    break;
+                }
+            }
+        }
+        if ("EIA_IND".equalsIgnoreCase(region)) {
+            for (int i = 0; i < nodeKeyList.getLength(); i++) {
+                Node nod = nodeKeyList.item(i);
+                if (nod.getNodeType() == 1) {
+                    nodeKeyName = nod.getFirstChild().getNodeValue();
+                }
+                if ("path".equalsIgnoreCase(nodeKeyName)) {
+                    Node stringNode = nod.getNextSibling();
+                    String fileName = stringNode.getTextContent();
+                    if (Constants.BACK_GREY_1X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.BACK_GREY_1X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_1xFound = true;
+                        }
+                    }
+                    if (Constants.BACK_GREY_2X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.BACK_GREY_2X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_2xFound = true;
+                        }
+                    }
+                    if (Constants.BACK_GREY_3X_FILE_NAME.equalsIgnoreCase(fileName)) {
+                        Node keyNode = nod.getParentNode().getPreviousSibling();
+                        if ("key".equalsIgnoreCase(keyNode.getNodeName())) {
+                            Constants.BACK_GREY_3X_FILE_REF = keyNode
+                            .getTextContent();
+                            isAlt1_3xFound = true;
+                        }
+                    } 
+                } 
+                if (isBG_1xFound && isBG_2xFound && isBG_3xFound) {
                     break;
                 }
             }

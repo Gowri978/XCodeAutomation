@@ -319,5 +319,17 @@ public class Constants {
     public static final String ICON_CHEVRON_LEFT_ALT_3X_FILE_NAME 		= "icon_chevron_left_alt@3x.png";
     public static final String ICON_CHEVRON_LEFT_ALT_3X_BUILDACTIONREF 	= "CE68CC3D236FFD4700A23DF2";
     public static String ICON_CHEVRON_LEFT_ALT_3X_FILE_REF 				= "58725ABC3CAFA2A6B1D77734";
+    
+    public static final String BACK_GREY_1X_FILE_NAME 					= "back_grey.png";
+    public static final String BACK_GREY_1X_BUILDACTIONREF 				= "CE68CC3B236FFD4200A23DF2";
+    public static String BACK_GREY_1X_FILE_REF							= "58725ABC53F862E561CADF5A";
+    
+    public static final String BACK_GREY_2X_FILE_NAME 					= "back_grey@2x.png";
+    public static final String BACK_GREY_2X_BUILDACTIONREF 				= "CE68CC3C236FFD4500A23DF2";
+    public static String BACK_GREY_2X_FILE_REF 							= "58725ABCF9E44DD15BDC5066";
+    
+    public static final String BACK_GREY_3X_FILE_NAME 					= "back_grey@3x.png";
+    public static final String BACK_GREY_3X_BUILDACTIONREF 				= "CE68CC3D236FFD4700A23DF2";
+    public static String BACK_GREY_3X_FILE_REF 							= "58725ABC3CAFA2A6B1D77734";
 	
 }

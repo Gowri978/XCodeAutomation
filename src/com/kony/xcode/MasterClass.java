@@ -61,7 +61,7 @@ public class MasterClass{
 			XCodeSettingsAutomation.xCodeAutomation(XcodeXmlPath, ConfigXmlPath, XcodeVersion, capabilitiesList, entitlementsFile, region);
 	}
 			
-    System.out.println("Done with xcode settings and now calling InfoPlistConfigurator");
-    InfoPlistConfigurator.getInfoPlistConfigs(infoPlistConfigPath, infoPlistXmlPath, bundleKey);
+    /*System.out.println("Done with xcode settings and now calling InfoPlistConfigurator");
+    InfoPlistConfigurator.getInfoPlistConfigs(infoPlistConfigPath, infoPlistXmlPath, bundleKey);*/
   }
 }
