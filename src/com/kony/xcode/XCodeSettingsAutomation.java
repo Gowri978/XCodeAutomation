@@ -37,8 +37,7 @@ import com.kony.project.BusinessCenter;
 import com.kony.project.ResourceCenter;
 
 public class XCodeSettingsAutomation {
-
-
+	
 	/**
 	 * Method for Xcode settings for Older versions of Viz (Below 8.x)
 	 * @param XcodeXmlPath
@@ -1020,8 +1019,7 @@ public class XCodeSettingsAutomation {
 			}
 			
 			// Adding below Resources for KRelease in Target Membership 
-			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
-				
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF) || nodeKeyName.equals(Constants.KPROTECTED_RESOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildFileRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
 						Constants.LOGINBUNDLE_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.LOGINBUNDLE_M_BUILDACTIONREF1,
@@ -1038,7 +1036,7 @@ public class XCodeSettingsAutomation {
 						nod);
 			}
 
-			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF)) {
+			if (nodeKeyName.equals(Constants.KRELEASE_SOURCES_BUILDPHASE_REF) || nodeKeyName.equals(Constants.KPROTECTED_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildFileRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,
 						Constants.AMWAYLOGIN_M_BUILDACTIONREF2, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.AMWAYLOGIN_M_BUILDACTIONREF1,
@@ -1128,7 +1126,7 @@ public class XCodeSettingsAutomation {
 			}
 			
 			// Adding the Action Build Mask for KRelease
-			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)  || nodeKeyName.equals(Constants.KPROTECTED_RESOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.MJREFRESH_BUILDFILE_REF, nod);
 				XCodeUtils.addBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
 				
