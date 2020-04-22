@@ -867,7 +867,7 @@ public class XCodeSettingsAutomation {
                                                  nod);              
             } 
         }
-		if ("LAS".equalsIgnoreCase(region)) {
+		if ("LAS".equalsIgnoreCase(region) || "NA_RC".equalsIgnoreCase(region)) {
 			ResourceCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("NA_AA".equalsIgnoreCase(region)) {
