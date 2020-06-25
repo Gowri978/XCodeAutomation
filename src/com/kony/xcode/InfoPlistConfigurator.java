@@ -38,7 +38,7 @@ import org.xml.sax.SAXException;
  * This will reads the Info.Plist entries that needs to updated from json file, 
  * reads the Info.Plist XML file and updates the specified entries in xml and 
  * finally writes to the hard disk  
- *@author Khadeer
+ *
  *
  */
 public class InfoPlistConfigurator {

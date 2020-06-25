@@ -47,6 +47,12 @@ public class Constants {
 	public static final String KPROTECTED_PROTECTED_NODE 			= "5EB24D841B6B7C0200369597"; /* BuildSettings of Protected for KProtected */
 	public static final String KPROTECTED_DISTRIBUTION_NODE 		= "5EB24D851B6B7C0200369597"; /* BuildSettings of Protected for KProtected */
 
+	public static final String PUSHNOTIF_DEBUG_NODE 				= "614B3DC52429E36800416554"; /* BuildSettings of Debug for KonyJS */
+	public static final String PUSHNOTIF_PDEBUG_NODE 				= "614B3DC62429E36800416554"; /* BuildSettings of PDebug for KonyJS */
+	public static final String PUSHNOTIF_RELEASE_NODE 				= "614B3DC72429E36800416554"; /* BuildSettings of Release for KonyJS */
+	public static final String PUSHNOTIF_PROTECTED_NODE 			= "614B3DC72429E36800416554"; /* BuildSettings of Protected for KonyJS */
+	public static final String PUSHNOTIF_DISTRIBUTION_NODE 			= "614B3DC92429E36800416554"; /* BuildSettings of Distribution for KonyJS */
+	
 	public static final String SVPROGRESSHUD_M_BUILDACTIONREF 		= "1D60588E0D05DD3D006BFB54"; /* Sources */
 	public static final String SVPROGRESSHUD_M_BUILDACTIONREF1 		= "61D292EF233CFE4400518346";
 	public static String SVPROGRESSHUD_M_BUILDACTIONREF2 			= "58725ABC53B1BBE93B84FCCD";
@@ -189,65 +195,65 @@ public class Constants {
 	public static String MASCONS_M_BUILDFILE_REF 					= "58725ABC1C7DD5DA71A4374B";
 	public static final String MASCONS_M_FILE_NAME 					= "MASConstraint.m";
 
-	public static String MASCONSMAKER_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String MASCONSMAKER_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String MASCONSMAKER_M_FILE_NAME = "MASConstraintMaker.m";
+	public static String MASCONSMAKER_M_FILE_REF   					= "58725ABC58AF84786B7CFF95";
+	public static String MASCONSMAKER_M_BUILDFILE_REF 				= "58725ABC1C7DD5DA71A4374B";
+	public static final String MASCONSMAKER_M_FILE_NAME 			= "MASConstraintMaker.m";
 
-	public static String MASCOMPCONS_M_FILE_REF = "6151AFC722C4ADDE00265F9B";
-	public static String MASCOMPCONS_M_BUILDFILE_REF = "58725ABC457CCDEF69AF7D5B";
-	public static final String MASCOMPCONS_M_FILE_NAME = "MASCompositeConstraint.m";
+	public static String MASCOMPCONS_M_FILE_REF   					= "6151AFC722C4ADDE00265F9B";
+	public static String MASCOMPCONS_M_BUILDFILE_REF   				= "58725ABC457CCDEF69AF7D5B";
+	public static final String MASCOMPCONS_M_FILE_NAME   			= "MASCompositeConstraint.m";
 
-	public static String JSONMODEL_M_FILE_REF = "58725ABC6C09D59B2514EB2B";
-	public static String JSONMODEL_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String JSONMODEL_M_FILE_NAME = "JSONModel.m";
+	public static String JSONMODEL_M_FILE_REF   					= "58725ABC6C09D59B2514EB2B";
+	public static String JSONMODEL_M_BUILDFILE_REF   				= "58725ABC1C7DD5DA71A4374B";
+	public static final String JSONMODEL_M_FILE_NAME   				= "JSONModel.m";
 
-	public static String CDVAUTH_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String CDVAUTH_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String CDVAUTH_M_FILE_NAME = "CDVAuthorization.m";
+	public static String CDVAUTH_M_FILE_REF  							= "58725ABC58AF84786B7CFF95";
+	public static String CDVAUTH_M_BUILDFILE_REF  						= "58725ABC1C7DD5DA71A4374B";
+	public static final String CDVAUTH_M_FILE_NAME  					= "CDVAuthorization.m";
 
-	public static String CBROW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String CBROW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String CBROW_M_FILE_NAME = "CBrowserFFI.m";
+	public static String CBROW_M_FILE_REF  								= "58725ABC58AF84786B7CFF95";
+	public static String CBROW_M_BUILDFILE_REF  						= "58725ABC1C7DD5DA71A4374B";
+	public static final String CBROW_M_FILE_NAME  						= "CBrowserFFI.m";
 
-	public static String WECHATSHAREFFI_M_FILE_REF = "58725ABC6897F41E0BA9600A";
-	public static String WECHATSHAREFFI_M_BUILDFILE_REF = "A6D3C11F23901CA00000C2EB";
-	public static final String WECHATSHAREFFI_M_FILE_NAME = "weChatShareFFI.m";
+	public static String WECHATSHAREFFI_M_FILE_REF 						= "58725ABC6897F41E0BA9600A";
+	public static String WECHATSHAREFFI_M_BUILDFILE_REF 				= "A6D3C11F23901CA00000C2EB";
+	public static final String WECHATSHAREFFI_M_FILE_NAME 				= "weChatShareFFI.m";
 	
-	public static String PGNATIVE_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String PGNATIVE_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String PGNATIVE_M_FILE_NAME = "PGNative.m";
+	public static String PGNATIVE_M_FILE_REF 							= "58725ABC58AF84786B7CFF95";
+	public static String PGNATIVE_M_BUILDFILE_REF 						= "58725ABC1C7DD5DA71A4374B";
+	public static final String PGNATIVE_M_FILE_NAME 					= "PGNative.m";
 	
-	public static String UIMODEL_BUNDLE_FILE_REF 					= "58725ABC1F6F3E0CBAD6FBA7";
-	public static String UIMODEL_BUNDLE_BUILDFILE_REF 				= "A62AD6CD238D0CDE00517F19";
-	public static final String UIMODEL_BUNDLE_FILE_NAME 			= "UIModel.bundle";
+	public static String UIMODEL_BUNDLE_FILE_REF 						= "58725ABC1F6F3E0CBAD6FBA7";
+	public static String UIMODEL_BUNDLE_BUILDFILE_REF 					= "A62AD6CD238D0CDE00517F19";
+	public static final String UIMODEL_BUNDLE_FILE_NAME 				= "UIModel.bundle";
 
-	public static String CDVBARSCAN_M_FILE_REF 						= "58725ABC58AF84786B7CFF95";
-	public static String CDVBARSCAN_M_BUILDFILE_REF 				= "58725ABC1C7DD5DA71A4374B";
-	public static final String CDVBARSCAN_M_FILE_NAME 				= "CDVBarcodeScanner.m";
+	public static String CDVBARSCAN_M_FILE_REF 							= "58725ABC58AF84786B7CFF95";
+	public static String CDVBARSCAN_M_BUILDFILE_REF 					= "58725ABC1C7DD5DA71A4374B";
+	public static final String CDVBARSCAN_M_FILE_NAME 					= "CDVBarcodeScanner.m";
 
-	public static String NSAC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String NSAC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String NSAC_M_FILE_NAME = "NSArray+Comparisons.m";
+	public static String NSAC_M_FILE_REF 								= "58725ABC58AF84786B7CFF95";
+	public static String NSAC_M_BUILDFILE_REF 							= "58725ABC1C7DD5DA71A4374B";
+	public static final String NSAC_M_FILE_NAME 						= "NSArray+Comparisons.m";
 
-	public static String SCANVW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String SCANVW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String SCANVW_M_FILE_NAME = "ScanView.m";
+	public static String SCANVW_M_FILE_REF 								= "58725ABC58AF84786B7CFF95";
+	public static String SCANVW_M_BUILDFILE_REF 						= "58725ABC1C7DD5DA71A4374B";
+	public static final String SCANVW_M_FILE_NAME 						= "ScanView.m";
 
-	public static String QRCVC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String QRCVC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String QRCVC_M_FILE_NAME = "QRCodeViewController.m";
+	public static String QRCVC_M_FILE_REF 								= "58725ABC58AF84786B7CFF95";
+	public static String QRCVC_M_BUILDFILE_REF 							= "58725ABC1C7DD5DA71A4374B";
+	public static final String QRCVC_M_FILE_NAME						= "QRCodeViewController.m";
 
-	public static String CDVC_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String CDVC_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String CDVC_M_FILE_NAME = "CDVCamera.m";
+	public static String CDVC_M_FILE_REF 								= "58725ABC58AF84786B7CFF95";
+	public static String CDVC_M_BUILDFILE_REF 							= "58725ABC1C7DD5DA71A4374B";
+	public static final String CDVC_M_FILE_NAME 						= "CDVCamera.m";
 
-	public static String AHAUTHHELP_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String AHAUTHHELP_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String AHAUTHHELP_M_FILE_NAME = "AHAuthorizationHelper.m";
+	public static String AHAUTHHELP_M_FILE_REF 							= "58725ABC58AF84786B7CFF95";
+	public static String AHAUTHHELP_M_BUILDFILE_REF 					= "58725ABC1C7DD5DA71A4374B";
+	public static final String AHAUTHHELP_M_FILE_NAME 					= "AHAuthorizationHelper.m";
 
-	public static String CDVJHW_M_FILE_REF = "58725ABC58AF84786B7CFF95";
-	public static String CDVJHW_M_BUILDFILE_REF = "58725ABC1C7DD5DA71A4374B";
-	public static final String CDVJHW_M_FILE_NAME = "CDVJpegHeaderWriter.m";
+	public static String CDVJHW_M_FILE_REF 								= "58725ABC58AF84786B7CFF95";
+	public static String CDVJHW_M_BUILDFILE_REF 						= "58725ABC1C7DD5DA71A4374B";
+	public static final String CDVJHW_M_FILE_NAME 						= "CDVJpegHeaderWriter.m";
 
 	public static String NSDICTEX_M_FILE_REF 							= "58725ABC58AF84786B7CFF95";
 	public static String NSDICTEX_M_BUILDFILE_REF 						= "58725ABC1C7DD5DA71A4374B";

@@ -796,6 +796,15 @@ public class XCodeSettingsAutomation {
 			if (nodeKeyName.equals(Constants.KPROTECTED_SOURCES_BUILDPHASE_REF)) {
 				XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KPROTECTED, nod);
 			}
+			// Adding the Files Details and Encoding based on Reference for
+			// KonyJS
+			if (nodeKeyName.equals(Constants.KONYJS_FRAMEWORKS_BUILDPHASE_REF)) {
+				XCodeUtils.addBuildFileRef(document,
+						Constants.SYSCONFIG_FW_BUILDACTIONREF1,
+						Constants.SYSCONFIG_FW_BUILDACTIONREF2, nod);
+				XCodeUtils.addBuildActionMaskRef(document,
+						Constants.SYSCONFIG_FW_BUILDACTIONREF1, nod);
+			}
             if("APAC_IND".equalsIgnoreCase(region)){
                 if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF)) {
                     XCodeUtils.addBuildFileRef(document,
