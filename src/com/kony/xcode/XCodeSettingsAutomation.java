@@ -882,7 +882,7 @@ public class XCodeSettingsAutomation {
 		if ("NA_AA".equalsIgnoreCase(region)) {
 			AmwayApp.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
-		if ("NA".equalsIgnoreCase(region)) {
+		if ("NA".equalsIgnoreCase(region) || "EIA_RU".equalsIgnoreCase(region)) {
 			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("CN_CH".equalsIgnoreCase(region)) {
