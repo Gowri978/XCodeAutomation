@@ -33,6 +33,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 import com.kony.project.AmwayApp;
+import com.kony.project.AmwayRussia;
 import com.kony.project.BusinessCenter;
 import com.kony.project.ResourceCenter;
 
@@ -882,7 +883,13 @@ public class XCodeSettingsAutomation {
 		if ("NA_AA".equalsIgnoreCase(region)) {
 			AmwayApp.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
-		if ("NA".equalsIgnoreCase(region) || "EIA_RU".equalsIgnoreCase(region)) {
+		if ("EIA_RU".equalsIgnoreCase(region)) {
+			if (nodeKeyName.equals(Constants.KRELEASE_RESOURCES_BUILDPHASE_REF) || nodeKeyName.equals(Constants.PLUGIN_CUSTOM_TEMPLATE_REF)) {
+				AmwayRussia.setCustomParams(document, nod, nodeKeyName, appNameLocales);
+			}
+		}
+		if ("NA".equalsIgnoreCase(region)) {
+			//System.out.println("nodeKeyName="+nodeKeyName);
 			BusinessCenter.setCustomParams(document, nod, nodeKeyName, appNameLocales);
 		}
 		if ("CN_CH".equalsIgnoreCase(region)) {
@@ -1150,6 +1157,51 @@ public class XCodeSettingsAutomation {
 				XCodeUtils.removeBuildActionMaskRef(document, Constants.ASSETS_BUILDFILE_REF, nod);
 			}
 		}
+	    if ("EIA_RU".equalsIgnoreCase(region))
+	    {
+	      if (nodeKeyName.equals(Constants.APPDELEGATE_FOLDER))//"38FEE1831BDFA666000739B1"
+	      {
+	        Element dtbHString = document.createElement("string");
+	        Text dtbHStringValue = document
+	          .createTextNode(Constants.DTBAPPDELEGATE_H_REF); //"A651E1C220A2E15F00DC5DBC"
+	        dtbHString.appendChild(dtbHStringValue);
+	        
+	        Element dtbMString = document.createElement("string");
+	        Text dtbMStringValue = document
+	          .createTextNode(Constants.DTBAPPDELEGATE_M_REF);  //"A651E1C320A2E1CD00DC5DBC"
+	        dtbMString.appendChild(dtbMStringValue);
+	        Node dict = nod.getNextSibling();
+	        if ("dict".equalsIgnoreCase(dict.getNodeName()))
+	        {
+	          Node childrenKey = dict.getFirstChild();
+	          if ("key".equalsIgnoreCase(childrenKey.getNodeName())) {
+	            if ("children".equalsIgnoreCase(childrenKey.getFirstChild().getNodeValue()))
+	            {
+	              Node array = childrenKey.getNextSibling();
+	              if ("array".equalsIgnoreCase(array.getNodeName()))
+	              {
+	                array.appendChild(dtbMString);
+	                array.appendChild(dtbHString);
+	              }
+	            }
+	          }
+	        }
+	      }
+	      if (nodeKeyName.equals(Constants.KONYAPPDELEGATE_H_FILE)) // "38FEE1861BDFA666000739B1"
+	      {
+	        XCodeUtils.addNewFileRef(document, "DTBAppDelegate.m", 
+	        		Constants.DTBAPPDELEGATE_M_REF, nod, true); // "A651E1C320A2E1CD00DC5DBC"
+	        
+	        XCodeUtils.addNewFileRef(document, "DTBAppDelegate.h", 
+	        		Constants.DTBAPPDELEGATE_H_REF, nod, true); // "A651E1C220A2E15F00DC5DBC"
+
+	        XCodeUtils.addBuildFileRef(document, Constants.DTBAPPDLG_M_BUILDREF_KONYJS,  // "6145E2C9222F25C7004E9172"
+	        		Constants.DTBAPPDELEGATE_M_REF, nod); // //"A651E1C320A2E1CD00DC5DBC"
+	      }
+	      if (nodeKeyName.equals(Constants.DTBAPPDLG_M_BUILDACTREF_KONYJS)) { // "0C1CB9F520DB764200226998"
+	        XCodeUtils.addBuildActionMaskRef(document, Constants.DTBAPPDLG_M_BUILDREF_KONYJS, nod); // "6145E2C9222F25C7004E9172"
+	      }
+	    }
 	}
 
 	/**
@@ -2055,12 +2107,12 @@ public class XCodeSettingsAutomation {
 		}
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		xCodeAutomationForViz8(
 				"/Users/ncl/Desktop/mCoE/AutomationFiles/XCodeCurBuildProperties.xml",
 				"/Users/ncl/Desktop/mCoE/AutomationFiles/Config.properties",
 				"10", "false", "", "NA","");
-		/*
+		
 		 * Properties properties = new Properties(); try { FileInputStream
 		 * configFile = new FileInputStream(new
 		 * File("/Users/ncl/Desktop/mCoE/Config.properties"));
@@ -2068,6 +2120,6 @@ public class XCodeSettingsAutomation {
 		 * Auto-generated catch block e.printStackTrace(); }
 		 * System.out.println("Properties"
 		 * +filterProfileProps(properties).toString());
-		 */
-	}
+		 
+	}*/
 }
